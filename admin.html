@@ -769,9 +769,304 @@
       from { transform: translate(-50%, 20px); opacity: 0; }
       to { transform: translate(-50%, 0); opacity: 1; }
     }
+
+    /* ROYAL LOGIN MODAL */
+    .royal-login-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(8, 6, 4, 0.96);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .royal-login-box {
+      width: 100%;
+      max-width: 440px;
+      background: #140f0c;
+      border: 1px solid rgba(229, 192, 88, 0.35);
+      border-radius: 8px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(229, 192, 88, 0.15);
+      padding: 40px 32px 30px;
+      text-align: center;
+      animation: loginZoom 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    @keyframes loginZoom {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .royal-login-crest {
+      font-size: 38px;
+      color: var(--gold-bright);
+      filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+      margin-bottom: 12px;
+    }
+
+    .royal-login-title {
+      font-family: 'El Messiri', serif;
+      font-size: 24px;
+      color: var(--gold-bright);
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+
+    .royal-login-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 25px;
+      letter-spacing: 0.5px;
+    }
+
+    .login-alert {
+      background: rgba(138, 21, 46, 0.35);
+      border: 1px solid #ff4757;
+      color: #ffb8b8;
+      padding: 10px 14px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: right;
+    }
+
+    .login-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+      text-align: right;
+    }
+
+    .login-field-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold-light);
+    }
+
+    .login-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .login-icon {
+      position: absolute;
+      right: 14px;
+      font-size: 16px;
+      color: var(--gold-primary);
+      pointer-events: none;
+    }
+
+    .login-input-wrap input {
+      width: 100%;
+      background: #1c1613;
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 14px 44px 14px 44px;
+      color: #ffffff;
+      font-size: 14px;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .login-input-wrap input:focus {
+      outline: none;
+      border-color: var(--gold-bright);
+      background: rgba(229, 192, 88, 0.06);
+      box-shadow: 0 0 15px rgba(229, 192, 88, 0.25);
+    }
+
+    .login-toggle-pw {
+      position: absolute;
+      left: 12px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 16px;
+      padding: 4px;
+    }
+    .login-toggle-pw:hover {
+      color: var(--gold-bright);
+    }
+
+    .login-remember-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 24px;
+    }
+
+    .login-remember-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-soft);
+      cursor: pointer;
+    }
+
+    .login-remember-label input {
+      accent-color: var(--gold-primary);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .login-submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #e5c058, #b8860b);
+      color: #0a0806;
+      border: none;
+      border-radius: 4px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 18px rgba(229, 192, 88, 0.35);
+    }
+
+    .login-submit-btn:hover {
+      background: linear-gradient(135deg, #ffd700, #daa520);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+    }
+
+    .login-footer-badge {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(229, 192, 88, 0.15);
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    /* Sidebar User Card */
+    .sidebar-user-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      background: #181310;
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .user-info-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .user-avatar-wrap {
+      width: 34px;
+      height: 34px;
+      background: rgba(229, 192, 88, 0.15);
+      border: 1px solid var(--border-subtle);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .user-details {
+      text-align: right;
+    }
+
+    .user-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold-bright);
+    }
+
+    .user-role {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .logout-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 107, 129, 0.3);
+      color: #ff6b81;
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .logout-btn:hover {
+      background: rgba(255, 107, 129, 0.2);
+      border-color: #ff4757;
+      color: #ffffff;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
+
+  <!-- ROYAL LOGIN MODAL OVERLAY -->
+  <div id="royal-login-modal" class="royal-login-overlay">
+    <div class="royal-login-box">
+      <div class="royal-login-crest">⚜</div>
+      <h2 class="royal-login-title">بوابة الإدارة الملكية</h2>
+      <p class="royal-login-subtitle">دار زاهر سالمان للسجاد الفاخر · سجل الدخول للمتابعة</p>
+      
+      <div id="login-error-alert" class="login-alert" style="display:none;"></div>
+      
+      <form id="admin-login-form" onsubmit="handleAdminLogin(event)">
+        <div class="login-field-group">
+          <label for="login-username">اسم المستخدم</label>
+          <div class="login-input-wrap">
+            <span class="login-icon">👤</span>
+            <input type="text" id="login-username" placeholder="أدخل اسم المستخدم (kamel أو adham)" required autocomplete="username" />
+          </div>
+        </div>
+        
+        <div class="login-field-group">
+          <label for="login-password">كلمة المرور</label>
+          <div class="login-input-wrap">
+            <span class="login-icon">🔒</span>
+            <input type="password" id="login-password" placeholder="أدخل كلمة المرور" required autocomplete="current-password" />
+            <button type="button" class="login-toggle-pw" onclick="togglePasswordVisibility()" title="إظهار/إخفاء كلمة المرور">👁️</button>
+          </div>
+        </div>
+        
+        <div class="login-remember-row">
+          <label class="login-remember-label">
+            <input type="checkbox" id="login-remember" checked />
+            <span>تذكر تسجيل الدخول</span>
+          </label>
+        </div>
+        
+        <button type="submit" id="login-submit-btn" class="login-submit-btn">
+          <span class="btn-text">⚜ تسجيل الدخول ⚜</span>
+        </button>
+      </form>
+      
+      <div class="login-footer-badge">
+        <span>نظام الحماية والأمان المشفر · دار النول الملكي</span>
+      </div>
+    </div>
+  </div>
 
   <!-- SIDEBAR -->
   <aside class="admin-sidebar">
@@ -807,6 +1102,18 @@
     </ul>
 
     <div class="sidebar-footer">
+      <!-- Authenticated User Profile Card -->
+      <div class="sidebar-user-card" id="sidebar-user-card">
+        <div class="user-info-group">
+          <div class="user-avatar-wrap">👑</div>
+          <div class="user-details">
+            <div class="user-name" id="sidebar-user-name">أ/ كامل</div>
+            <div class="user-role" id="sidebar-user-role">مدير النظام التنفيذي</div>
+          </div>
+        </div>
+        <button type="button" class="logout-btn" onclick="handleAdminLogout()" title="تسجيل الخروج">🚪</button>
+      </div>
+
       <a href="/" target="_blank" class="view-site-link">
         <span>🌐</span> <span>معاينة الموقع للزوار</span>
       </a>
@@ -1633,12 +1940,160 @@
       document.getElementById('stat-total-inquiries').textContent = inquiriesData.length;
     }
 
+    // ==========================================
+    // AUTHENTICATION SYSTEM (kamel & adham)
+    // ==========================================
+    const AUTH_USERS = {
+      'kamel': { pass: 'kamel2026', nameAr: 'أ/ كامل', role: 'مدير النظام التنفيذي' },
+      'adham': { pass: 'adham2026', nameAr: 'أ/ أدهم', role: 'مدير النظام التنفيذي' }
+    };
+
+    function checkAuthStatus() {
+      let authUserStr = localStorage.getItem('zaher_admin_user') || sessionStorage.getItem('zaher_admin_user');
+      if (!authUserStr) {
+        showLoginModal();
+        return false;
+      }
+      try {
+        const user = JSON.parse(authUserStr);
+        if (user && (user.username === 'kamel' || user.username === 'adham')) {
+          setAuthenticatedUI(user);
+          return true;
+        }
+      } catch (e) {}
+      showLoginModal();
+      return false;
+    }
+
+    function showLoginModal() {
+      const modal = document.getElementById('royal-login-modal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function hideLoginModal() {
+      const modal = document.getElementById('royal-login-modal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function setAuthenticatedUI(user) {
+      hideLoginModal();
+      const nameElem = document.getElementById('sidebar-user-name');
+      const roleElem = document.getElementById('sidebar-user-role');
+      if (nameElem) nameElem.textContent = user.nameAr || user.username;
+      if (roleElem) roleElem.textContent = user.role || 'مدير النظام التنفيذي';
+    }
+
+    function togglePasswordVisibility() {
+      const pwInput = document.getElementById('login-password');
+      if (!pwInput) return;
+      if (pwInput.type === 'password') {
+        pwInput.type = 'text';
+      } else {
+        pwInput.type = 'password';
+      }
+    }
+
+    async function handleAdminLogin(e) {
+      e.preventDefault();
+      const errBox = document.getElementById('login-error-alert');
+      const submitBtn = document.getElementById('login-submit-btn');
+      const userVal = (document.getElementById('login-username').value || '').trim().toLowerCase();
+      const passVal = (document.getElementById('login-password').value || '').trim();
+      const rememberMe = document.getElementById('login-remember').checked;
+
+      if (errBox) errBox.style.display = 'none';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="btn-text">جاري التحقق من الصلاحيات...</span>';
+      }
+
+      try {
+        // Try server API first
+        let loginSuccess = false;
+        let userData = null;
+
+        try {
+          const res = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: userVal, password: passVal })
+          });
+          const data = await res.json();
+          if (res.ok && data.success) {
+            loginSuccess = true;
+            userData = data.user;
+          }
+        } catch (apiErr) {
+          // Fallback to client check if offline
+        }
+
+        // Offline / Direct Client validation fallback
+        if (!loginSuccess) {
+          if (AUTH_USERS[userVal] && AUTH_USERS[userVal].pass === passVal) {
+            loginSuccess = true;
+            userData = {
+              username: userVal,
+              nameAr: AUTH_USERS[userVal].nameAr,
+              role: AUTH_USERS[userVal].role
+            };
+          }
+        }
+
+        if (loginSuccess && userData) {
+          const storage = rememberMe ? localStorage : sessionStorage;
+          // Clear opposite storage
+          if (rememberMe) sessionStorage.removeItem('zaher_admin_user');
+          else localStorage.removeItem('zaher_admin_user');
+
+          storage.setItem('zaher_admin_user', JSON.stringify(userData));
+          setAuthenticatedUI(userData);
+          showToast(`⚜ أهلاً بك، ${userData.nameAr} في لوحة التحكم الملكية`);
+          
+          // Load dashboard data
+          loadCarpets();
+          loadReviews();
+          loadInquiries();
+          loadSettings();
+        } else {
+          if (errBox) {
+            errBox.textContent = '❌ اسم المستخدم أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى.';
+            errBox.style.display = 'block';
+          }
+        }
+      } catch (err) {
+        if (errBox) {
+          errBox.textContent = '⚠️ تعذر الاتصال بالخادم. يرجى المحاولة لاحقاً.';
+          errBox.style.display = 'block';
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span class="btn-text">⚜ تسجيل الدخول ⚜</span>';
+        }
+      }
+    }
+
+    function handleAdminLogout() {
+      if (!confirm('هل ترغب في تسجيل الخروج من لوحة التحكم الملكية؟')) return;
+      localStorage.removeItem('zaher_admin_user');
+      sessionStorage.removeItem('zaher_admin_user');
+      document.getElementById('login-username').value = '';
+      document.getElementById('login-password').value = '';
+      const errBox = document.getElementById('login-error-alert');
+      if (errBox) errBox.style.display = 'none';
+      showLoginModal();
+      showToast('تم تسجيل الخروج بنجاح');
+    }
+
     // Init
     window.addEventListener('DOMContentLoaded', () => {
-      loadCarpets();
-      loadReviews();
-      loadInquiries();
-      loadSettings();
+      const isAuth = checkAuthStatus();
+      if (isAuth) {
+        loadCarpets();
+        loadReviews();
+        loadInquiries();
+        loadSettings();
+      }
     });
   </script>
 </body>

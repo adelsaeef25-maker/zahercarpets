@@ -85,9 +85,40 @@ module.exports = async (req, res) => {
   const parsedUrl = url.parse(req.url, true);
   let pathname = parsedUrl.pathname || '/';
   
-  // Normalize pathname so /api/carpets and /carpets both match /api/carpets
-  if (!pathname.startsWith('/api')) {
-    pathname = '/api' + (pathname.startsWith('/') ? pathname : '/' + pathname);
+  // 0. AUTHENTICATION API
+  if (pathname === '/api/auth/login' && req.method === 'POST') {
+    try {
+      const body = await parseBody(req);
+      const username = (body.username || '').trim().toLowerCase();
+      const password = (body.password || '').trim();
+
+      const validUsers = {
+        'kamel': { pass: 'kamel2026', nameAr: 'أ/ كامل', nameEn: 'Mr. Kamel', role: 'مدير النظام التنفيذي' },
+        'adham': { pass: 'adham2026', nameAr: 'أ/ أدهم', nameEn: 'Mr. Adham', role: 'مدير النظام التنفيذي' }
+      };
+
+      if (validUsers[username] && validUsers[username].pass === password) {
+        const u = validUsers[username];
+        const token = 'zaher_auth_' + Buffer.from(username + '_' + Date.now()).toString('base64');
+        return sendJson(res, 200, {
+          success: true,
+          token: token,
+          user: {
+            username: username,
+            nameAr: u.nameAr,
+            nameEn: u.nameEn,
+            role: u.role
+          }
+        });
+      } else {
+        return sendJson(res, 401, {
+          success: false,
+          error: 'اسم المستخدم أو كلمة المرور غير صحيحة'
+        });
+      }
+    } catch (err) {
+      return sendJson(res, 500, { error: err.message });
+    }
   }
 
   // 1. CARPETS API
