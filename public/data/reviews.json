@@ -1,0 +1,58 @@
+[
+  {
+    "id": "rev-1",
+    "nameAr": "المستشار / طارق المنشاوي",
+    "nameEn": "Judge Tarek El-Menshawy",
+    "titleAr": "قصر القطامية ديونز · القاهرة الجديدة",
+    "titleEn": "Katameya Dunes Palace · New Cairo",
+    "avatar": "⚜",
+    "rating": 5,
+    "quoteAr": "«التفاصيل في سجادة أصفهان اللي أخدناها للقصر في القطامية تخطف العين.. لمعة الحرير الطبيعي مع إضاءة الثريات الكريستال عاملة سحر وسيمفونية مفيش ضيف بيدخل الصالون إلا وينبهر بيها. شغل شيوخ صنعة معقود على أصوله.»",
+    "quoteEn": "“The Isfahan silk masterpiece we acquired for our Katameya palace is pure magic under crystal chandeliers. Truly museum-grade craftsmanship.”",
+    "pieceAcquiredAr": "تحفة المدالية الملكية (أصفهان)",
+    "pieceAcquiredEn": "The Royal Medallion (Isfahan)",
+    "verified": true
+  },
+  {
+    "id": "rev-2",
+    "nameAr": "م. ياسمين الصيرفي",
+    "nameEn": "Eng. Yasmine El-Sayrafi",
+    "titleAr": "استشاري التصميم الداخلي للقصور والفلل الفاخرة · الزمالك",
+    "titleEn": "Luxury Palatial Interior Consultant · Zamalek",
+    "avatar": "🏛️",
+    "rating": 5,
+    "quoteAr": "«كمهندسة ديكور بنفذ مشاريع وقصور لصفوة المجتمع، السجاد عند دار زاهر سالمان بيعتبر حجر الزاوية في فخامة الصالون. كثافة العقد ونقاء حرير التوت والألوان النباتية الثابتة مش موجودة في أي مكان تاني في مصر.»",
+    "quoteEn": "“As an interior architect for high-end estates, Zaher Salman's silk carpets are the ultimate centerpiece for opulent living spaces.”",
+    "pieceAcquiredAr": "سجاد صالونات القصور (تفصيل خاص)",
+    "pieceAcquiredEn": "Bespoke Palatial Commissions",
+    "verified": true
+  },
+  {
+    "id": "rev-3",
+    "nameAr": "د. كريم السادات",
+    "nameEn": "Dr. Karim El-Sadat",
+    "titleAr": "مقتني تحف وفنون نادرة · نيو جيزة",
+    "titleEn": "Art & Heritage Collector · New Giza",
+    "avatar": "👑",
+    "rating": 5,
+    "quoteAr": "«عندي في مجموعتي الخاصة سجاد من مزادات عالمية في لندن وجنيف، لكن تحفة 'لمسة الحرير' من نول قم بكثافة ١٤٠٠ عقدة اللي وصلتنا من زاهر سالمان تفوقت عليهم في نعومة الوبر ودقة التفاصيل الدقيقة وشهادة التوثيق الملكية.»",
+    "quoteEn": "“I own museum pieces from global auctions, but the 1,400 KPSI Qum silk carpet from Zaher Salman stands in a league of its own.”",
+    "pieceAcquiredAr": "لمسة الحرير الفاتنة (نول قم)",
+    "pieceAcquiredEn": "The Silken Touch (Qum Guild)",
+    "verified": true
+  },
+  {
+    "id": "rev-4",
+    "nameAr": "الأستاذ / عبد العزيز العطية",
+    "nameEn": "Mr. Abdulaziz Al-Attiyah",
+    "titleAr": "فيلا جولف السليمانية · الشيخ زايد",
+    "titleEn": "Suleimaniya Golf Villa · Sheikh Zayed",
+    "avatar": "✦",
+    "rating": 5,
+    "quoteAr": "«التعامل راقي جداً من أول جلسة استشارة منزلية مع خبير السجاد الملكي لحد فرش القطع في الصالون والمجلس.. ذوق رفيع واحترافية تليق بأعلى مستويات الـ VIP.»",
+    "quoteEn": "“Exemplary royal concierge service from private estate consultation to final placement. Unmatched professionalism.”",
+    "pieceAcquiredAr": "المحراب الإمبراطوري (تبريز)",
+    "pieceAcquiredEn": "The Palatial Sanctuary (Tabriz)",
+    "verified": true
+  }
+]
