@@ -47,7 +47,10 @@ function writeJson(filename, data) {
 
 function parseBody(req) {
   return new Promise((resolve) => {
-    if (req.body) return resolve(req.body);
+    if (req.body && typeof req.body === 'object') return resolve(req.body);
+    if (req.body && typeof req.body === 'string') {
+      try { return resolve(JSON.parse(req.body)); } catch (e) { return resolve(req.body); }
+    }
     let body = '';
     req.on('data', chunk => { body += chunk.toString(); });
     req.on('end', () => {
@@ -80,7 +83,12 @@ module.exports = async (req, res) => {
   }
 
   const parsedUrl = url.parse(req.url, true);
-  const pathname = parsedUrl.pathname;
+  let pathname = parsedUrl.pathname || '/';
+  
+  // Normalize pathname so /api/carpets and /carpets both match /api/carpets
+  if (!pathname.startsWith('/api')) {
+    pathname = '/api' + (pathname.startsWith('/') ? pathname : '/' + pathname);
+  }
 
   // 1. CARPETS API
   if (pathname === '/api/carpets' && req.method === 'GET') {
@@ -158,7 +166,6 @@ module.exports = async (req, res) => {
   if (pathname === '/api/upload' && req.method === 'POST') {
     try {
       const body = await parseBody(req);
-      // In serverless, return the images/data or direct base64
       if (Array.isArray(body.images) && body.images.length > 0) {
         return sendJson(res, 200, {
           success: true,
