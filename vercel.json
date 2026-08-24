@@ -5,10 +5,14 @@
       "dest": "/api/index.js"
     },
     {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
       "handle": "filesystem"
     },
     {
-      "src": "/",
+      "src": "/(.*)",
       "dest": "/index.html"
     }
   ]
