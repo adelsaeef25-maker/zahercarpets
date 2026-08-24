@@ -1,0 +1,3758 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>زاهر سالمان للسجاد — تحف السجاد الحريري اليدوي الملكي الخالص | ZAHER SALMAN CARPETS</title>
+  <meta name="description" content="زاهر سالمان للسجاد ينسج أرقى تحف السجاد اليدوي المعقود من الحرير الطبيعي الصافي 100% للقصور والمقتنين المميزين." />
+
+  <!-- Google Fonts: El Messiri, Aref Ruqaa, Readex Pro, Cormorant Garamond, Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=El+Messiri:wght@400;500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet" />
+
+  <!-- Lenis & GSAP CDN -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM & CSS RESET
+       ========================================================================== */
+    :root {
+      --bg-obsidian: #0a0806;
+      --bg-noir: #120e0b;
+      --bg-card: rgba(18, 14, 11, 0.92);
+      --text-silk: #ffffff;
+      --text-soft: #fbf9f4;
+      --text-muted: #e6dfd1;
+      --gold-primary: #e5c058;
+      --gold-bright: #ffd700;
+      --gold-light: #fff2b2;
+      --gold-glow: rgba(229, 192, 88, 0.4);
+      --crimson-imperial: #8a152e;
+      --border-gold-subtle: rgba(229, 192, 88, 0.35);
+      --border-gold-solid: rgba(229, 192, 88, 0.75);
+      
+      --font-ar-display: 'El Messiri', serif;
+      --font-ar-calligraphy: 'Aref Ruqaa', serif;
+      --font-ar-body: 'Readex Pro', sans-serif;
+      --font-serif: 'Cormorant Garamond', serif;
+      --font-sans: 'Montserrat', sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      background-color: var(--bg-obsidian);
+      color: var(--text-silk);
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html[dir="rtl"] body {
+      font-family: var(--font-ar-body);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+    html[dir="ltr"] body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    ::selection {
+      background: var(--gold-primary);
+      color: var(--bg-obsidian);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, textarea, select {
+      font-family: inherit;
+      color: inherit;
+      outline: none;
+    }
+
+    img, video {
+      display: block;
+      max-width: 100%;
+    }
+
+    .noise-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.03;
+      background-image: radial-gradient(circle at 50% 50%, #fff 1px, transparent 1px);
+      background-size: 8px 8px;
+    }
+
+    /* ==========================================================================
+       1. NAVIGATION & SCROLL PROGRESS BAR
+       ========================================================================== */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 24px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: background-color 0.5s ease, padding 0.4s ease, backdrop-filter 0.5s ease;
+    }
+
+    .site-nav.scrolled {
+      background: rgba(10, 8, 6, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 16px 50px;
+      border-bottom: 1px solid var(--border-gold-subtle);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .nav-logo {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--text-silk);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+    html[dir="rtl"] .nav-logo {
+      font-family: var(--font-ar-display);
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+    html[dir="ltr"] .nav-logo {
+      font-family: var(--font-serif);
+      letter-spacing: 3px;
+    }
+
+    .nav-logo-mark {
+      color: var(--gold-bright);
+      font-size: 24px;
+      filter: drop-shadow(0 0 8px rgba(229, 192, 88, 0.6));
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-item {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-soft);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+    html[dir="rtl"] .nav-item {
+      letter-spacing: 0.5px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .nav-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold-primary);
+      transition: width 0.3s ease;
+    }
+    html[dir="rtl"] .nav-item::after {
+      left: auto;
+      right: 0;
+    }
+
+    .nav-item:hover {
+      color: var(--gold-bright);
+    }
+
+    .nav-item:hover::after {
+      width: 100%;
+    }
+
+    .nav-btn-gold {
+      border: 1px solid var(--gold-primary);
+      padding: 9px 22px;
+      background: rgba(229, 192, 88, 0.12);
+      border-radius: 2px;
+      font-weight: 700;
+      color: var(--gold-light) !important;
+      transition: all 0.4s ease;
+    }
+
+    .nav-btn-gold:hover {
+      background: var(--gold-primary);
+      color: var(--bg-obsidian) !important;
+      box-shadow: 0 0 25px rgba(229, 192, 88, 0.6);
+    }
+
+    .nav-btn-gold:hover::after {
+      display: none;
+    }
+
+    .lang-switcher-btn {
+      background: rgba(18, 14, 11, 0.8);
+      border: 1px solid var(--border-gold-solid);
+      color: var(--gold-bright);
+      padding: 7px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .lang-switcher-btn:hover {
+      background: var(--gold-primary);
+      color: var(--bg-obsidian);
+      box-shadow: 0 0 15px rgba(229, 192, 88, 0.5);
+    }
+
+    .scroll-progress-bar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 3px;
+      height: 0vh;
+      background: linear-gradient(to bottom, var(--gold-bright), var(--gold-primary));
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.9), -1px 0 6px rgba(229, 192, 88, 0.5);
+      z-index: 1001;
+      pointer-events: none;
+    }
+    html[dir="rtl"] .scroll-progress-bar {
+      right: auto;
+      left: 0;
+    }
+
+    /* ==========================================================================
+       PRELOADER / ASSET LOADER
+       ========================================================================== */
+    .preloader {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-obsidian);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
+    }
+
+    .preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .preloader-emblem {
+      font-size: 38px;
+      letter-spacing: 4px;
+      color: var(--gold-bright);
+      margin-bottom: 24px;
+      font-weight: 700;
+      text-align: center;
+      text-shadow: 0 0 25px rgba(229, 192, 88, 0.6);
+    }
+    html[dir="rtl"] .preloader-emblem {
+      font-family: var(--font-ar-display);
+      font-size: 40px;
+    }
+    html[dir="ltr"] .preloader-emblem {
+      font-family: var(--font-serif);
+    }
+
+    .preloader-bar-container {
+      width: 280px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 16px;
+      border-radius: 2px;
+    }
+
+    .preloader-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      background: var(--gold-bright);
+      box-shadow: 0 0 16px rgba(255, 215, 0, 1);
+      transition: width 0.15s ease-out;
+    }
+    html[dir="rtl"] .preloader-bar {
+      left: auto;
+      right: 0;
+    }
+
+    .preloader-counter {
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       2. HERO SECTION
+       ========================================================================== */
+    .hero-scroll-container {
+      position: relative;
+      width: 100%;
+      height: 450vh;
+      background: var(--bg-obsidian);
+    }
+
+    .hero-sticky-canvas-wrapper {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-canvas-vignette {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at center, rgba(10, 8, 6, 0.2) 20%, rgba(10, 8, 6, 0.75) 80%, rgba(10, 8, 6, 0.98) 100%),
+                  linear-gradient(to bottom, rgba(10,8,6,0.6) 0%, transparent 20%, transparent 80%, rgba(10,8,6,0.95) 100%);
+    }
+
+    .hero-text-overlay {
+      position: absolute;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .hero-msg {
+      position: absolute;
+      opacity: 0;
+      transform: translateY(24px) scale(0.98);
+      text-align: center;
+      width: 90%;
+      max-width: 960px;
+      padding: 36px 44px;
+      background: rgba(14, 11, 9, 0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold-solid);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(229, 192, 88, 0.2);
+      will-change: opacity, transform;
+      border-radius: 4px;
+    }
+
+    /* Msg 1 */
+    .hero-msg-1 h1 {
+      font-size: clamp(48px, 6.8vw, 88px);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.18;
+      text-shadow: 0 0 30px rgba(229, 192, 88, 0.5), 0 4px 15px rgba(0,0,0,0.9);
+      letter-spacing: 1px;
+    }
+    html[dir="rtl"] .hero-msg-1 h1 {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .hero-msg-1 h1 {
+      font-family: var(--font-serif);
+      font-style: italic;
+      letter-spacing: 5px;
+    }
+
+    .hero-msg-1 .sub-crest {
+      font-size: 15px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 16px;
+      display: inline-block;
+      font-weight: 700;
+      text-shadow: 0 0 12px rgba(229, 192, 88, 0.6);
+    }
+
+    /* Msg 2 */
+    .hero-msg-2 p {
+      font-weight: 600;
+      font-size: clamp(26px, 3.2vw, 38px);
+      color: #ffffff;
+      line-height: 1.5;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.95);
+    }
+    html[dir="rtl"] .hero-msg-2 p {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .hero-msg-2 p {
+      font-family: var(--font-sans);
+      font-style: italic;
+      letter-spacing: 2px;
+    }
+
+    /* Msg 3 */
+    .hero-msg-3 h2 {
+      font-size: clamp(38px, 4.8vw, 64px);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      text-shadow: 0 0 25px rgba(229, 192, 88, 0.4), 0 4px 15px rgba(0,0,0,0.9);
+    }
+    html[dir="rtl"] .hero-msg-3 h2 {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .hero-msg-3 h2 {
+      font-family: var(--font-serif);
+    }
+
+    /* Msg 4 */
+    .hero-msg-4 h2 {
+      font-size: clamp(38px, 4.8vw, 64px);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      text-shadow: 0 0 25px rgba(229, 192, 88, 0.4), 0 4px 15px rgba(0,0,0,0.9);
+    }
+    html[dir="rtl"] .hero-msg-4 h2 {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .hero-msg-4 h2 {
+      font-family: var(--font-serif);
+    }
+
+    /* Msg 5 */
+    .hero-msg-5 {
+      top: 14%;
+      left: 8%;
+      width: auto;
+      max-width: none;
+      text-align: left;
+      padding: 18px 30px;
+    }
+    html[dir="rtl"] .hero-msg-5 {
+      left: auto;
+      right: 8%;
+      text-align: right;
+    }
+
+    .hero-msg-5 span {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      display: block;
+      border-left: 3px solid var(--gold-bright);
+      padding-left: 18px;
+      text-shadow: 0 0 10px rgba(229, 192, 88, 0.5);
+    }
+    html[dir="rtl"] .hero-msg-5 span {
+      border-left: none;
+      border-right: 3px solid var(--gold-bright);
+      padding-left: 0;
+      padding-right: 18px;
+      letter-spacing: 1px;
+      font-family: var(--font-ar-display);
+      font-size: 19px;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      z-index: 15;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .scroll-indicator-text {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      font-weight: 700;
+      background: rgba(10, 8, 6, 0.8);
+      padding: 6px 16px;
+      border-radius: 2px;
+      border: 1px solid var(--border-gold-subtle);
+    }
+    html[dir="rtl"] .scroll-indicator-text {
+      letter-spacing: 1px;
+      font-size: 14px;
+    }
+
+    .scroll-indicator-line {
+      width: 2px;
+      height: 36px;
+      background: linear-gradient(to bottom, var(--gold-bright), transparent);
+      animation: scrollPulse 2s infinite ease-in-out;
+    }
+
+    @keyframes scrollPulse {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      50.1% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ==========================================================================
+       3. STICKY CRAFTSMANSHIP EXPLAINER
+       ========================================================================== */
+    .craftsmanship-section {
+      position: relative;
+      width: 100%;
+      background: var(--bg-noir);
+      border-top: 1px solid var(--border-gold-subtle);
+      border-bottom: 1px solid var(--border-gold-subtle);
+    }
+
+    .craftsmanship-split-container {
+      display: flex;
+      width: 100%;
+      position: relative;
+    }
+
+    .craftsmanship-sticky-left {
+      width: 50%;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      background: #080605;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid var(--border-gold-subtle);
+    }
+    html[dir="rtl"] .craftsmanship-sticky-left {
+      border-right: none;
+      border-left: 1px solid var(--border-gold-subtle);
+    }
+
+    .craftsmanship-image-stack {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .craft-image-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.08);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .craft-image-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .craft-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(10, 8, 6, 0.2), rgba(10, 8, 6, 0.65)),
+                  linear-gradient(to top, rgba(10, 8, 6, 0.7) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .craft-slide-badge {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(10, 8, 6, 0.88);
+      backdrop-filter: blur(12px);
+      padding: 12px 24px;
+      border: 1px solid var(--border-gold-solid);
+      border-left: 4px solid var(--gold-bright);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    }
+    html[dir="rtl"] .craft-slide-badge {
+      left: auto;
+      right: 40px;
+      border-left: 1px solid var(--border-gold-solid);
+      border-right: 4px solid var(--gold-bright);
+    }
+
+    .craft-slide-badge span {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+    html[dir="rtl"] .craft-slide-badge span {
+      font-family: var(--font-ar-display);
+      font-size: 16px;
+    }
+
+    .craftsmanship-scroll-right {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .craft-card {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 10%;
+      position: relative;
+      border-bottom: 1px solid rgba(229, 192, 88, 0.12);
+    }
+
+    .craft-card:last-child {
+      border-bottom: none;
+    }
+
+    .craft-step-num {
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: var(--gold-bright);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+    }
+
+    .craft-step-num::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 2px;
+      background: var(--gold-bright);
+    }
+
+    .craft-card-title {
+      font-size: clamp(38px, 4.2vw, 58px);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+    }
+    html[dir="rtl"] .craft-card-title {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .craft-card-title {
+      font-family: var(--font-serif);
+      letter-spacing: 1px;
+    }
+
+    .craft-card-title em {
+      font-style: italic;
+      color: var(--gold-bright);
+      text-shadow: 0 0 20px rgba(229, 192, 88, 0.4);
+    }
+
+    .craft-card-desc {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.95;
+      margin-bottom: 34px;
+      max-width: 540px;
+    }
+
+    .craft-card-specs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-gold-subtle);
+    }
+
+    .spec-item h5 {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .spec-item p {
+      font-size: 20px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+    html[dir="rtl"] .spec-item p {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .spec-item p {
+      font-family: var(--font-serif);
+    }
+
+    /* ==========================================================================
+       4. HORIZONTAL ARTISAN LOOM RAIL
+       ========================================================================== */
+    .horizontal-loom-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: var(--bg-obsidian);
+      overflow: hidden;
+    }
+
+    .horizontal-pin-track {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      direction: ltr !important;
+    }
+
+    .loom-section-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 30px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 30;
+      background: linear-gradient(to bottom, rgba(10, 8, 6, 0.98) 0%, rgba(10, 8, 6, 0.7) 60%, transparent 100%);
+      pointer-events: none;
+    }
+    html[dir="rtl"] .loom-section-header {
+      direction: rtl;
+    }
+    html[dir="ltr"] .loom-section-header {
+      direction: ltr;
+    }
+
+    .loom-title-group h2 {
+      font-size: clamp(32px, 3.8vw, 48px);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.9);
+    }
+    html[dir="rtl"] .loom-title-group h2 {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .loom-title-group h2 {
+      font-family: var(--font-serif);
+      letter-spacing: 2px;
+    }
+
+    .loom-title-group h2 span {
+      font-style: italic;
+      color: var(--gold-bright);
+      text-shadow: 0 0 20px rgba(229, 192, 88, 0.5);
+    }
+
+    .loom-title-group p {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+
+    .loom-header-badge {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid var(--border-gold-solid);
+      background: rgba(10, 8, 6, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 10px 20px;
+      font-weight: 700;
+      border-radius: 2px;
+    }
+
+    .horizontal-panels-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      width: 400vw;
+      height: 100%;
+      will-change: transform;
+      direction: ltr !important;
+    }
+
+    .loom-panel {
+      width: 100vw;
+      height: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 80px 8% 40px 8%;
+      box-sizing: border-box;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border-gold-subtle);
+      background: #0d0a08;
+      direction: ltr !important;
+    }
+
+    .loom-video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+      filter: saturate(1.1) brightness(0.9);
+      transition: filter 0.5s ease;
+      z-index: 1;
+    }
+
+    .loom-panel:hover .loom-video-bg {
+      filter: saturate(1.2) brightness(1);
+    }
+
+    .loom-panel-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 50%, rgba(10, 8, 6, 0.3) 0%, rgba(10, 8, 6, 0.85) 80%, rgba(10, 8, 6, 0.98) 100%),
+                  linear-gradient(to bottom, rgba(10,8,6,0.6) 0%, transparent 25%, transparent 75%, rgba(10,8,6,0.95) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .loom-content-card {
+      position: relative;
+      z-index: 10;
+      max-width: 650px;
+      background: rgba(14, 11, 9, 0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      padding: 50px 60px;
+      border: 1px solid var(--border-gold-solid);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), inset 0 0 35px rgba(229, 192, 88, 0.12);
+      border-radius: 4px;
+    }
+    html[dir="rtl"] .loom-content-card {
+      direction: rtl;
+      text-align: right;
+    }
+    html[dir="ltr"] .loom-content-card {
+      direction: ltr;
+      text-align: left;
+    }
+
+    .loom-panel-tag {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 16px;
+      display: block;
+      font-weight: 700;
+    }
+
+    .loom-panel-heading {
+      font-size: clamp(30px, 3.5vw, 44px);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.9);
+    }
+    html[dir="rtl"] .loom-panel-heading {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .loom-panel-heading {
+      font-family: var(--font-serif);
+    }
+
+    .loom-panel-body {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.95;
+      margin-bottom: 28px;
+    }
+
+    .loom-panel-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-gold-subtle);
+      padding-top: 18px;
+    }
+
+    .loom-roman-numeral {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      color: var(--gold-bright);
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .loom-footnote {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       5. FULL-BLEED PARALLAX STATEMENT
+       ========================================================================== */
+    .parallax-statement-section {
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid var(--border-gold-subtle);
+      border-bottom: 1px solid var(--border-gold-subtle);
+    }
+
+    .parallax-bg-wrapper {
+      position: absolute;
+      top: -20%;
+      left: 0;
+      width: 100%;
+      height: 140%;
+      will-change: transform;
+    }
+
+    .parallax-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.4) contrast(1.15);
+    }
+
+    .parallax-quote-overlay {
+      position: relative;
+      z-index: 10;
+      max-width: 1100px;
+      padding: 50px;
+      text-align: center;
+      background: rgba(10, 8, 6, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-gold-solid);
+      border-radius: 4px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+    }
+
+    .parallax-ornament {
+      color: var(--gold-bright);
+      font-size: 26px;
+      margin-bottom: 20px;
+      display: block;
+      letter-spacing: 8px;
+    }
+
+    .parallax-quote {
+      font-size: clamp(34px, 4.5vw, 62px);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.5;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95);
+      margin-bottom: 28px;
+    }
+    html[dir="rtl"] .parallax-quote {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .parallax-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+
+    .parallax-author {
+      font-size: 14px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      font-weight: 700;
+    }
+    html[dir="rtl"] .parallax-author {
+      font-family: var(--font-ar-display);
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    /* ==========================================================================
+       6. REVERSE COLUMNS (ALTERNATING PARALLAX)
+       ========================================================================== */
+    .reverse-columns-section {
+      position: relative;
+      width: 100%;
+      background: var(--bg-noir);
+      padding: 140px 6% 160px 6%;
+      overflow: hidden;
+    }
+
+    .reverse-section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .reverse-section-header span {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      display: block;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .reverse-section-header h2 {
+      font-size: clamp(38px, 4.8vw, 64px);
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.9);
+    }
+    html[dir="rtl"] .reverse-section-header h2 {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .reverse-section-header h2 {
+      font-family: var(--font-serif);
+      letter-spacing: 2px;
+    }
+
+    .reverse-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      align-items: start;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .reverse-col {
+      will-change: transform;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .reverse-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold-subtle);
+      overflow: hidden;
+      border-radius: 4px;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .reverse-card:hover {
+      border-color: var(--border-gold-solid);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(229, 192, 88, 0.3);
+    }
+
+    .reverse-card-img-wrap {
+      width: 100%;
+      height: 480px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .reverse-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reverse-card:hover .reverse-card-img {
+      transform: scale(1.06);
+    }
+
+    .reverse-card-info {
+      padding: 34px;
+    }
+
+    .reverse-card-badge {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 12px;
+      display: block;
+      font-weight: 700;
+    }
+
+    .reverse-card-title {
+      font-size: 28px;
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    html[dir="rtl"] .reverse-card-title {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .reverse-card-title {
+      font-family: var(--font-serif);
+    }
+
+    .reverse-card-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    /* ==========================================================================
+       7. MASTERPIECE SHOWCASE & DYNAMIC CARPET CATALOGUE
+       ========================================================================== */
+    .masterpiece-section {
+      position: relative;
+      width: 100%;
+      background: var(--bg-obsidian);
+      padding: 140px 6%;
+      border-top: 1px solid var(--border-gold-subtle);
+    }
+
+    .masterpiece-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 50px;
+      border-bottom: 1px solid var(--border-gold-subtle);
+      padding-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .masterpiece-header-left span {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      display: block;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .masterpiece-header-left h2 {
+      font-size: clamp(38px, 4.8vw, 64px);
+      font-weight: 700;
+      color: #ffffff;
+    }
+    html[dir="rtl"] .masterpiece-header-left h2 {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .masterpiece-header-left h2 {
+      font-family: var(--font-serif);
+      letter-spacing: 2px;
+    }
+
+    /* Category Filter Tabs */
+    .catalogue-filters {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+      justify-content: center;
+    }
+
+    .cat-filter-btn {
+      background: rgba(18, 14, 11, 0.9);
+      border: 1px solid var(--border-gold-subtle);
+      color: var(--text-soft);
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cat-filter-btn:hover, .cat-filter-btn.active {
+      background: var(--gold-primary);
+      color: var(--bg-obsidian);
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 20px rgba(229, 192, 88, 0.4);
+    }
+
+    .masterpiece-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 36px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .masterpiece-item {
+      background: rgba(18, 14, 11, 0.85);
+      border: 1px solid var(--border-gold-subtle);
+      border-radius: 4px;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .masterpiece-item:hover {
+      border-color: var(--gold-bright);
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(229, 192, 88, 0.35);
+    }
+
+    .masterpiece-img-container {
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .masterpiece-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+    }
+
+    .masterpiece-item:hover .masterpiece-img {
+      transform: scale(1.08);
+    }
+
+    .masterpiece-kpsi-pill {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(10, 8, 6, 0.92);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-gold-solid);
+      padding: 8px 18px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: var(--gold-bright);
+      text-transform: uppercase;
+      font-weight: 700;
+      border-radius: 2px;
+    }
+    html[dir="rtl"] .masterpiece-kpsi-pill {
+      right: auto;
+      left: 20px;
+    }
+
+    .masterpiece-details {
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .masterpiece-category {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .masterpiece-name {
+      font-size: 28px;
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+    html[dir="rtl"] .masterpiece-name {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .masterpiece-name {
+      font-family: var(--font-serif);
+    }
+
+    .masterpiece-spec-list {
+      list-style: none;
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px solid rgba(229, 192, 88, 0.2);
+      padding-top: 18px;
+    }
+
+    .masterpiece-spec-list li {
+      font-size: 15px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .masterpiece-spec-list li strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .masterpiece-action {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-gold-subtle);
+    }
+
+    .masterpiece-inquire-link {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.3s ease;
+    }
+
+    .masterpiece-item:hover .masterpiece-inquire-link {
+      gap: 14px;
+      color: var(--gold-light);
+    }
+
+    /* ==========================================================================
+       8. VIP TESTIMONIALS & PALATIAL PATRONAGE SECTION
+       ========================================================================== */
+    .vip-testimonials-section {
+      position: relative;
+      width: 100%;
+      background: var(--bg-noir);
+      padding: 140px 6%;
+      border-top: 1px solid var(--border-gold-subtle);
+      border-bottom: 1px solid var(--border-gold-subtle);
+    }
+
+    .vip-section-header {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 70px auto;
+    }
+
+    .vip-section-header span {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .vip-section-header h2 {
+      font-size: clamp(36px, 4.5vw, 56px);
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    html[dir="rtl"] .vip-section-header h2 { font-family: var(--font-ar-display); }
+    html[dir="ltr"] .vip-section-header h2 { font-family: var(--font-serif); }
+
+    .vip-section-header p {
+      color: var(--text-muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .vip-reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .vip-review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold-subtle);
+      border-radius: 4px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.4s ease;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .vip-review-card:hover {
+      border-color: var(--border-gold-solid);
+      transform: translateY(-6px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(229, 192, 88, 0.2);
+    }
+
+    .vip-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .vip-stars {
+      color: var(--gold-bright);
+      font-size: 18px;
+      letter-spacing: 4px;
+      filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
+    }
+
+    .vip-seal-pill {
+      background: rgba(229, 192, 88, 0.1);
+      border: 1px solid var(--border-gold-solid);
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+    }
+
+    .vip-quote-text {
+      font-size: 17px;
+      color: var(--text-soft);
+      line-height: 1.95;
+      margin-bottom: 28px;
+      font-style: normal;
+      flex-grow: 1;
+    }
+    html[dir="rtl"] .vip-quote-text {
+      font-family: var(--font-ar-body);
+    }
+
+    .vip-author-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-top: 1px solid rgba(229, 192, 88, 0.2);
+      padding-top: 20px;
+    }
+
+    .vip-avatar-crest {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(229, 192, 88, 0.2), rgba(10, 8, 6, 0.9));
+      border: 1px solid var(--gold-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: var(--gold-bright);
+      flex-shrink: 0;
+      box-shadow: 0 0 15px rgba(229, 192, 88, 0.3);
+    }
+
+    .vip-author-info h4 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    html[dir="rtl"] .vip-author-info h4 { font-family: var(--font-ar-display); }
+    html[dir="ltr"] .vip-author-info h4 { font-family: var(--font-serif); }
+
+    .vip-author-info p {
+      font-size: 13px;
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       9. VIP BESPOKE CONCIERGE & NEWSLETTER SECTION
+       ========================================================================== */
+    .bespoke-concierge-section {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 6%;
+      overflow: hidden;
+    }
+
+    .concierge-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.28) contrast(1.15);
+    }
+
+    .concierge-radial-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(10, 8, 6, 0.7) 10%, rgba(10, 8, 6, 0.95) 75%, var(--bg-obsidian) 100%);
+      pointer-events: none;
+    }
+
+    .concierge-card-wrapper {
+      position: relative;
+      z-index: 10;
+      max-width: 860px;
+      width: 100%;
+      background: rgba(14, 11, 9, 0.94);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--border-gold-solid);
+      padding: 60px 70px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 45px rgba(229, 192, 88, 0.25);
+      text-align: center;
+      border-radius: 4px;
+    }
+
+    .concierge-seal {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 16px;
+      display: block;
+      font-weight: 700;
+    }
+
+    .concierge-heading {
+      font-size: clamp(36px, 4.5vw, 56px);
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+    html[dir="rtl"] .concierge-heading {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .concierge-heading {
+      font-family: var(--font-serif);
+      letter-spacing: 1px;
+    }
+
+    .concierge-heading em {
+      font-style: italic;
+      color: var(--gold-bright);
+    }
+
+    .concierge-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.95;
+      max-width: 680px;
+      margin: 0 auto 40px auto;
+    }
+
+    .concierge-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      text-align: left;
+    }
+    html[dir="rtl"] .concierge-form {
+      text-align: right;
+    }
+
+    .concierge-form .full-width {
+      grid-column: span 2;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      font-weight: 700;
+    }
+
+    .form-input {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-gold-subtle);
+      padding: 16px 20px;
+      font-size: 15px;
+      color: #ffffff;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .form-input option {
+      background: #1a1512;
+      color: #ffffff;
+    }
+
+    .form-input:focus {
+      border-color: var(--gold-bright);
+      background: rgba(229, 192, 88, 0.08);
+      box-shadow: 0 0 20px rgba(229, 192, 88, 0.3);
+    }
+
+    .concierge-wa-banner {
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.15), rgba(18, 14, 11, 0.95));
+      border: 1px solid rgba(37, 211, 102, 0.5);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(37, 211, 102, 0.1);
+    }
+
+    .concierge-wa-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-align: right;
+    }
+    html[dir="ltr"] .concierge-wa-info {
+      text-align: left;
+    }
+
+    .concierge-wa-icon {
+      font-size: 32px;
+      color: #25d366;
+      filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.6));
+    }
+
+    .concierge-wa-text h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .concierge-wa-text p {
+      font-size: 14px;
+      color: #25d366;
+      font-weight: 600;
+      direction: ltr;
+      display: inline-block;
+    }
+
+    .btn-wa-direct {
+      background: #25d366;
+      color: #0a0806;
+      padding: 12px 24px;
+      border-radius: 3px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+    }
+
+    .btn-wa-direct:hover {
+      background: #2cf578;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+      color: #000;
+    }
+
+    .form-submit-btn {
+      grid-column: span 2;
+      background: linear-gradient(135deg, var(--gold-primary), #25d366);
+      color: #0a0806;
+      border: none;
+      padding: 18px 36px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      margin-top: 14px;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .form-submit-btn:hover {
+      background: linear-gradient(135deg, var(--gold-bright), #2cf578);
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(37, 211, 102, 0.55);
+    }
+
+    .form-status-msg {
+      grid-column: span 2;
+      font-size: 15px;
+      letter-spacing: 1px;
+      color: #25d366;
+      background: rgba(37, 211, 102, 0.1);
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      padding: 14px 20px;
+      border-radius: 4px;
+      text-align: center;
+      margin-top: 14px;
+      display: none;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       10. MINIMAL ROYAL FOOTER & ADMIN ACCESS
+       ========================================================================== */
+    .royal-footer {
+      background: #060504;
+      border-top: 1px solid var(--border-gold-subtle);
+      padding: 90px 6% 40px 6%;
+      position: relative;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 60px;
+      padding-bottom: 70px;
+      border-bottom: 1px solid rgba(229, 192, 88, 0.15);
+    }
+
+    .footer-brand h3 {
+      font-size: 28px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    html[dir="rtl"] .footer-brand h3 {
+      font-family: var(--font-ar-display);
+    }
+    html[dir="ltr"] .footer-brand h3 {
+      font-family: var(--font-serif);
+    }
+
+    .footer-brand p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.9;
+      max-width: 340px;
+    }
+
+    .footer-col-title {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    .footer-col-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-col-links a {
+      font-size: 15px;
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+    }
+
+    .footer-col-links a:hover {
+      color: var(--gold-bright);
+    }
+
+    .footer-cert-box {
+      border: 1px solid var(--border-gold-solid);
+      padding: 24px;
+      background: rgba(229, 192, 88, 0.05);
+      border-radius: 2px;
+    }
+
+    .footer-cert-box h6 {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .footer-cert-box p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 30px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.55);
+      letter-spacing: 1px;
+    }
+
+    .admin-secret-link {
+      color: rgba(229, 192, 88, 0.6);
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.3s ease;
+      margin-right: 15px;
+    }
+    /* ==========================================================================
+       11. ROYAL CARPET DETAILS & MULTI-ANGLE LIGHTBOX MODAL
+       ========================================================================== */
+    .carpet-lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 4, 3, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+    }
+
+    .carpet-lightbox-modal.active {
+      display: flex;
+      animation: modalFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .lightbox-container {
+      background: rgba(18, 14, 11, 0.98);
+      border: 1px solid var(--border-gold-solid);
+      border-radius: 6px;
+      max-width: 1100px;
+      width: 100%;
+      max-height: 90vh;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      overflow: hidden;
+      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.95), 0 0 40px rgba(229, 192, 88, 0.2);
+      position: relative;
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: rgba(10, 8, 6, 0.85);
+      border: 1px solid var(--border-gold-solid);
+      color: var(--gold-bright);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 50;
+      transition: all 0.3s ease;
+    }
+    html[dir="rtl"] .lightbox-close-btn {
+      left: auto;
+      right: 18px;
+    }
+
+    .lightbox-close-btn:hover {
+      background: var(--gold-primary);
+      color: #000;
+      transform: rotate(90deg);
+    }
+
+    /* Left: Media & Gallery Area */
+    .lightbox-gallery-pane {
+      background: #080605;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--border-gold-subtle);
+      position: relative;
+    }
+    html[dir="rtl"] .lightbox-gallery-pane {
+      border-right: none;
+      border-left: 1px solid var(--border-gold-subtle);
+    }
+
+    .lightbox-main-img-wrap {
+      width: 100%;
+      height: 420px;
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-main-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease, opacity 0.3s ease;
+    }
+
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(10, 8, 6, 0.75);
+      border: 1px solid var(--border-gold-solid);
+      color: var(--gold-bright);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    .lightbox-nav-btn:hover {
+      background: var(--gold-primary);
+      color: #000;
+      box-shadow: 0 0 15px rgba(229, 192, 88, 0.6);
+    }
+    .lightbox-prev { right: 14px; }
+    .lightbox-next { left: 14px; }
+    html[dir="rtl"] .lightbox-prev { right: 14px; left: auto; }
+    html[dir="rtl"] .lightbox-next { left: 14px; right: auto; }
+
+    .lightbox-thumbs-strip {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .lightbox-thumb-item {
+      width: 74px;
+      height: 58px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border-gold-subtle);
+      cursor: pointer;
+      flex-shrink: 0;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+
+    .lightbox-thumb-item.active, .lightbox-thumb-item:hover {
+      opacity: 1;
+      border-color: var(--gold-bright);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      transform: scale(1.05);
+    }
+
+    .lightbox-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Right: Specs & Action Pane */
+    .lightbox-details-pane {
+      padding: 40px 36px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lightbox-category {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .lightbox-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+      line-height: 1.25;
+    }
+    html[dir="rtl"] .lightbox-title { font-family: var(--font-ar-display); }
+    html[dir="ltr"] .lightbox-title { font-family: var(--font-serif); }
+
+    .lightbox-specs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-gold-subtle);
+      padding: 18px 20px;
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+
+    .lightbox-spec-cell h6 {
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+
+    .lightbox-spec-cell p {
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .lightbox-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+
+    .lightbox-wa-action-btn {
+      margin-top: auto;
+      background: #25d366;
+      color: #0a0806;
+      border: none;
+      padding: 16px 24px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    .lightbox-wa-action-btn:hover {
+      background: #2cf578;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+      color: #000;
+    }
+
+    .card-multi-badge {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(10, 8, 6, 0.88);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    html[dir="rtl"] .card-multi-badge {
+      right: auto;
+      left: 16px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .craftsmanship-split-container {
+        flex-direction: column;
+      }
+      .craftsmanship-sticky-left {
+        width: 100%;
+        height: 60vh;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid var(--border-gold-subtle);
+      }
+      html[dir="rtl"] .craftsmanship-sticky-left {
+        border-left: none;
+      }
+      .craftsmanship-scroll-right {
+        width: 100%;
+      }
+      .reverse-grid, .masterpiece-grid, .vip-reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+      .loom-panel {
+        padding: 100px 5% 40px 5%;
+      }
+      .loom-content-card {
+        padding: 34px 28px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .site-nav {
+        padding: 18px 20px;
+      }
+      .site-nav.scrolled {
+        padding: 12px 20px;
+      }
+      .nav-links {
+        gap: 12px;
+      }
+      .nav-item {
+        letter-spacing: 1px;
+        font-size: 12px;
+      }
+      .hero-msg {
+        padding: 24px 20px;
+      }
+      .loom-section-header {
+        padding: 20px 4%;
+      }
+      .loom-content-card {
+        padding: 24px 20px;
+      }
+      .concierge-card-wrapper {
+        padding: 40px 20px;
+      }
+      .vip-review-card {
+        padding: 28px 20px;
+      }
+      .concierge-form {
+        grid-template-columns: 1fr;
+      }
+      .concierge-form .full-width, .form-submit-btn, .form-status-msg {
+        grid-column: span 1;
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient texture overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Luxury Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-emblem" id="preloader-emblem">زاهر سالمان للسجاد</div>
+    <div class="preloader-bar-container">
+      <div class="preloader-bar" id="preloader-bar"></div>
+    </div>
+    <div class="preloader-counter" id="preloader-counter">0% — جاري غزل خيوط الحرير الرقمي</div>
+  </div>
+
+  <!-- 1. NAVIGATION -->
+  <nav class="site-nav" id="main-nav">
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-mark">⚜</span> <span data-i18n="nav.logo">زاهر سالمان للسجاد</span>
+    </a>
+    <div class="nav-links">
+      <a href="#collection" class="nav-item" data-i18n="nav.collection">المجموعة الملكية</a>
+      <a href="#craftsmanship" class="nav-item" data-i18n="nav.craftsmanship">حِرفية الصنعة</a>
+      <a href="#testimonials" class="nav-item" data-i18n="nav.testimonials">آراء المقتنين VIP</a>
+      <a href="#bespoke" class="nav-item nav-btn-gold" data-i18n="nav.bespoke">طلب استشارة خاصة</a>
+      <!-- Language Switcher -->
+      <button type="button" class="lang-switcher-btn" id="lang-toggle-btn" onclick="toggleLanguage()">
+        <span id="lang-toggle-label">EN</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Pinned Gold Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+
+  <!-- 2. HERO SECTION (CANVAS SCROLL SEQUENCE) -->
+  <section class="hero-scroll-container" id="hero-scroll-container">
+    <div class="hero-sticky-canvas-wrapper">
+      <canvas id="hero-canvas"></canvas>
+      <div class="hero-canvas-vignette"></div>
+
+      <!-- Hero Editorial Typography Overlays -->
+      <div class="hero-text-overlay">
+        <!-- Progress 0.04 - 0.20 -->
+        <div class="hero-msg hero-msg-1" id="hero-msg-1">
+          <span class="sub-crest" data-i18n="hero.crest">✦ دار الفخامة الملكية التراثية ✦</span>
+          <h1 data-i18n="hero.title">زاهر سالمان للسجاد</h1>
+        </div>
+
+        <!-- Progress 0.24 - 0.40 -->
+        <div class="hero-msg hero-msg-2" id="hero-msg-2">
+          <p data-i18n="hero.silk">مغزول من حرير التوت الطبيعي الصافي ١٠٠٪</p>
+        </div>
+
+        <!-- Progress 0.44 - 0.60 -->
+        <div class="hero-msg hero-msg-3" id="hero-msg-3">
+          <h2 data-i18n="hero.knots">مليون عقدة يدوية.. في تحفة فنية واحدة</h2>
+        </div>
+
+        <!-- Progress 0.64 - 0.80 -->
+        <div class="hero-msg hero-msg-4" id="hero-msg-4">
+          <h2 data-i18n="hero.heritage">صنعة أجداد معقودة على أصولها</h2>
+        </div>
+
+        <!-- Progress 0.84 - 0.98 -->
+        <div class="hero-msg hero-msg-5" id="hero-msg-5">
+          <span data-i18n="hero.tagline">أصالة ملكية · متوارثة عبر الأجيال</span>
+        </div>
+      </div>
+
+      <div class="scroll-indicator" id="hero-scroll-indicator">
+        <span class="scroll-indicator-text" data-i18n="hero.scroll">مرر لاكتشاف أسرار الحرير</span>
+        <div class="scroll-indicator-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. STICKY CRAFTSMANSHIP EXPLAINER (SPLIT SCREEN) -->
+  <section class="craftsmanship-section" id="craftsmanship">
+    <div class="craftsmanship-split-container">
+      <!-- Left 50%: Sticky Viewport -->
+      <div class="craftsmanship-sticky-left">
+        <div class="craftsmanship-image-stack">
+          <img src="images/carpet-01-raw-cocoon.jpeg" alt="Pure Raw Silk Cocoon" class="craft-image-slide active" data-step="1" id="craft-img-1" />
+          <img src="images/carpet-05-warp-threads-loom.jpeg" alt="Warp Threads Loom" class="craft-image-slide" data-step="2" id="craft-img-2" />
+          <img src="images/carpet-06-hand-knotting.jpeg" alt="Hand-Knotting Silk" class="craft-image-slide" data-step="3" id="craft-img-3" />
+          <img src="images/carpet-07-carpet-completed.jpeg" alt="Completed Masterpiece Carpet" class="craft-image-slide" data-step="4" id="craft-img-4" />
+          <div class="craft-image-overlay"></div>
+          <div class="craft-slide-badge">
+            <span id="craft-badge-text">المرحلة الأولى / الشرنقة</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right 50%: Four 100vh scrolling editorial cards -->
+      <div class="craftsmanship-scroll-right">
+        <!-- Step 01 -->
+        <div class="craft-card" data-step="1">
+          <div class="craft-step-num" data-i18n="craft.step1.tag">المرحلة ٠١</div>
+          <h3 class="craft-card-title"><span data-i18n="craft.step1.title">حبة <em>الشرنقة</em></span></h3>
+          <p class="craft-card-desc" data-i18n="craft.step1.desc">
+            بننتقي أجود شعيرات حرير التوت الطبيعي العضوي 100%، خيط بخيط عشان تضمن أعلى متانة ولمعة حريرية بتخطف العين، ونحل الخيوط يدويًا على إيد حِرفيين توارثوا الصنعة جيل بعد جيل.
+          </p>
+          <div class="craft-card-specs">
+            <div class="spec-item">
+              <h5 data-i18n="craft.step1.spec1_title">جودة الحرير</h5>
+              <p data-i18n="craft.step1.spec1_val">حرير توت نقي درجة 6A</p>
+            </div>
+            <div class="spec-item">
+              <h5 data-i18n="craft.step1.spec2_title">النقاء الطبيعي</h5>
+              <p data-i18n="craft.step1.spec2_val">طبيعي ١٠٠٪ بدون شوائب</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="craft-card" data-step="2">
+          <div class="craft-step-num" data-i18n="craft.step2.tag">المرحلة ٠٢</div>
+          <h3 class="craft-card-title"><span data-i18n="craft.step2.title">النول <em>العتيق</em></span></h3>
+          <p class="craft-card-desc" data-i18n="craft.step2.desc">
+            بتتشد خيوط السدى يدويًا على أنوال خشبية عتيقة من أخشاب الورد، وتتصبغ بألوان مستخلصة من قشور الجوز وجذور الفوة والمعادن الطبيعية اللي بتفضل زاهية وثابتة لمئات السنين.
+          </p>
+          <div class="craft-card-specs">
+            <div class="spec-item">
+              <h5 data-i18n="craft.step2.spec1_title">أصل الصبغات</h5>
+              <p data-i18n="craft.step2.spec1_val">نباتية ومعدنية أصيلة</p>
+            </div>
+            <div class="spec-item">
+              <h5 data-i18n="craft.step2.spec2_title">هيكل النول</h5>
+              <p data-i18n="craft.step2.spec2_val">خشب الورد المعتق</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="craft-card" data-step="3">
+          <div class="craft-step-num" data-i18n="craft.step3.tag">المرحلة ٠٣</div>
+          <h3 class="craft-card-title"><span data-i18n="craft.step3.title">عقدة <em>الحرير</em></span></h3>
+          <p class="craft-card-desc" data-i18n="craft.step3.desc">
+            أكتر من مليون عقدة ميكرونية في كل متر مربع بتتعقد يدويًا بحرفية متناهية.. كل عقدة ملفوفة بإحكام عشان تديك تفاصيل هندسية غاية في الدقة ونعومة مخملية لا تضاهى.
+          </p>
+          <div class="craft-card-specs">
+            <div class="spec-item">
+              <h5 data-i18n="craft.step3.spec1_title">كثافة العقد</h5>
+              <p data-i18n="craft.step3.spec1_val">+١,٢٠٠ عقدة في البوصة</p>
+            </div>
+            <div class="spec-item">
+              <h5 data-i18n="craft.step3.spec2_title">مدة النسج</h5>
+              <p data-i18n="craft.step3.spec2_val">من ١٨ إلى ٣٦ شهرًا</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 04 -->
+        <div class="craft-card" data-step="4">
+          <div class="craft-step-num" data-i18n="craft.step4.tag">المرحلة ٠٤</div>
+          <h3 class="craft-card-title"><span data-i18n="craft.step4.title">الإرث <em>الملكي</em></span></h3>
+          <p class="craft-card-desc" data-i18n="craft.step4.desc">
+            تحفة فنية حية بتغير لمعتها وبريقها مع حركة الضوء في المكان، بتتقص يدويًا بمقصات صلب مقوسة وتتغسل بمياه الينابيع العذبة، وتتسلم ومعاها شهادة توثيق ملكية مختومة بالشمع.
+          </p>
+          <div class="craft-card-specs">
+            <div class="spec-item">
+              <h5 data-i18n="craft.step4.spec1_title">العمر الافتراضي</h5>
+              <p data-i18n="craft.step4.spec1_val">متوارثة عبر الأجيال</p>
+            </div>
+            <div class="spec-item">
+              <h5 data-i18n="craft.step4.spec2_title">التوثيق</h5>
+              <p data-i18n="craft.step4.spec2_val">ختم ملكي وسجل معتمد</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. HORIZONTAL ARTISAN LOOM RAIL (GSAP PINNED SCROLL) -->
+  <section class="horizontal-loom-section" id="loom-rail">
+    <div class="horizontal-pin-track" id="horizontal-pin-track">
+      
+      <!-- Pinned Integrated Header -->
+      <div class="loom-section-header">
+        <div class="loom-title-group">
+          <p data-i18n="loom.tag">أسرار النول والحرير</p>
+          <h2 data-i18n="loom.title">حكايات من <span>قلب النول</span></h2>
+        </div>
+        <div class="loom-header-badge" data-i18n="loom.badge">رحلة أفقية · ٤ فصول ملكية</div>
+      </div>
+
+      <div class="horizontal-panels-container" id="horizontal-panels-container">
+        
+        <!-- Panel 1 -->
+        <div class="loom-panel">
+          <video class="loom-video-bg" autoplay muted loop playsinline preload="auto" poster="images/carpet-05-warp-threads-loom.jpeg">
+            <source src="videos/Silk_Threads_Mount_to_Loom.mp4" type="video/mp4" />
+          </video>
+          <div class="loom-panel-overlay"></div>
+          <div class="loom-content-card">
+            <span class="loom-panel-tag" data-i18n="loom.p1.tag">الفصل الأول · شد السدى والأساس</span>
+            <h3 class="loom-panel-heading" data-i18n="loom.p1.title">دوزنة النول كأنه آلة موسيقية</h3>
+            <p class="loom-panel-body" data-i18n="loom.p1.desc">
+              قبل ما تبدأ أول عقدة، بنشد عشرات الآلاف من خيوط الحرير الصافي على النول العريض، كل خيط مشدود بوزن محسوب بالمللي عشان يكون السجادة مسطحة وثابتة زي الصخر.
+            </p>
+            <div class="loom-panel-footer">
+              <span class="loom-roman-numeral">I</span>
+              <span class="loom-footnote" data-i18n="loom.p1.foot">+٤٠,٠٠٠ خيط سدى حريري</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2 -->
+        <div class="loom-panel">
+          <video class="loom-video-bg" autoplay muted loop playsinline preload="auto" poster="images/carpet-06-hand-knotting.jpeg">
+            <source src="videos/Micro-Knots_Weaving_1080p.mp4" type="video/mp4" />
+          </video>
+          <div class="loom-panel-overlay"></div>
+          <div class="loom-content-card">
+            <span class="loom-panel-tag" data-i18n="loom.p2.tag">الفصل الثاني · دقة وصبر السنين</span>
+            <h3 class="loom-panel-heading" data-i18n="loom.p2.title">هندسة العقد الميكرونية السحرية</h3>
+            <p class="loom-panel-body" data-i18n="loom.p2.desc">
+              إيد شيخ الصنعة بتتحرك بسرعة وإتقان مبهر، بيعقد لحد ٨,٠٠٠ عقدة سنّة مزدوجة في اليوم الواحد، حافظ الزخارف والنقوش الهندسية المعقدة في ذاكرته عن ظهر قلب.
+            </p>
+            <div class="loom-panel-footer">
+              <span class="loom-roman-numeral">II</span>
+              <span class="loom-footnote" data-i18n="loom.p2.foot">عقدة سنّة الحريرية المزدوجة</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3 -->
+        <div class="loom-panel">
+          <video class="loom-video-bg" autoplay muted loop playsinline preload="auto" poster="images/carpet-07-carpet-completed.jpeg">
+            <source src="videos/Knots_Form_Complete_Masterpiece_1080p.mp4" type="video/mp4" />
+          </video>
+          <div class="loom-panel-overlay"></div>
+          <div class="loom-content-card">
+            <span class="loom-panel-tag" data-i18n="loom.p3.tag">الفصل الثالث · ميلاد التحفة الفنية</span>
+            <h3 class="loom-panel-heading" data-i18n="loom.p3.title">بزوغ المدالية والزخارف الملكية</h3>
+            <p class="loom-panel-body" data-i18n="loom.p3.desc">
+              صف بعد صف وعقدة ورا عقدة، بتظهر الرسوم الأرابيسك والنقوش الملكية الفاتنة.. الألوان بتعكس الضوء بدرجات ساحرة وتتحول لقطعة ديكور تخطف أنفاس كل اللي يشوفها.
+            </p>
+            <div class="loom-panel-footer">
+              <span class="loom-roman-numeral">III</span>
+              <span class="loom-footnote" data-i18n="loom.p3.foot">١٢٨ تدرج لوني نباتي</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 4 -->
+        <div class="loom-panel">
+          <video class="loom-video-bg" autoplay muted loop playsinline preload="auto" poster="images/carpet-08-hand-touching-pile.jpeg">
+            <source src="videos/Hand_Caressing_Silk_Lustre_1080p.mp4" type="video/mp4" />
+          </video>
+          <div class="loom-panel-overlay"></div>
+          <div class="loom-content-card">
+            <span class="loom-panel-tag" data-i18n="loom.p4.tag">الفصل الرابع · إحساس النعومة المخملية</span>
+            <h3 class="loom-panel-heading" data-i18n="loom.p4.title">ملمس ساحر وبريق لا يبهت</h3>
+            <p class="loom-panel-body" data-i18n="loom.p4.desc">
+              أول ما تلمس وبر الحرير بتحس بإحساس ناعم زي الذهب السائل.. ألياف الحرير الطبيعي بتركيبتها الهندسية بتكسر الضوء وتديك بريق متغير مع كل زاوية نظر.
+            </p>
+            <div class="loom-panel-footer">
+              <span class="loom-roman-numeral">IV</span>
+              <span class="loom-footnote" data-i18n="loom.p4.foot">بريق حريري متغير مع الضوء</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FULL-BLEED PARALLAX STATEMENT -->
+  <section class="parallax-statement-section" id="statement">
+    <div class="parallax-bg-wrapper" id="parallax-bg-wrapper">
+      <img src="images/carpet-10-room-masterpiece.jpeg" alt="Palatial Masterpiece Carpet Interior" class="parallax-bg-img" />
+    </div>
+    <div class="parallax-quote-overlay">
+      <span class="parallax-ornament">✦ ⚜ ✦</span>
+      <blockquote class="parallax-quote" data-i18n="statement.quote">
+        «السجادة مش مجرد نسيج بيتداس عليه؛ دي مقطوعة موسيقية خالدة بتتحفر في الوجدان.»
+      </blockquote>
+      <p class="parallax-author" data-i18n="statement.author">زاهر سالمان للسجاد · دار النول الملكي</p>
+    </div>
+  </section>
+
+  <!-- 6. REVERSE COLUMNS (ALTERNATING PARALLAX) -->
+  <section class="reverse-columns-section" id="craft-perspectives">
+    <div class="reverse-section-header">
+      <span data-i18n="perspectives.tag">رؤية شيخ الصنعة</span>
+      <h2 data-i18n="perspectives.title">هندسة العقد وسحر الملمس</h2>
+    </div>
+
+    <div class="reverse-grid">
+      <!-- Col 1: Moves yPercent: -20 -->
+      <div class="reverse-col" id="rev-col-1">
+        <div class="reverse-card">
+          <div class="reverse-card-img-wrap">
+            <img src="images/carpet-06-hand-knotting.jpeg" alt="Generational Hand Knotting" class="reverse-card-img" />
+          </div>
+          <div class="reverse-card-info">
+            <span class="reverse-card-badge" data-i18n="perspectives.c1.badge">الدقة المتناهية</span>
+            <h4 class="reverse-card-title" data-i18n="perspectives.c1.title">حساب بالمللي والفتلة</h4>
+            <p class="reverse-card-desc" data-i18n="perspectives.c1.desc">كل عقدة بتتربط بنفس الشدة والعزم عشان السجادة تعيش معاك ومع ولادك وأحفادك من غير ما تتقوس أو تبهت.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Moves yPercent: +20 -->
+      <div class="reverse-col" id="rev-col-2">
+        <div class="reverse-card">
+          <div class="reverse-card-img-wrap">
+            <img src="images/carpet-perspectives-red.jpg" alt="Imperial Medallion Symphony" class="reverse-card-img" />
+          </div>
+          <div class="reverse-card-info">
+            <span class="reverse-card-badge" data-i18n="perspectives.c2.badge">التناسق الملكي</span>
+            <h4 class="reverse-card-title" data-i18n="perspectives.c2.title">تناغم زخرفي بديع</h4>
+            <p class="reverse-card-desc" data-i18n="perspectives.c2.desc">تصاميم القصور القديمة مرسومة بتماثل قطري وهندسي مبهر محاطة بإطارات ونقوش فنية متقنة تليق بأفخم الصالونات.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 3: Moves yPercent: -20 -->
+      <div class="reverse-col" id="rev-col-3">
+        <div class="reverse-card">
+          <div class="reverse-card-img-wrap">
+            <img src="images/carpet-perspectives-blue.jpg" alt="Caressing Pure Silk Pile" class="reverse-card-img" />
+          </div>
+          <div class="reverse-card-info">
+            <span class="reverse-card-badge" data-i18n="perspectives.c3.badge">الإحساس الفاخر</span>
+            <h4 class="reverse-card-title" data-i18n="perspectives.c3.title">نعومة الحرير الصافي</h4>
+            <p class="reverse-card-desc" data-i18n="perspectives.c3.desc">ملمس مخملي أنعم من الكشمير بيلمع تحت إضاءة الغرفة ويديك دفء وفخامة ملهاش مثيل في أي سجاد عادي.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. MASTERPIECE SHOWCASE & DYNAMIC CARPET CATALOGUE -->
+  <section class="masterpiece-section" id="collection">
+    <div class="masterpiece-header">
+      <div class="masterpiece-header-left">
+        <span data-i18n="collection.tag">مقتنيات نادرة وخاصة</span>
+        <h2 data-i18n="collection.title">مجموعة التحف الملكية</h2>
+      </div>
+      <div>
+        <span style="font-size: 14px; letter-spacing: 2px; color: var(--gold-bright); text-transform: uppercase; font-weight: 700;" data-i18n="collection.badge">
+          قطع متحفية قابلة للاقتناء
+        </span>
+      </div>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="catalogue-filters" id="frontend-category-filters">
+      <button type="button" class="cat-filter-btn active" onclick="filterLiveCarpets('all')">الكل</button>
+      <button type="button" class="cat-filter-btn" onclick="filterLiveCarpets('حرير توت خالص')">حرير توت خالص</button>
+      <button type="button" class="cat-filter-btn" onclick="filterLiveCarpets('حرير وخيوط الذهب')">حرير وخيوط الذهب</button>
+      <button type="button" class="cat-filter-btn" onclick="filterLiveCarpets('سجاد صالونات القصور')">سجاد صالونات القصور</button>
+      <button type="button" class="cat-filter-btn" onclick="filterLiveCarpets('قطع نادرة')">قطع نادرة</button>
+    </div>
+
+    <!-- Dynamic Grid -->
+    <div class="masterpiece-grid" id="live-masterpieces-grid">
+      <!-- Dynamically Populated from API -->
+    </div>
+  </section>
+
+  <!-- 8. VIP TESTIMONIALS & PALATIAL PATRONAGE SECTION -->
+  <section class="vip-testimonials-section" id="testimonials">
+    <div class="vip-section-header">
+      <span data-i18n="vip.tag">نخبة المقتنين وصفوة المجتمع</span>
+      <h2 data-i18n="vip.title">شهادات تليق بالقصور الملكية</h2>
+      <p data-i18n="vip.desc">آراء موثقة من أصحاب القصور والفلل الفاخرة وكبار مهندسي الديكور الذين اقتنوا تحف زاهر سالمان المعقودة من أنقى خيوط الحرير الطبيعي.</p>
+    </div>
+
+    <div class="vip-reviews-grid" id="vip-reviews-grid">
+      <!-- Dynamically Populated from API/Data -->
+    </div>
+  </section>
+
+  <!-- 9. VIP BESPOKE CONCIERGE & WHATSAPP CONSULTATION SECTION -->
+  <section class="bespoke-concierge-section" id="bespoke">
+    <img src="images/carpet-10-room-masterpiece.jpeg" alt="Bespoke Silk Carpet Consultation" class="concierge-bg-img" />
+    <div class="concierge-radial-vignette"></div>
+
+    <div class="concierge-card-wrapper">
+      <span class="concierge-seal" data-i18n="bespoke.seal">⚜ جلسات واستشارات خاصة للقصور والفلل عبر الواتساب ⚜</span>
+      <h2 class="concierge-heading"><span data-i18n="bespoke.title">طلب استشارة خاصة عبر <em>الواتساب</em></span></h2>
+      <p class="concierge-desc" data-i18n="bespoke.desc">
+        تواصل مباشرة مع خبير السجاد الملكي عبر الواتساب على الرقم <strong>+201044104429</strong> لحجز جلسة استشارة خاصة وتفصيل أرقى سجاد الحرير الطبيعي لقصوركم وفللكم.
+      </p>
+
+      <!-- Direct 1-Click WhatsApp Banner -->
+      <div class="concierge-wa-banner">
+        <div class="concierge-wa-info">
+          <span class="concierge-wa-icon">💬</span>
+          <div class="concierge-wa-text">
+            <h4 data-i18n="bespoke.wa_title">الكونسيرج الملكي المباشر</h4>
+            <p>+20 104 410 4429</p>
+          </div>
+        </div>
+        <a href="https://wa.me/201044104429?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%AE%D8%A7%D8%B5%D8%A9%20%D9%84%D8%AF%D9%89%20%D8%AF%D8%A7%D8%B1%20%D8%B2%D8%A7%D9%87%D8%B1%20%D8%B3%D8%A7%D9%84%D9%85%D8%A7%D9%86%20%D9%84%D9%84%D8%B3%D8%AC%D8%A7%D8%AF" target="_blank" class="btn-wa-direct" id="direct-wa-btn">
+          <span>💬</span> <span data-i18n="bespoke.wa_btn">محادثة واتساب فورية</span>
+        </a>
+      </div>
+
+      <form class="concierge-form" id="bespoke-form" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label for="client-name" data-i18n="form.name_label">الاسم بالكامل / اللقب</label>
+          <input type="text" id="client-name" class="form-input" placeholder="مثال: المستشار أحمد زايد" required />
+        </div>
+        <div class="form-group">
+          <label for="client-phone" data-i18n="form.phone_label">رقم الهاتف / الواتساب</label>
+          <input type="text" id="client-phone" class="form-input" placeholder="مثال: 01012345678" required />
+        </div>
+        <div class="form-group">
+          <label for="client-email" data-i18n="form.email_label">البريد الإلكتروني الخاص</label>
+          <input type="email" id="client-email" class="form-input" placeholder="ahmed@palace.com" />
+        </div>
+        <div class="form-group">
+          <label for="carpet-dimension" data-i18n="form.dim_label">المقاسات التقريبية للغرفة أو الصالون</label>
+          <input type="text" id="carpet-dimension" class="form-input" placeholder="مثال: ٤م × ٦م (أو حسب رغبتكم)" />
+        </div>
+        <div class="form-group full-width">
+          <label for="preferred-palette" data-i18n="form.palette_label">باليتة ألوان الحرير المفضلة</label>
+          <select id="preferred-palette" class="form-input">
+            <option value="الأحمر القرمزي الملكي والذهب" data-i18n="form.pal1">الأحمر القرمزي الملكي والذهب</option>
+            <option value="الكحلي النيلي الإمبراطوري والعاج" data-i18n="form.pal2">الكحلي النيلي الإمبراطوري والعاج</option>
+            <option value="الأخضر الزمردي والبلاتين" data-i18n="form.pal3">الأخضر الزمردي والبلاتين</option>
+            <option value="الأسود الملكي وعسلي الحرير" data-i18n="form.pal4">الأسود الملكي وعسلي الحرير</option>
+          </select>
+        </div>
+        <div class="form-group full-width">
+          <label for="client-notes" data-i18n="form.notes_label">ملاحظات معمارية أو طلب نقش شعار عائلي</label>
+          <textarea id="client-notes" class="form-input" rows="3" placeholder="اكتب لنا تفاصيل المكان، إضاءة الصالون، أو أي تفاصيل خاصة محتاجها..."></textarea>
+        </div>
+        <button type="submit" class="form-submit-btn" id="form-submit-btn">
+          <span>💬</span> <span data-i18n="form.submit">إرسال الطلب وحجز استشارة فورية عبر الواتساب</span>
+        </button>
+        <div class="form-status-msg" id="form-status-msg" data-i18n="form.success">
+          ⚜ تم تسجيل طلبكم بنجاح وجاري فتح محادثة الواتساب مع خبير السجاد الملكي على الرقم +201044104429...
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- 10. MINIMAL ROYAL FOOTER & ADMIN ACCESS -->
+  <footer class="royal-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3 data-i18n="footer.brand">زاهر سالمان للسجاد</h3>
+        <p data-i18n="footer.desc">رواد صناعة واقتناء السجاد الحريري اليدوي النادر والتحف الملكية المنسوجة بعناية فائقة وتراث متوارث منذ ١٩٢٨.</p>
+      </div>
+      <div>
+        <h5 class="footer-col-title" data-i18n="footer.c1_title">المقتنيات الملكية</h5>
+        <ul class="footer-col-links">
+          <li><a href="#collection" data-i18n="footer.c1_l1">تحفة المدالية الملكية</a></li>
+          <li><a href="#collection" data-i18n="footer.c1_l2">لمسة الحرير الفاتنة</a></li>
+          <li><a href="#collection" data-i18n="footer.c1_l3">المحراب الإمبراطوري</a></li>
+          <li><a href="#bespoke" data-i18n="footer.c1_l4">الطلبات الخاصة للقصور</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="footer-col-title" data-i18n="footer.c2_title">دار النول والحرير</h5>
+        <ul class="footer-col-links">
+          <li><a href="#craftsmanship" data-i18n="footer.c2_l1">فرز وتجهيز الحرير الطبيعي</a></li>
+          <li><a href="#craftsmanship" data-i18n="footer.c2_l2">أسرار الصبغات النباتية</a></li>
+          <li><a href="#loom-rail" data-i18n="footer.c2_l3">حكايات النول والحرير</a></li>
+          <li><a href="#craft-perspectives" data-i18n="footer.c2_l4">نقابة شيوخ الصنعة</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-cert-box">
+          <h6 data-i18n="footer.cert_title">شهادة الأصالة والتوثيق الملكي</h6>
+          <p data-i18n="footer.cert_desc">كل قطعة من سجاد زاهر سالمان بتتسلم مع شهادة رسمية موثقة تثبت نقاء خامة الحرير وعدد العقد وتوقيع شيخ الصنعة وختم النول الملكي المعتمد.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <p data-i18n="footer.copy">© ٢٠٢٦ زاهر سالمان للسجاد. جميع الحقوق محفوظة. حرير طبيعي ١٠٠٪ معقود يدويًا.</p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <a href="/admin.html" target="_blank" class="admin-secret-link">⚜ لوحة التحكم</a>
+        <p id="footer-address">القاهرة · جنيف · لندن · دبي · ميلانو</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 11. ROYAL CARPET LIGHTBOX & MULTI-ANGLE SHOWCASE MODAL -->
+  <div class="carpet-lightbox-modal" id="carpet-lightbox-modal" onclick="handleLightboxBackdropClick(event)">
+    <div class="lightbox-container" id="lightbox-container" onclick="event.stopPropagation()">
+      <button type="button" class="lightbox-close-btn" onclick="closeCarpetLightbox()" title="إغلاق">✕</button>
+      
+      <!-- Left: Multi-Angle Gallery Viewer -->
+      <div class="lightbox-gallery-pane">
+        <div class="lightbox-main-img-wrap">
+          <img id="lb-main-img" src="" alt="Carpet Details" class="lightbox-main-img" />
+          <button type="button" class="lightbox-nav-btn lightbox-prev" id="lb-prev-btn" onclick="navigateLightboxImage(-1)">‹</button>
+          <button type="button" class="lightbox-nav-btn lightbox-next" id="lb-next-btn" onclick="navigateLightboxImage(1)">›</button>
+        </div>
+        <div class="lightbox-thumbs-strip" id="lb-thumbs-strip">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Right: Specs & WhatsApp Direct Action -->
+      <div class="lightbox-details-pane">
+        <span class="lightbox-category" id="lb-category">حرير توت خالص</span>
+        <h3 class="lightbox-title" id="lb-title">تحفة المدالية الملكية</h3>
+        
+        <div class="lightbox-specs-grid">
+          <div class="lightbox-spec-cell">
+            <h6 id="lb-spec-mat-label">الخامة والنقاء</h6>
+            <p id="lb-material">حرير توت طبيعي ١٠٠٪</p>
+          </div>
+          <div class="lightbox-spec-cell">
+            <h6 id="lb-spec-dim-label">المقاسات</h6>
+            <p id="lb-dimensions">3.00 × 2.00 م</p>
+          </div>
+          <div class="lightbox-spec-cell">
+            <h6 id="lb-spec-kpsi-label">كثافة العقد</h6>
+            <p id="lb-kpsi">1,200 KPSI</p>
+          </div>
+          <div class="lightbox-spec-cell">
+            <h6 id="lb-spec-dur-label">مدة النسج اليدوي</h6>
+            <p id="lb-duration">٢٤ شهرًا</p>
+          </div>
+        </div>
+
+        <p class="lightbox-desc" id="lb-description">
+          تحفة فنية حية منسوجة يدوياً من أنقى خيوط الحرير الطبيعي لقصور الصفوة.
+        </p>
+
+        <a href="#" id="lb-wa-btn" target="_blank" class="lightbox-wa-action-btn">
+          <span>💬</span> <span id="lb-wa-btn-text">طلب معاينة واقتناء هذه التحفة عبر الواتساب</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT LOGIC & BILINGUAL TRANSLATION SYSTEM
+       ========================================================================== -->
+  <script>
+    const translations = {
+      ar: {
+        dir: 'rtl',
+        langBtn: 'EN',
+        docTitle: 'زاهر سالمان للسجاد — تحف السجاد الحريري اليدوي الملكي الخالص | ZAHER SALMAN CARPETS',
+        preloaderEmblem: 'زاهر سالمان للسجاد',
+        preloaderText: 'جاري غزل خيوط الحرير الرقمي',
+        'nav.logo': 'زاهر سالمان للسجاد',
+        'nav.collection': 'المجموعة الملكية',
+        'nav.craftsmanship': 'حِرفية الصنعة',
+        'nav.testimonials': 'آراء المقتنين VIP',
+        'nav.bespoke': 'طلب استشارة خاصة',
+        'hero.crest': '✦ دار الفخامة الملكية التراثية ✦',
+        'hero.title': 'زاهر سالمان للسجاد',
+        'hero.silk': 'مغزول من حرير التوت الطبيعي الصافي ١٠٠٪',
+        'hero.knots': 'مليون عقدة يدوية.. في تحفة فنية واحدة',
+        'hero.heritage': 'صنعة أجداد معقودة على أصولها',
+        'hero.tagline': 'أصالة ملكية · متوارثة عبر الأجيال',
+        'hero.scroll': 'مرر لاكتشاف أسرار الحرير',
+        'craft.step1.tag': 'المرحلة ٠١',
+        'craft.step1.title': 'حبة <em>الشرنقة</em>',
+        'craft.step1.desc': 'بننتقي أجود شعيرات حرير التوت الطبيعي العضوي 100%، خيط بخيط عشان تضمن أعلى متانة ولمعة حريرية بتخطف العين، ونحل الخيوط يدويًا على إيد حِرفيين توارثوا الصنعة جيل بعد جيل.',
+        'craft.step1.spec1_title': 'جودة الحرير',
+        'craft.step1.spec1_val': 'حرير توت نقي درجة 6A',
+        'craft.step1.spec2_title': 'النقاء الطبيعي',
+        'craft.step1.spec2_val': 'طبيعي ١٠٠٪ بدون شوائب',
+        'craft.step2.tag': 'المرحلة ٠٢',
+        'craft.step2.title': 'النول <em>العتيق</em>',
+        'craft.step2.desc': 'بتتشد خيوط السدى يدويًا على أنوال خشبية عتيقة من أخشاب الورد، وتتصبغ بألوان مستخلصة من قشور الجوز وجذور الفوة والمعادن الطبيعية اللي بتفضل زاهية وثابتة لمئات السنين.',
+        'craft.step2.spec1_title': 'أصل الصبغات',
+        'craft.step2.spec1_val': 'نباتية ومعدنية أصيلة',
+        'craft.step2.spec2_title': 'هيكل النول',
+        'craft.step2.spec2_val': 'خشب الورد المعتق',
+        'craft.step3.tag': 'المرحلة ٠٣',
+        'craft.step3.title': 'عقدة <em>الحرير</em>',
+        'craft.step3.desc': 'أكتر من مليون عقدة ميكرونية في كل متر مربع بتتعقد يدويًا بحرفية متناهية.. كل عقدة ملفوفة بإحكام عشان تديك تفاصيل هندسية غاية في الدقة ونعومة مخملية لا تضاهى.',
+        'craft.step3.spec1_title': 'كثافة العقد',
+        'craft.step3.spec1_val': '+١,٢٠٠ عقدة في البوصة',
+        'craft.step3.spec2_title': 'مدة النسج',
+        'craft.step3.spec2_val': 'من ١٨ إلى ٣٦ شهرًا',
+        'craft.step4.tag': 'المرحلة ٠٤',
+        'craft.step4.title': 'الإرث <em>الملكي</em>',
+        'craft.step4.desc': 'تحفة فنية حية بتغير لمعتها وبريقها مع حركة الضوء في المكان، بتتقص يدويًا بمقصات صلب مقوسة وتتغسل بمياه الينابيع العذبة، وتتسلم ومعاها شهادة توثيق ملكية مختومة بالشمع.',
+        'craft.step4.spec1_title': 'العمر الافتراضي',
+        'craft.step4.spec1_val': 'متوارثة عبر الأجيال',
+        'craft.step4.spec2_title': 'التوثيق',
+        'craft.step4.spec2_val': 'ختم ملكي وسجل معتمد',
+        'craft.badge1': 'المرحلة الأولى / الشرنقة',
+        'craft.badge2': 'المرحلة الثانية / النول الخشبي',
+        'craft.badge3': 'المرحلة الثالثة / العقدة المزدوجة',
+        'craft.badge4': 'المرحلة الرابعة / الإرث الملكي',
+        'loom.tag': 'أسرار النول والحرير',
+        'loom.title': 'حكايات من <span>قلب النول</span>',
+        'loom.badge': 'رحلة أفقية · ٤ فصول ملكية',
+        'loom.p1.tag': 'الفصل الأول · شد السدى والأساس',
+        'loom.p1.title': 'دوزنة النول كأنه آلة موسيقية',
+        'loom.p1.desc': 'قبل ما تبدأ أول عقدة، بنشد عشرات الآلاف من خيوط الحرير الصافي على النول العريض، كل خيط مشدود بوزن محسوب بالمللي عشان يكون السجادة مسطحة وثابتة زي الصخر.',
+        'loom.p1.foot': '+٤٠,٠٠٠ خيط سدى حريري',
+        'loom.p2.tag': 'الفصل الثاني · دقة وصبر السنين',
+        'loom.p2.title': 'هندسة العقد الميكرونية السحرية',
+        'loom.p2.desc': 'إيد شيخ الصنعة بتتحرك بسرعة وإتقان مبهر، بيعقد لحد ٨,٠٠٠ عقدة سنّة مزدوجة في اليوم الواحد، حافظ الزخارف والنقوش الهندسية المعقدة في ذاكرته عن ظهر قلب.',
+        'loom.p2.foot': 'عقدة سنّة الحريرية المزدوجة',
+        'loom.p3.tag': 'الفصل الثالث · ميلاد التحفة الفنية',
+        'loom.p3.title': 'بزوغ المدالية والزخارف الملكية',
+        'loom.p3.desc': 'صف بعد صف وعقدة ورا عقدة، بتظهر الرسوم الأرابيسك والنقوش الملكية الفاتنة.. الألوان بتعكس الضوء بدرجات ساحرة وتتحول لقطعة ديكور تخطف أنفاس كل اللي يشوفها.',
+        'loom.p3.foot': '١٢٨ تدرج لوني نباتي',
+        'loom.p4.tag': 'الفصل الرابع · إحساس النعومة المخملية',
+        'loom.p4.title': 'ملمس ساحر وبريق لا يبهت',
+        'loom.p4.desc': 'أول ما تلمس وبر الحرير بتحس بإحساس ناعم زي الذهب السائل.. ألياف الحرير الطبيعي بتركيبتها الهندسية بتكسر الضوء وتديك بريق متغير مع كل زاوية نظر.',
+        'loom.p4.foot': 'بريق حريري متغير مع الضوء',
+        'statement.quote': '«السجادة مش مجرد نسيج بيتداس عليه؛ دي مقطوعة موسيقية خالدة بتتحفر في الوجدان.»',
+        'statement.author': 'زاهر سالمان للسجاد · دار النول الملكي',
+        'perspectives.tag': 'رؤية شيخ الصنعة',
+        'perspectives.title': 'هندسة العقد وسحر الملمس',
+        'perspectives.c1.badge': 'الدقة المتناهية',
+        'perspectives.c1.title': 'حساب بالمللي والفتلة',
+        'perspectives.c1.desc': 'كل عقدة بتتربط بنفس الشدة والعزم عشان السجادة تعيش معاك ومع ولادك وأحفادك من غير ما تتقوس أو تبهت.',
+        'perspectives.c2.badge': 'التناسق الملكي',
+        'perspectives.c2.title': 'تناغم زخرفي بديع',
+        'perspectives.c2.desc': 'تصاميم القصور القديمة مرسومة بتماثل قطري وهندسي مبهر محاطة بإطارات ونقوش فنية متقنة تليق بأفخم الصالونات.',
+        'perspectives.c3.badge': 'الإحساس الفاخر',
+        'perspectives.c3.title': 'نعومة الحرير الصافي',
+        'perspectives.c3.desc': 'ملمس مخملي أنعم من الكشمير بيلمع تحت إضاءة الغرفة ويديك دفء وفخامة ملهاش مثيل في أي سجاد عادي.',
+        'collection.tag': 'مقتنيات نادرة وخاصة',
+        'collection.title': 'مجموعة التحف الملكية',
+        'collection.badge': 'قطع متحفية قابلة للاقتناء',
+        'collection.inquire': 'طلب تفاصيل الاقتناء',
+        'vip.tag': 'نخبة المقتنين وصفوة المجتمع',
+        'vip.title': 'شهادات تليق بالقصور الملكية',
+        'vip.desc': 'آراء موثقة من أصحاب القصور والفلل الفاخرة وكبار مهندسي الديكور الذين اقتنوا تحف زاهر سالمان المعقودة من أنقى خيوط الحرير الطبيعي.',
+        'bespoke.seal': '⚜ جلسات واستشارات خاصة للقصور والفلل عبر الواتساب ⚜',
+        'bespoke.title': 'طلب استشارة خاصة عبر <em>الواتساب</em>',
+        'bespoke.desc': 'تواصل مباشرة مع خبير السجاد الملكي عبر الواتساب على الرقم <strong>+201044104429</strong> لحجز جلسة استشارة خاصة وتفصيل أرقى سجاد الحرير الطبيعي لقصوركم وفللكم.',
+        'bespoke.wa_title': 'الكونسيرج الملكي المباشر',
+        'bespoke.wa_btn': 'محادثة واتساب فورية',
+        'form.name_label': 'الاسم بالكامل / اللقب',
+        'form.phone_label': 'رقم الهاتف / الواتساب',
+        'form.email_label': 'البريد الإلكتروني الخاص',
+        'form.dim_label': 'المقاسات التقريبية للغرفة أو الصالون',
+        'form.palette_label': 'باليتة ألوان الحرير المفضلة',
+        'form.pal1': 'الأحمر القرمزي الملكي والذهب',
+        'form.pal2': 'الكحلي النيلي الإمبراطوري والعاج',
+        'form.pal3': 'الأخضر الزمردي والبلاتين',
+        'form.pal4': 'الأسود الملكي وعسلي الحرير',
+        'form.notes_label': 'ملاحظات معمارية أو طلب نقش شعار عائلي',
+        'form.submit': 'إرسال الطلب وحجز استشارة فورية عبر الواتساب',
+        'form.success': '⚜ تم تسجيل طلبكم بنجاح وجاري فتح محادثة الواتساب مع خبير السجاد الملكي على الرقم +201044104429...',
+        'footer.brand': 'زاهر سالمان للسجاد',
+        'footer.desc': 'رواد صناعة واقتناء السجاد الحريري اليدوي النادر والتحف الملكية المنسوجة بعناية فائقة وتراث متوارث منذ ١٩٢٨.',
+        'footer.c1_title': 'المقتنيات الملكية',
+        'footer.c1_l1': 'تحفة المدالية الملكية',
+        'footer.c1_l2': 'لمسة الحرير الفاتنة',
+        'footer.c1_l3': 'المحراب الإمبراطوري',
+        'footer.c1_l4': 'الطلبات الخاصة للقصور',
+        'footer.c2_title': 'دار النول والحرير',
+        'footer.c2_l1': 'فرز وتجهيز الحرير الطبيعي',
+        'footer.c2_l2': 'أسرار الصبغات النباتية',
+        'footer.c2_l3': 'حكايات النول والحرير',
+        'footer.c2_l4': 'نقابة شيوخ الصنعة',
+        'footer.cert_title': 'شهادة الأصالة والتوثيق الملكي',
+        'footer.cert_desc': 'كل قطعة من سجاد زاهر سالمان بتتسلم مع شهادة رسمية موثقة تثبت نقاء خامة الحرير وعدد العقد وتوقيع شيخ الصنعة وختم النول الملكي المعتمد.',
+        'footer.copy': '© ٢٠٢٦ زاهر سالمان للسجاد. جميع الحقوق محفوظة. حرير طبيعي ١٠٠٪ معقود يدويًا.'
+      },
+      en: {
+        dir: 'ltr',
+        langBtn: 'العربية',
+        docTitle: 'ZAHER SALMAN CARPETS — Imperial Hand-Knotted Pure Silk Masterpieces',
+        preloaderEmblem: 'ZAHER SALMAN CARPETS',
+        preloaderText: 'WEAVING DIGITAL SILK',
+        'nav.logo': 'ZAHER SALMAN CARPETS',
+        'nav.collection': 'COLLECTION',
+        'nav.craftsmanship': 'CRAFTSMANSHIP',
+        'nav.testimonials': 'VIP PATRONAGE',
+        'nav.bespoke': 'BESPOKE INQUIRY',
+        'hero.crest': '✦ EST. ROYAL MAJESTY ✦',
+        'hero.title': 'ZAHER SALMAN CARPETS',
+        'hero.silk': 'Born from Pure Natural Silk.',
+        'hero.knots': 'A Million Knots. One Masterpiece.',
+        'hero.heritage': 'Hand-Knotted Heritage.',
+        'hero.tagline': 'TIMELESS ROYALTY · WOVEN FOR GENERATIONS',
+        'hero.scroll': 'SCROLL TO UNRAVEL',
+        'craft.step1.tag': 'STAGE 01',
+        'craft.step1.title': 'THE <em>COCOON</em>',
+        'craft.step1.desc': '100% pure organic mulberry silk filaments selected for unmatched tensile strength and incandescent natural lustre. Only the longest unbroken filaments are reeled by hand.',
+        'craft.step1.spec1_title': 'Material Origin',
+        'craft.step1.spec1_val': 'Grade 6A Mulberry Silk',
+        'craft.step1.spec2_title': 'Tensile Purity',
+        'craft.step1.spec2_val': '100% Natural Organic',
+        'craft.step2.tag': 'STAGE 02',
+        'craft.step2.title': 'THE <em>LOOM</em>',
+        'craft.step2.desc': 'Yarns hand-stretched on heirloom wooden looms and dyed with natural mineral extracts, walnut husks, and madder root. The warp tension is calibrated with millimeter precision.',
+        'craft.step2.spec1_title': 'Dye Pigments',
+        'craft.step2.spec1_val': 'Botanical & Mineral',
+        'craft.step2.spec2_title': 'Loom Structure',
+        'craft.step2.spec2_val': 'Aged Rosewood Beams',
+        'craft.step3.tag': 'STAGE 03',
+        'craft.step3.title': 'THE <em>KNOT</em>',
+        'craft.step3.desc': 'Over 1,000,000 micro-knots per square meter tied individually by generational master artisans. Every single knot is double-looped around silk warp threads.',
+        'craft.step3.spec1_title': 'Knot Density',
+        'craft.step3.spec1_val': '1,200+ KPSI Micro-Knots',
+        'craft.step3.spec2_title': 'Execution Time',
+        'craft.step3.spec2_val': '18 to 36 Months',
+        'craft.step4.tag': 'STAGE 04',
+        'craft.step4.title': 'THE <em>HEIRLOOM</em>',
+        'craft.step4.desc': 'A living art piece that dynamically shifts tone with ambient lighting. Sheared by hand with curved steel shears, washed in alpine spring waters, and authenticated with a royal seal.',
+        'craft.step4.spec1_title': 'Durability',
+        'craft.step4.spec1_val': 'Multi-Generational',
+        'craft.step4.spec2_title': 'Authentication',
+        'craft.step4.spec2_val': 'Royal Wax Seal & Registry',
+        'craft.badge1': 'STAGE I / THE COCOON',
+        'craft.badge2': 'STAGE II / THE LOOM',
+        'craft.badge3': 'STAGE III / THE KNOT',
+        'craft.badge4': 'STAGE IV / THE HEIRLOOM',
+        'loom.tag': 'ARTISAN LINEAGE',
+        'loom.title': 'The Loom <span>Chronicles</span>',
+        'loom.badge': 'HORIZONTAL JOURNEY · 4 ACTS',
+        'loom.p1.tag': 'ACT I · WARP FOUNDATION',
+        'loom.p1.title': 'Tensioning the Celestial Loom',
+        'loom.p1.desc': 'Before the first knot is cast, tens of thousands of micro-threads of pure mulberry silk are stretched across massive wooden looms, tuned with absolute precision.',
+        'loom.p1.foot': '40,000+ WARP STRANDS',
+        'loom.p2.tag': 'ACT II · DEVOTIONAL PRECISION',
+        'loom.p2.title': 'The Geometry of Micro-Knots',
+        'loom.p2.desc': 'Master hands move with hypnotic cadence. A single master artisan ties up to 8,000 symmetrical Senneh knots daily, memorizing intricate cartouches passed down orally.',
+        'loom.p2.foot': 'SENNEH DOUBLE-KNOT TECHNIQUE',
+        'loom.p3.tag': 'ACT III · CHROMATIC EMERGENCE',
+        'loom.p3.title': 'The Medallion Awakens',
+        'loom.p3.desc': 'Layer upon layer of jewel-toned silk coalesces into opulent arabesques and imperial medallions. The pile captures sunlight and diffuses it with prismatic intensity.',
+        'loom.p3.foot': '128 VEGETAL COLOR GRADIENTS',
+        'loom.p4.tag': 'ACT IV · VELVET TACTILITY',
+        'loom.p4.title': 'Sensory Luminescence',
+        'loom.p4.desc': 'When touched, the carpet responds like fluid gold. The natural triangular prism structure of silk fibers refracts incoming light at varied angles.',
+        'loom.p4.foot': 'OPTICAL CHAMELEON LUSTRE',
+        'statement.quote': '“A carpet is not merely woven; it is composed like an eternal symphony.”',
+        'statement.author': 'ZAHER SALMAN CARPETS · IMPERIAL ATELIER',
+        'perspectives.tag': 'THE ARTISAN’S PERSPECTIVE',
+        'perspectives.title': 'Sacred Geometry & Touch',
+        'perspectives.c1.badge': 'PRECISION',
+        'perspectives.c1.title': 'Millimetric Fidelity',
+        'perspectives.c1.desc': 'Every micro-knot is tied with unwavering tension to ensure a perfectly flat, indestructible foundation that defies generations.',
+        'perspectives.c2.badge': 'SYMMETRY',
+        'perspectives.c2.title': 'Imperial Harmony',
+        'perspectives.c2.desc': 'Centuries-old royal palatial designs mirrored in mathematically flawless radial symmetry, framed by ornate border cartouches.',
+        'perspectives.c3.badge': 'FEEL',
+        'perspectives.c3.title': 'Tactile Splendor',
+        'perspectives.c3.desc': 'An intoxicating surface softer than spun cashmere, yielding a gentle tactile warmth that soothes the senses.',
+        'collection.tag': 'CURATED CURATION',
+        'collection.title': 'Masterpiece Portfolio',
+        'collection.badge': 'MUSEUM ACQUISITIONS',
+        'collection.inquire': 'ACQUISITION INQUIRY',
+        'vip.tag': 'PALATIAL PATRONAGE',
+        'vip.title': 'Testimonials from VIP Estates',
+        'vip.desc': 'Reflections from esteemed palace owners, art collectors, and distinguished interior architects who commissioned Zaher Salman heirlooms.',
+        'bespoke.seal': '⚜ PRIVATE ATELIER APPOINTMENTS VIA WHATSAPP ⚜',
+        'bespoke.title': 'Bespoke Royal <em>Commissions</em>',
+        'bespoke.desc': 'Connect directly with our Chief Silk Curator on WhatsApp at <strong>+201044104429</strong> for private palatial consultations and custom hand-knotted silk carpets.',
+        'bespoke.wa_title': 'Royal VIP WhatsApp Concierge',
+        'bespoke.wa_btn': 'Instant WhatsApp Chat',
+        'form.name_label': 'FULL NAME / HONORIFIC',
+        'form.phone_label': 'PHONE / WHATSAPP',
+        'form.email_label': 'PRIVATE EMAIL',
+        'form.dim_label': 'INTENDED ROOM DIMENSIONS',
+        'form.palette_label': 'DOMINANT SILK PALETTE',
+        'form.pal1': 'Imperial Crimson & Gold',
+        'form.pal2': 'Royal Indigo & Ivory',
+        'form.pal3': 'Celadon Jade & Platinum',
+        'form.pal4': 'Obsidian Noir & Amber Silk',
+        'form.notes_label': 'SPECIAL ARCHITECTURAL REQUESTS / CRESTS',
+        'form.submit': 'REQUEST CONSULTATION VIA WHATSAPP',
+        'form.success': '⚜ Request recorded. Opening direct WhatsApp concierge on +201044104429...',
+        'footer.brand': 'ZAHER SALMAN CARPETS',
+        'footer.desc': 'Purveyors of museum-grade, hand-knotted pure silk tapestries and palatial floor carpets. Woven with devotional perfection since 1928.',
+        'footer.c1_title': 'COLLECTIONS',
+        'footer.c1_l1': 'The Royal Medallion',
+        'footer.c1_l2': 'The Silken Touch',
+        'footer.c1_l3': 'The Palatial Sanctuary',
+        'footer.c1_l4': 'Private Commissions',
+        'footer.c2_title': 'ATELIER',
+        'footer.c2_l1': 'Silk Harvesting',
+        'footer.c2_l2': 'Natural Mineral Dyes',
+        'footer.c2_l3': 'The Loom Chronicles',
+        'footer.c2_l4': '1,200+ KPSI Guild',
+        'footer.cert_title': 'CERTIFICATE OF AUTHENTICITY',
+        'footer.cert_desc': 'Every Zaher Salman Carpet is delivered with an immutable Certificate of Royal Guild Authenticity, fiber micron certification, and a bespoke provenance dossier.',
+        'footer.copy': '© 2026 ZAHER SALMAN CARPETS. ALL RIGHTS RESERVED. HAND-KNOTTED PURE SILK.'
+      }
+    };
+
+    let currentLang = localStorage.getItem('zaher_lang') || 'ar';
+    let allLiveCarpets = [];
+    let allLiveReviews = [];
+    let liveFilter = 'all';
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('zaher_lang', lang);
+      const dict = translations[lang];
+
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('dir', dict.dir);
+      document.title = dict.docTitle;
+
+      const langToggleLabel = document.getElementById('lang-toggle-label');
+      if (langToggleLabel) langToggleLabel.textContent = dict.langBtn;
+
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      panelImages.craftBadges = [
+        dict['craft.badge1'],
+        dict['craft.badge2'],
+        dict['craft.badge3'],
+        dict['craft.badge4']
+      ];
+
+      const badgeText = document.getElementById('craft-badge-text');
+      if (badgeText && panelImages.currentActiveIndex !== undefined) {
+        badgeText.textContent = panelImages.craftBadges[panelImages.currentActiveIndex];
+      }
+
+      renderLiveCarpets();
+      renderLiveReviews();
+      ScrollTrigger.refresh();
+    }
+
+    function toggleLanguage() {
+      const nextLang = currentLang === 'ar' ? 'en' : 'ar';
+      applyLanguage(nextLang);
+    }
+
+    // 1. Lenis Smooth Scrolling Initialization
+    const lenis = new Lenis({
+      duration: 1.2,
+      lerp: 0.08,
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
+      orientation: 'vertical',
+      gestureOrientation: 'vertical'
+    });
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+
+    // Scroll Progress Bar Update
+    const scrollProgressBar = document.getElementById('scroll-progress-bar');
+    const mainNav = document.getElementById('main-nav');
+
+    window.addEventListener('scroll', () => {
+      const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollTotal > 0 ? (window.scrollY / scrollTotal) * 100 : 0;
+      if (scrollProgressBar) {
+        scrollProgressBar.style.height = `${progress}vh`;
+      }
+      if (window.scrollY > 80) {
+        mainNav.classList.add('scrolled');
+      } else {
+        mainNav.classList.remove('scrolled');
+      }
+    });
+
+    // 2. Hero Canvas Frame Sequence Engine
+    const canvas = document.getElementById('hero-canvas');
+    const context = canvas.getContext('2d');
+    
+    const frames = {
+      current: 0,
+      total: 922,
+      images: []
+    };
+
+    const panelImages = {
+      craftSlides: document.querySelectorAll('.craft-image-slide'),
+      currentActiveIndex: 0,
+      craftBadges: [
+        'المرحلة الأولى / الشرنقة',
+        'المرحلة الثانية / النول الخشبي',
+        'المرحلة الثالثة / العقدة المزدوجة',
+        'المرحلة الرابعة / الإرث الملكي'
+      ]
+    };
+
+    function resizeCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      context.scale(dpr, dpr);
+      renderFrame(Math.round(frames.current));
+    }
+    window.addEventListener('resize', resizeCanvas);
+
+    function renderFrame(index) {
+      if (index < 0) index = 0;
+      if (index >= frames.total) index = frames.total - 1;
+      
+      let img = frames.images[index];
+      
+      if (!img || !img.complete || img.naturalWidth === 0) {
+        let found = null;
+        for (let offset = 1; offset < 50; offset++) {
+          if (index - offset >= 0 && frames.images[index - offset] && frames.images[index - offset].complete && frames.images[index - offset].naturalWidth > 0) {
+            found = frames.images[index - offset];
+            break;
+          }
+          if (index + offset < frames.total && frames.images[index + offset] && frames.images[index + offset].complete && frames.images[index + offset].naturalWidth > 0) {
+            found = frames.images[index + offset];
+            break;
+          }
+        }
+        if (found) {
+          img = found;
+        } else if (frames.images[0] && frames.images[0].complete && frames.images[0].naturalWidth > 0) {
+          img = frames.images[0];
+        } else {
+          return;
+        }
+      }
+
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      const imgRatio = img.naturalWidth / img.naturalHeight;
+      const screenRatio = w / h;
+      let drawWidth, drawHeight, offsetX, offsetY;
+
+      if (screenRatio > imgRatio) {
+        drawWidth = w;
+        drawHeight = w / imgRatio;
+        offsetX = 0;
+        offsetY = (h - drawHeight) / 2;
+      } else {
+        drawWidth = h * imgRatio;
+        drawHeight = h;
+        offsetX = (w - drawWidth) / 2;
+        offsetY = 0;
+      }
+
+      context.clearRect(0, 0, w, h);
+      context.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+    }
+
+    // Preloader and Frame Loader
+    const preloader = document.getElementById('preloader');
+    const preloaderBar = document.getElementById('preloader-bar');
+    const preloaderCounter = document.getElementById('preloader-counter');
+
+    let loadedCount = 0;
+    const initialBatchSize = 40;
+    let isRevealed = false;
+
+    function formatFramePath(i) {
+      const numStr = String(i + 1).padStart(4, '0');
+      return `frames/frame_${numStr}.jpg`;
+    }
+
+    function initFrameLoading() {
+      for (let i = 0; i < frames.total; i++) {
+        const img = new Image();
+        img.src = formatFramePath(i);
+        img.onload = () => {
+          loadedCount++;
+          const percent = Math.min(Math.round((loadedCount / initialBatchSize) * 100), 100);
+          if (preloaderBar) preloaderBar.style.width = `${percent}%`;
+          if (preloaderCounter) {
+            const subtext = currentLang === 'ar' ? 'جاري غزل خيوط الحرير الرقمي' : 'WEAVING DIGITAL SILK';
+            preloaderCounter.textContent = `${percent}% — ${subtext}`;
+          }
+
+          if (i === 0 || loadedCount === 1) {
+            resizeCanvas();
+          }
+
+          if (loadedCount >= initialBatchSize && !isRevealed) {
+            isRevealed = true;
+            setTimeout(() => {
+              if (preloader) preloader.classList.add('hidden');
+              setupHeroScrollAnimation();
+              setupScrollTriggers();
+            }, 300);
+          }
+        };
+        img.onerror = () => {
+          loadedCount++;
+          if (loadedCount >= initialBatchSize && !isRevealed) {
+            isRevealed = true;
+            if (preloader) preloader.classList.add('hidden');
+            setupHeroScrollAnimation();
+            setupScrollTriggers();
+          }
+        };
+        frames.images.push(img);
+      }
+    }
+
+    // GSAP Hero Canvas Scrub Timeline
+    function setupHeroScrollAnimation() {
+      const heroContainer = document.getElementById('hero-scroll-container');
+      const msg1 = document.getElementById('hero-msg-1');
+      const msg2 = document.getElementById('hero-msg-2');
+      const msg3 = document.getElementById('hero-msg-3');
+      const msg4 = document.getElementById('hero-msg-4');
+      const msg5 = document.getElementById('hero-msg-5');
+      const scrollIndicator = document.getElementById('hero-scroll-indicator');
+
+      gsap.to(frames, {
+        current: frames.total - 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroContainer,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.3,
+          onUpdate: (self) => {
+            renderFrame(Math.round(frames.current));
+            const p = self.progress;
+
+            if (scrollIndicator) {
+              scrollIndicator.style.opacity = p > 0.03 ? '0' : '0.9';
+            }
+
+            animateOverlay(msg1, p, 0.04, 0.12, 0.20);
+            animateOverlay(msg2, p, 0.24, 0.32, 0.40);
+            animateOverlay(msg3, p, 0.44, 0.52, 0.60);
+            animateOverlay(msg4, p, 0.64, 0.72, 0.80);
+            animateOverlay(msg5, p, 0.84, 0.90, 0.98, true);
+          }
+        }
+      });
+    }
+
+    function animateOverlay(el, p, start, mid, end, isCorner = false) {
+      if (!el) return;
+      if (p >= start && p <= end) {
+        let opacity = 0;
+        let yOffset = 24;
+        let scale = 0.98;
+
+        if (p < mid) {
+          const ratio = (p - start) / (mid - start);
+          opacity = ratio;
+          yOffset = 24 * (1 - ratio);
+          scale = 0.98 + 0.02 * ratio;
+        } else {
+          const ratio = (p - mid) / (end - mid);
+          opacity = 1 - ratio;
+          yOffset = -18 * ratio;
+          scale = 1 + 0.02 * ratio;
+        }
+
+        el.style.opacity = opacity.toFixed(3);
+        if (!isCorner) {
+          el.style.transform = `translateY(${yOffset.toFixed(1)}px) scale(${scale.toFixed(3)})`;
+        } else {
+          el.style.transform = `translateY(${yOffset.toFixed(1)}px)`;
+        }
+      } else {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px) scale(0.98)';
+      }
+    }
+
+    // 3. Other GSAP ScrollTriggers
+    function setupScrollTriggers() {
+      const craftCards = document.querySelectorAll('.craft-card');
+      const badgeText = document.getElementById('craft-badge-text');
+
+      craftCards.forEach((card, index) => {
+        ScrollTrigger.create({
+          trigger: card,
+          start: 'top 50%',
+          end: 'bottom 50%',
+          onEnter: () => activateCraftSlide(index),
+          onEnterBack: () => activateCraftSlide(index)
+        });
+      });
+
+      function activateCraftSlide(index) {
+        panelImages.currentActiveIndex = index;
+        panelImages.craftSlides.forEach((slide, i) => {
+          if (i === index) {
+            slide.classList.add('active');
+          } else {
+            slide.classList.remove('active');
+          }
+        });
+        if (badgeText && panelImages.craftBadges[index]) {
+          badgeText.textContent = panelImages.craftBadges[index];
+        }
+      }
+
+      // Horizontal Pinned Rail
+      const loomRailSection = document.getElementById('loom-rail');
+      const panelsContainer = document.getElementById('horizontal-panels-container');
+
+      function getScrollDistance() {
+        return panelsContainer.scrollWidth - window.innerWidth;
+      }
+
+      gsap.to(panelsContainer, {
+        x: () => -getScrollDistance(),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: loomRailSection,
+          pin: true,
+          scrub: 1,
+          start: 'top top',
+          end: () => `+=${getScrollDistance()}`,
+          invalidateOnRefresh: true
+        }
+      });
+
+      document.querySelectorAll('.loom-video-bg').forEach((vid) => {
+        vid.play().catch(() => {});
+      });
+
+      // Full-Bleed Parallax
+      const parallaxBgWrapper = document.getElementById('parallax-bg-wrapper');
+      gsap.to(parallaxBgWrapper, {
+        yPercent: 15,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#statement',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+
+      // Reverse Columns
+      gsap.to('#rev-col-1', {
+        yPercent: -20,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#craft-perspectives',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.2
+        }
+      });
+
+      gsap.to('#rev-col-2', {
+        yPercent: 20,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#craft-perspectives',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.2
+        }
+      });
+
+      gsap.to('#rev-col-3', {
+        yPercent: -20,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#craft-perspectives',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.2
+        }
+      });
+
+      ScrollTrigger.refresh();
+    }
+
+    // =========================================================================
+    // DYNAMIC CARPET CATALOGUE FETCHING & RENDERING
+    // =========================================================================
+    async function loadLiveCarpets() {
+      try {
+        const res = await fetch('/api/carpets');
+        allLiveCarpets = await res.json();
+        renderLiveCarpets();
+      } catch (err) {
+        console.error('Error fetching carpets:', err);
+      }
+    }
+
+    function filterLiveCarpets(category) {
+      liveFilter = category;
+      document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === category || (category === 'all' && btn.textContent === 'الكل'));
+      });
+      renderLiveCarpets();
+    }
+
+    function renderLiveCarpets() {
+      const grid = document.getElementById('live-masterpieces-grid');
+      if (!grid) return;
+
+      const isAr = currentLang === 'ar';
+
+      const filtered = allLiveCarpets.filter(c => {
+        if (liveFilter === 'all') return true;
+        return c.category === liveFilter;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--gold-light); padding: 60px;">${isAr ? 'لا توجد قطع معروضة في هذا التصنيف حالياً' : 'No carpets in this category currently.'}</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(c => {
+        const title = isAr ? c.nameAr : (c.nameEn || c.nameAr);
+        const cat = isAr ? c.category : (c.categoryEn || c.category);
+        const material = isAr ? (c.materialAr || 'حرير توت خالص ١٠٠٪') : (c.materialEn || '100% Pure Mulberry Silk');
+        const density = isAr ? (c.densityAr || c.kpsi) : (c.densityEn || c.kpsi);
+        const duration = isAr ? (c.durationAr || 'نسج يدوي') : (c.durationEn || 'Hand-Tied');
+        const guild = isAr ? (c.guildAr || 'نول زاهر سالمان الملكي') : (c.guildEn || 'Zaher Salman Royal Guild');
+        const inquireLabel = isAr ? 'معاينة التحفة والصور' : 'VIEW PIECE & ANGLES';
+
+        const imagesList = Array.isArray(c.images) && c.images.length > 0 ? c.images : [c.image || 'images/carpet-07-carpet-completed.jpeg'];
+        const mainImg = c.image || imagesList[0];
+        const multiBadge = imagesList.length > 1
+          ? `<div class="card-multi-badge"><span>📸</span> <span>${imagesList.length} ${isAr ? 'زوايا وصور' : 'Angles'}</span></div>`
+          : '';
+
+        return `
+          <div class="masterpiece-item" onclick="openCarpetLightbox('${c.id}')" title="${isAr ? 'اضغط لعرض تفاصيل وصور السجادة' : 'Click to view high-res angles'}">
+            <div class="masterpiece-img-container">
+              <img src="${mainImg}" alt="${title}" class="masterpiece-img" onerror="this.src='images/carpet-07-carpet-completed.jpeg'" />
+              <div class="masterpiece-kpsi-pill">${c.kpsi || '1,200 KPSI'}</div>
+              ${multiBadge}
+            </div>
+            <div class="masterpiece-details">
+              <span class="masterpiece-category">${cat}</span>
+              <h4 class="masterpiece-name">${title}</h4>
+              <ul class="masterpiece-spec-list">
+                <li><span>${isAr ? 'الخامة' : 'Material'}</span><strong>${material}</strong></li>
+                <li><span>${isAr ? 'المقاس' : 'Size'}</span><strong>${c.dimensions || 'مخصص'}</strong></li>
+                <li><span>${isAr ? 'كثافة العقد' : 'Knot Density'}</span><strong>${density}</strong></li>
+                <li><span>${isAr ? 'مدة النسج' : 'Creation Time'}</span><strong>${duration}</strong></li>
+                <li><span>${isAr ? 'المدرسة الفنية' : 'Provenance'}</span><strong>${guild}</strong></li>
+              </ul>
+              <div class="masterpiece-action">
+                <span class="masterpiece-inquire-link"><span>${inquireLabel}</span> <span>${isAr ? '←' : '→'}</span></span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // =========================================================================
+    // CARPET LIGHTBOX & MULTI-ANGLE SHOWCASE CONTROLLER
+    // =========================================================================
+    let currentLightboxCarpet = null;
+    let currentLightboxImgIndex = 0;
+
+    function openCarpetLightbox(carpetId) {
+      const carpet = allLiveCarpets.find(c => c.id === carpetId);
+      if (!carpet) return;
+
+      currentLightboxCarpet = carpet;
+      currentLightboxImgIndex = 0;
+
+      const isAr = currentLang === 'ar';
+      const title = isAr ? carpet.nameAr : (carpet.nameEn || carpet.nameAr);
+      const cat = isAr ? carpet.category : (carpet.categoryEn || carpet.category);
+      const material = isAr ? (carpet.materialAr || 'حرير توت خالص ١٠٠٪') : (carpet.materialEn || '100% Pure Mulberry Silk');
+      const density = isAr ? (carpet.densityAr || carpet.kpsi) : (carpet.densityEn || carpet.kpsi);
+      const duration = isAr ? (carpet.durationAr || 'نسج يدوي') : (carpet.durationEn || 'Hand-Tied');
+      const desc = isAr ? (carpet.descriptionAr || 'تحفة فنية حية منسوجة يدوياً من أنقى خيوط الحرير الطبيعي لقصور الصفوة.') : (carpet.descriptionEn || 'Museum-grade hand-knotted pure natural silk masterpiece for palatial residences.');
+
+      document.getElementById('lb-category').textContent = cat;
+      document.getElementById('lb-title').textContent = title;
+      document.getElementById('lb-material').textContent = material;
+      document.getElementById('lb-dimensions').textContent = carpet.dimensions || 'مخصص';
+      document.getElementById('lb-kpsi').textContent = density;
+      document.getElementById('lb-duration').textContent = duration;
+      document.getElementById('lb-description').textContent = desc;
+
+      // Labels
+      document.getElementById('lb-spec-mat-label').textContent = isAr ? 'الخامة والنقاء' : 'MATERIAL & PURITY';
+      document.getElementById('lb-spec-dim-label').textContent = isAr ? 'المقاسات' : 'DIMENSIONS';
+      document.getElementById('lb-spec-kpsi-label').textContent = isAr ? 'كثافة العقد' : 'KNOT DENSITY';
+      document.getElementById('lb-spec-dur-label').textContent = isAr ? 'مدة النسج اليدوي' : 'CREATION TIME';
+      document.getElementById('lb-wa-btn-text').textContent = isAr ? `طلب اقتناء ${title} عبر الواتساب` : `Inquire to Acquire "${title}" via WhatsApp`;
+
+      // Formulate WhatsApp URL
+      const waMsg = isAr
+        ? `⚜ *طلب استفسار واقتناء تحفة سجادة حرير — دار زاهر سالمان* ⚜\n\n` +
+          `🏺 *اسم التحفة:* ${title}\n` +
+          `🏷️ *النوع:* ${cat}\n` +
+          `📐 *المقاس:* ${carpet.dimensions || 'مخصص'}\n` +
+          `✨ *كثافة العقد:* ${density}\n` +
+          `⚜ *المدرسة / النول:* ${carpet.guildAr || 'نول زاهر سالمان الملكي'}\n\n` +
+          `أرجو إفادتي بإمكانية المعاينة الخاصة أو تفاصيل الاقتناء والتوصيل.`
+        : `⚜ *ACQUISITION INQUIRY — ZAHER SALMAN SILK CARPETS* ⚜\n\n` +
+          `🏺 *Masterpiece:* ${title}\n` +
+          `🏷️ *Category:* ${cat}\n` +
+          `📐 *Dimensions:* ${carpet.dimensions || 'Custom'}\n` +
+          `✨ *Knot Density:* ${density}\n\n` +
+          `Kindly provide private viewing availability and acquisition details.`;
+
+      document.getElementById('lb-wa-btn').href = `https://wa.me/201044104429?text=${encodeURIComponent(waMsg)}`;
+
+      // Render Gallery
+      renderLightboxGallery();
+
+      const modal = document.getElementById('carpet-lightbox-modal');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function renderLightboxGallery() {
+      if (!currentLightboxCarpet) return;
+
+      const imagesList = Array.isArray(currentLightboxCarpet.images) && currentLightboxCarpet.images.length > 0
+        ? currentLightboxCarpet.images
+        : [currentLightboxCarpet.image || 'images/carpet-07-carpet-completed.jpeg'];
+
+      const mainImg = document.getElementById('lb-main-img');
+      const prevBtn = document.getElementById('lb-prev-btn');
+      const nextBtn = document.getElementById('lb-next-btn');
+      const thumbsContainer = document.getElementById('lb-thumbs-strip');
+
+      // Update main image
+      mainImg.src = imagesList[currentLightboxImgIndex] || imagesList[0];
+
+      // Show/Hide navigation arrows
+      if (imagesList.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        thumbsContainer.style.display = 'none';
+      } else {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+        thumbsContainer.style.display = 'flex';
+
+        thumbsContainer.innerHTML = imagesList.map((imgUrl, idx) => `
+          <div class="lightbox-thumb-item ${idx === currentLightboxImgIndex ? 'active' : ''}" onclick="selectLightboxThumb(${idx})">
+            <img src="${imgUrl}" alt="Thumbnail ${idx + 1}" onerror="this.src='images/carpet-07-carpet-completed.jpeg'" />
+          </div>
+        `).join('');
+      }
+    }
+
+    function navigateLightboxImage(dir) {
+      if (!currentLightboxCarpet) return;
+      const imagesList = Array.isArray(currentLightboxCarpet.images) && currentLightboxCarpet.images.length > 0
+        ? currentLightboxCarpet.images
+        : [currentLightboxCarpet.image || 'images/carpet-07-carpet-completed.jpeg'];
+
+      currentLightboxImgIndex = (currentLightboxImgIndex + dir + imagesList.length) % imagesList.length;
+      renderLightboxGallery();
+    }
+
+    function selectLightboxThumb(idx) {
+      currentLightboxImgIndex = idx;
+      renderLightboxGallery();
+    }
+
+    function closeCarpetLightbox() {
+      const modal = document.getElementById('carpet-lightbox-modal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      currentLightboxCarpet = null;
+    }
+
+    function handleLightboxBackdropClick(e) {
+      if (e.target.id === 'carpet-lightbox-modal') {
+        closeCarpetLightbox();
+      }
+    }
+
+    // Keyboard navigation for Lightbox
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('carpet-lightbox-modal');
+      if (modal && modal.classList.contains('active')) {
+        if (e.key === 'Escape') closeCarpetLightbox();
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          const dir = (e.key === 'ArrowRight' && currentLang === 'ar') || (e.key === 'ArrowLeft' && currentLang === 'en') ? -1 : 1;
+          navigateLightboxImage(dir);
+        }
+      }
+    });
+
+    // =========================================================================
+    // DYNAMIC VIP TESTIMONIALS FETCHING & RENDERING
+    // =========================================================================
+    async function loadLiveReviews() {
+      try {
+        const res = await fetch('/api/reviews');
+        allLiveReviews = await res.json();
+        renderLiveReviews();
+      } catch (err) {
+        console.error('Error fetching reviews:', err);
+      }
+    }
+
+    function renderLiveReviews() {
+      const container = document.getElementById('vip-reviews-grid');
+      if (!container) return;
+
+      const isAr = currentLang === 'ar';
+
+      if (allLiveReviews.length === 0) {
+        container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--gold-light); padding: 40px;">${isAr ? 'جاري تحميل آراء المقتنين...' : 'Loading Patron Testimonials...'}</div>`;
+        return;
+      }
+
+      container.innerHTML = allLiveReviews.map(r => {
+        const name = isAr ? r.nameAr : (r.nameEn || r.nameAr);
+        const title = isAr ? r.titleAr : (r.titleEn || r.titleAr);
+        const quote = isAr ? r.quoteAr : (r.quoteEn || r.quoteAr);
+        const piece = isAr ? r.pieceAcquiredAr : (r.pieceAcquiredEn || r.pieceAcquiredAr);
+        const sealText = isAr ? `⚜ ختم اقتناء موثق: ${piece}` : `⚜ Authenticated Acquisition: ${piece}`;
+
+        return `
+          <div class="vip-review-card">
+            <div class="vip-card-top">
+              <div class="vip-stars">★★★★★</div>
+              <div class="vip-seal-pill">${sealText}</div>
+            </div>
+            <p class="vip-quote-text">${quote}</p>
+            <div class="vip-author-wrap">
+              <div class="vip-avatar-crest">${r.avatar || '⚜'}</div>
+              <div class="vip-author-info">
+                <h4>${name}</h4>
+                <p>${title}</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Modal Inquiry / Bespoke Form Handler
+    function openInquiryModal(pieceName) {
+      const notesField = document.getElementById('client-notes');
+      if (notesField) {
+        const prefix = currentLang === 'ar' ? 'استفسار بخصوص اقتناء وتفاصيل تحفة:' : 'Inquiring about acquisition details for:';
+        notesField.value = `${prefix} "${pieceName}".`;
+      }
+      const bespokeSection = document.getElementById('bespoke');
+      if (bespokeSection) {
+        lenis.scrollTo(bespokeSection, { offset: -40, duration: 1.5 });
+      }
+    }
+
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('form-submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = currentLang === 'ar' ? 'جاري توجيهكم للواتساب...' : 'Redirecting to WhatsApp...';
+
+      const nameVal = document.getElementById('client-name').value;
+      const phoneVal = document.getElementById('client-phone').value;
+      const emailVal = document.getElementById('client-email').value;
+      const dimVal = document.getElementById('carpet-dimension').value;
+      const paletteVal = document.getElementById('preferred-palette').value;
+      const notesVal = document.getElementById('client-notes').value;
+
+      const payload = {
+        name: nameVal,
+        phone: phoneVal,
+        email: emailVal,
+        dimensions: dimVal,
+        palette: paletteVal,
+        notes: notesVal,
+        pieceName: 'طلب استشارة خاصة عبر الواتساب'
+      };
+
+      // Construct formatted royal WhatsApp message
+      let waMessage = '';
+      if (currentLang === 'ar') {
+        waMessage = `⚜ *طلب استشارة خاصة وتفصيل سجاد ملكي — دار زاهر سالمان* ⚜\n\n` +
+                    `👤 *الاسم / اللقب:* ${nameVal}\n` +
+                    `📞 *رقم الهاتف:* ${phoneVal}\n` +
+                    (emailVal ? `✉️ *البريد:* ${emailVal}\n` : '') +
+                    (dimVal ? `📐 *المقاسات التقريبية:* ${dimVal}\n` : '') +
+                    `🎨 *باليتة الألوان المفضلة:* ${paletteVal}\n` +
+                    (notesVal ? `📝 *تفاصيل واستفسارات:* ${notesVal}\n` : '') +
+                    `\n⚜ _أرجو تزويدي بتفاصيل الاستشارة ومواعيد المعاينة الملكية._`;
+      } else {
+        waMessage = `⚜ *ROYAL BESPOKE CONSULTATION REQUEST — ZAHER SALMAN* ⚜\n\n` +
+                    `👤 *Name / Honorific:* ${nameVal}\n` +
+                    `📞 *Phone / WhatsApp:* ${phoneVal}\n` +
+                    (emailVal ? `✉️ *Email:* ${emailVal}\n` : '') +
+                    (dimVal ? `📐 *Dimensions:* ${dimVal}\n` : '') +
+                    `🎨 *Silk Palette:* ${paletteVal}\n` +
+                    (notesVal ? `📝 *Notes:* ${notesVal}\n` : '') +
+                    `\n⚜ _Kindly provide consultation and atelier appointment availability._`;
+      }
+
+      const waUrl = `https://wa.me/201044104429?text=${encodeURIComponent(waMessage)}`;
+
+      try {
+        // Save to backend database for records
+        await fetch('/api/inquiries', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const statusMsg = document.getElementById('form-status-msg');
+        if (statusMsg) {
+          statusMsg.style.display = 'block';
+          statusMsg.innerHTML = currentLang === 'ar'
+            ? `⚜ تم تسجيل طلبكم بنجاح! <a href="${waUrl}" target="_blank" style="color:#ffd700; text-decoration:underline; font-weight:700;">اضغط هنا إذا لم تفتح محادثة الواتساب تلقائياً (+201044104429)</a>`
+            : `⚜ Request registered! <a href="${waUrl}" target="_blank" style="color:#ffd700; text-decoration:underline; font-weight:700;">Click here if WhatsApp didn't open (+201044104429)</a>`;
+          gsap.fromTo(statusMsg, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.6 });
+        }
+
+        // Open WhatsApp directly
+        window.open(waUrl, '_blank');
+        document.getElementById('bespoke-form').reset();
+      } catch (err) {
+        // Fallback: still open WhatsApp
+        window.open(waUrl, '_blank');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>💬</span> <span>${translations[currentLang]['form.submit']}</span>`;
+      }
+    }
+
+    // Kickoff with initial language and dynamic data
+    window.addEventListener('DOMContentLoaded', () => {
+      applyLanguage(currentLang);
+      initFrameLoading();
+      loadLiveCarpets();
+      loadLiveReviews();
+    });
+  </script>
+</body>
+</html>
