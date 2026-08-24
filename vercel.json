@@ -1,12 +1,11 @@
 {
-  "cleanUrls": true,
   "rewrites": [
     {
       "source": "/api/:path*",
       "destination": "/api/index.js"
     },
     {
-      "source": "/",
+      "source": "/((?!api|admin|images|videos|frames|uploads|data).*)",
       "destination": "/index.html"
     }
   ]
