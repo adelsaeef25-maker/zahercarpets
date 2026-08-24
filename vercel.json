@@ -1,12 +1,13 @@
 {
+  "cleanUrls": true,
   "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
-    },
     {
       "source": "/api/:path*",
       "destination": "/api/index.js"
+    },
+    {
+      "source": "/",
+      "destination": "/index.html"
     }
   ]
 }
