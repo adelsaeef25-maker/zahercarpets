@@ -1,0 +1,12 @@
+{
+  "name": "zahercarpets",
+  "version": "1.0.0",
+  "description": "Zaher Salman Carpets Imperial Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["carpets", "luxury", "silk"],
+  "author": "Zaher Salman Carpets",
+  "license": "ISC"
+}
