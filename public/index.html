@@ -2169,65 +2169,322 @@
     /* ==========================================================================
        RESPONSIVE BREAKPOINTS
        ========================================================================== */
-    @media (max-width: 1024px) {
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS & MOBILE STORE OPTIMIZATION
+       ========================================================================== */
+    /* Floating Mobile Bottom Action Bar (VIP Mobile Concierge) */
+    .mobile-bottom-bar {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 74px;
+        overflow-x: hidden;
+      }
+
+      /* Mobile Navigation Bar */
+      .site-nav {
+        padding: 12px 16px;
+        background: rgba(10, 8, 6, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid var(--border-gold-subtle);
+      }
+      .site-nav.scrolled {
+        padding: 10px 16px;
+      }
+      .nav-logo {
+        gap: 8px;
+      }
+      .nav-brand-logo {
+        height: 36px;
+      }
+      html[dir="rtl"] .nav-logo {
+        font-size: 18px;
+      }
+      html[dir="ltr"] .nav-logo {
+        font-size: 16px;
+      }
+      .nav-links {
+        gap: 8px;
+      }
+      .nav-item:not(.nav-btn-gold) {
+        display: none; /* Hidden on mobile header, available in bottom bar */
+      }
+      .nav-item.nav-btn-gold {
+        padding: 6px 12px;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+      }
+      .lang-switcher-btn {
+        padding: 4px 10px;
+        font-size: 11px;
+      }
+
+      /* Mobile Floating Bottom Bar */
+      .mobile-bottom-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 66px;
+        background: rgba(12, 9, 7, 0.96);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(229, 192, 88, 0.35);
+        box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.85);
+        z-index: 9999;
+        align-items: center;
+        justify-content: space-around;
+        padding: 6px 8px;
+      }
+
+      .mobile-bar-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        color: var(--text-soft);
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 6px 10px;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+        flex: 1;
+        text-align: center;
+      }
+
+      .mobile-bar-btn .bar-icon {
+        font-size: 18px;
+        line-height: 1;
+      }
+
+      .mobile-bar-btn.active, .mobile-bar-btn:active {
+        color: var(--gold-bright);
+        background: rgba(229, 192, 88, 0.1);
+      }
+
+      .mobile-bar-wa-btn {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: #ffffff !important;
+        border-radius: 25px;
+        padding: 8px 14px;
+        flex: 1.4;
+        font-weight: 700;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        position: relative;
+        transform: translateY(-4px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        animation: waPulse 2.5s infinite ease-in-out;
+      }
+
+      @keyframes waPulse {
+        0%, 100% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+        50% { box-shadow: 0 4px 22px rgba(37, 211, 102, 0.7); }
+      }
+
+      .mobile-bar-wa-btn .bar-icon {
+        font-size: 18px;
+      }
+
+      /* Hero Section on Mobile */
+      .hero-scroll-container {
+        height: 180vh; /* Shorter, swift transition on mobile */
+      }
+      .hero-canvas-vignette {
+        background: radial-gradient(circle at center, transparent 40%, rgba(10, 8, 6, 0.85) 100%);
+      }
+      .hero-msg {
+        padding: 16px 18px;
+        max-width: 90vw;
+      }
+      .hero-title-arabic {
+        font-size: 26px !important;
+        letter-spacing: 1px;
+      }
+      .hero-title-sub {
+        font-size: 13px !important;
+      }
+      .hero-statement-main {
+        font-size: 18px !important;
+      }
+      .hero-statement-sub {
+        font-size: 13px !important;
+      }
+
+      /* Craftsmanship Section on Mobile */
       .craftsmanship-split-container {
         flex-direction: column;
       }
       .craftsmanship-sticky-left {
         width: 100%;
-        height: 60vh;
+        height: 340px;
         position: relative;
+        top: 0;
         border-right: none;
-        border-bottom: 1px solid var(--border-gold-subtle);
-      }
-      html[dir="rtl"] .craftsmanship-sticky-left {
         border-left: none;
+        border-bottom: 1px solid var(--border-gold-subtle);
       }
       .craftsmanship-scroll-right {
         width: 100%;
+        padding: 30px 16px;
       }
-      .reverse-grid, .masterpiece-grid, .vip-reviews-grid {
-        grid-template-columns: 1fr;
-      }
-      .footer-top {
-        grid-template-columns: 1fr 1fr;
-      }
-      .loom-panel {
-        padding: 100px 5% 40px 5%;
-      }
-      .loom-content-card {
-        padding: 34px 28px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .site-nav {
-        padding: 18px 20px;
-      }
-      .site-nav.scrolled {
-        padding: 12px 20px;
-      }
-      .nav-links {
-        gap: 12px;
-      }
-      .nav-item {
-        letter-spacing: 1px;
-        font-size: 12px;
-      }
-      .hero-msg {
+      .craft-card {
         padding: 24px 20px;
+        margin-bottom: 24px;
+      }
+      .craft-card-title {
+        font-size: 20px;
+      }
+      .craft-card-desc {
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      /* Horizontal Loom Rail -> Mobile Swipeable Touch Slider */
+      .horizontal-loom-section {
+        height: auto !important;
+        min-height: auto !important;
+        padding: 40px 0 20px 0 !important;
+        overflow: hidden;
+      }
+      .horizontal-pin-track {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
       }
       .loom-section-header {
-        padding: 20px 4%;
+        position: relative !important;
+        padding: 0 20px 20px 20px !important;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .loom-title-group h2 {
+        font-size: 22px !important;
+      }
+      .horizontal-panels-container {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 10px 16px 25px 16px !important;
+        gap: 14px !important;
+        width: auto !important;
+        transform: none !important;
+      }
+      .horizontal-panels-container::-webkit-scrollbar {
+        height: 4px;
+      }
+      .horizontal-panels-container::-webkit-scrollbar-thumb {
+        background: var(--gold-primary);
+        border-radius: 2px;
+      }
+      .loom-panel {
+        min-width: 86vw !important;
+        max-width: 88vw !important;
+        height: 460px !important;
+        flex-shrink: 0 !important;
+        scroll-snap-align: center !important;
+        border-radius: 10px !important;
+        overflow: hidden !important;
+        position: relative !important;
+        padding: 24px 18px !important;
+        display: flex !important;
+        align-items: flex-end !important;
       }
       .loom-content-card {
-        padding: 24px 20px;
+        padding: 20px 18px !important;
+        background: rgba(14, 10, 8, 0.92) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
       }
-      .concierge-card-wrapper {
-        padding: 40px 20px;
+      .loom-panel-heading {
+        font-size: 18px !important;
+        margin-bottom: 8px !important;
+      }
+      .loom-panel-body {
+        font-size: 13px !important;
+        line-height: 1.65 !important;
+        margin-bottom: 12px !important;
+      }
+
+      /* Parallax Statement on Mobile */
+      .parallax-quote {
+        font-size: 18px;
+        line-height: 1.6;
+        padding: 0 16px;
+      }
+
+      /* Reverse Perspectves on Mobile */
+      .reverse-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 16px;
+      }
+      .reverse-card-img-wrap {
+        height: 280px;
+      }
+
+      /* Masterpiece Collection Grid on Mobile */
+      .masterpiece-header {
+        padding: 0 16px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .masterpiece-header h2 {
+        font-size: 24px;
+      }
+      .category-filters {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .cat-filter-btn {
+        white-space: nowrap;
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+      .masterpiece-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 16px;
+      }
+      .masterpiece-card-img-wrap {
+        height: 320px;
+      }
+
+      /* VIP Reviews on Mobile */
+      .vip-reviews-header {
+        padding: 0 16px 24px;
+      }
+      .vip-reviews-header h2 {
+        font-size: 22px;
+      }
+      .vip-reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 0 16px;
       }
       .vip-review-card {
-        padding: 28px 20px;
+        padding: 24px 18px;
+      }
+
+      /* Bespoke WhatsApp Section on Mobile */
+      .concierge-card-wrapper {
+        padding: 30px 16px;
+        margin: 0 16px;
+      }
+      .concierge-header h2 {
+        font-size: 22px;
       }
       .concierge-form {
         grid-template-columns: 1fr;
@@ -2235,14 +2492,63 @@
       .concierge-form .full-width, .form-submit-btn, .form-status-msg {
         grid-column: span 1;
       }
+      .form-submit-btn {
+        padding: 16px 18px;
+        font-size: 14px;
+      }
+
+      /* Footer on Mobile */
       .footer-top {
         grid-template-columns: 1fr;
-        gap: 36px;
+        gap: 28px;
+        padding: 40px 16px 30px;
       }
       .footer-bottom {
         flex-direction: column;
-        gap: 14px;
+        gap: 12px;
         text-align: center;
+        padding: 20px 16px;
+      }
+
+      /* Lightbox Modal on Mobile */
+      .carpet-lightbox-modal {
+        padding: 0;
+        align-items: flex-end;
+      }
+      .lightbox-container {
+        width: 100vw;
+        max-height: 94vh;
+        border-radius: 20px 20px 0 0;
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+      }
+      .lightbox-gallery-pane {
+        padding: 16px;
+        min-height: 260px;
+        max-height: 340px;
+      }
+      .lightbox-main-img-wrap {
+        height: 240px;
+      }
+      .lightbox-details-pane {
+        padding: 20px 18px 30px;
+      }
+      .lightbox-title {
+        font-size: 20px;
+        margin-bottom: 14px;
+      }
+      .lightbox-specs-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 14px;
+      }
+      .lightbox-wa-action-btn {
+        position: sticky;
+        bottom: 0;
+        z-index: 20;
+        margin-top: 14px;
+        padding: 15px 18px;
+        font-size: 14px;
       }
     }
   </style>
@@ -2788,6 +3094,30 @@
     </div>
   </div>
 
+  <!-- 12. FLOATING MOBILE VIP ACTION BAR -->
+  <aside class="mobile-bottom-bar" id="mobile-bottom-bar">
+    <a href="https://wa.me/201044104429?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%AF%D8%A7%D8%B1%20%D8%B2%D8%A7%D9%87%D8%B1%20%D8%B3%D8%A7%D9%84%D9%85%D8%A7%D9%86%20%D9%84%D9%84%D8%B3%D8%AC%D8%A7%D8%AF%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%B7%D9%84%D8%A8%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%AE%D8%A7%D8%B5%D8%A9%20%D9%88%D9%85%D8%B9%D8%A7%D9%8A%D9%86%D8%A9%20%D8%AA%D8%AD%D9%81%20%D8%A7%D9%84%D8%B3%D8%AC%D8%A7%D8%AF." target="_blank" class="mobile-bar-btn mobile-bar-wa-btn">
+      <span class="bar-icon">💬</span>
+      <span data-i18n="mobile.wa">واتساب VIP</span>
+    </a>
+    <a href="#collection" class="mobile-bar-btn">
+      <span class="bar-icon">🏺</span>
+      <span data-i18n="mobile.collection">المجموعة</span>
+    </a>
+    <a href="#craftsmanship" class="mobile-bar-btn">
+      <span class="bar-icon">🧵</span>
+      <span data-i18n="mobile.craft">الصنعة</span>
+    </a>
+    <a href="tel:+201044104429" class="mobile-bar-btn">
+      <span class="bar-icon">📞</span>
+      <span data-i18n="mobile.call">اتصال</span>
+    </a>
+    <button type="button" class="mobile-bar-btn" onclick="toggleLanguage()" style="background:transparent;border:none;cursor:pointer;">
+      <span class="bar-icon">🌐</span>
+      <span id="mobile-lang-label">EN</span>
+    </button>
+  </aside>
+
   <!-- ==========================================================================
        JAVASCRIPT LOGIC & BILINGUAL TRANSLATION SYSTEM
        ========================================================================== -->
@@ -2913,7 +3243,11 @@
         'footer.c2_l4': 'نقابة شيوخ الصنعة',
         'footer.cert_title': 'شهادة الأصالة والتوثيق الملكي',
         'footer.cert_desc': 'كل قطعة من سجاد زاهر سالمان بتتسلم مع شهادة رسمية موثقة تثبت نقاء خامة الحرير وعدد العقد وتوقيع شيخ الصنعة وختم النول الملكي المعتمد.',
-        'footer.copy': '© ٢٠٢٦ زاهر سالمان للسجاد. جميع الحقوق محفوظة. حرير طبيعي ١٠٠٪ معقود يدويًا.'
+        'footer.copy': '© ٢٠٢٦ زاهر سالمان للسجاد. جميع الحقوق محفوظة. حرير طبيعي ١٠٠٪ معقود يدويًا.',
+        'mobile.wa': 'واتساب VIP',
+        'mobile.collection': 'المجموعة',
+        'mobile.craft': 'الصنعة',
+        'mobile.call': 'اتصال'
       },
       en: {
         dir: 'ltr',
@@ -3035,10 +3369,15 @@
         'footer.c2_l4': '1,200+ KPSI Guild',
         'footer.cert_title': 'CERTIFICATE OF AUTHENTICITY',
         'footer.cert_desc': 'Every Zaher Salman Carpet is delivered with an immutable Certificate of Royal Guild Authenticity, fiber micron certification, and a bespoke provenance dossier.',
-        'footer.copy': '© 2026 ZAHER SALMAN CARPETS. ALL RIGHTS RESERVED. HAND-KNOTTED PURE SILK.'
+        'footer.copy': '© 2026 ZAHER SALMAN CARPETS. ALL RIGHTS RESERVED. HAND-KNOTTED PURE SILK.',
+        'mobile.wa': 'VIP WhatsApp',
+        'mobile.collection': 'Collection',
+        'mobile.craft': 'Craft',
+        'mobile.call': 'Call'
       }
     };
 
+    const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window);
     let currentLang = localStorage.getItem('zaher_lang') || 'ar';
     let allLiveCarpets = [];
     let allLiveReviews = [];
@@ -3055,6 +3394,9 @@
 
       const langToggleLabel = document.getElementById('lang-toggle-label');
       if (langToggleLabel) langToggleLabel.textContent = dict.langBtn;
+
+      const mobileLangLabel = document.getElementById('mobile-lang-label');
+      if (mobileLangLabel) mobileLangLabel.textContent = dict.langBtn;
 
       document.querySelectorAll('[data-i18n]').forEach((el) => {
         const key = el.getAttribute('data-i18n');
@@ -3085,23 +3427,23 @@
       applyLanguage(nextLang);
     }
 
-    // 1. Lenis Smooth Scrolling Initialization
-    const lenis = new Lenis({
-      duration: 1.2,
-      lerp: 0.08,
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 1.5,
-      orientation: 'vertical',
-      gestureOrientation: 'vertical'
-    });
-
-    lenis.on('scroll', ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
+    // 1. Lenis Smooth Scrolling (Desktop only for native 120Hz mobile kinetic scroll)
+    let lenis = null;
+    if (!isMobile && typeof Lenis !== 'undefined') {
+      try {
+        lenis = new Lenis({
+          duration: 1.2,
+          lerp: 0.08,
+          smoothWheel: true,
+          wheelMultiplier: 1,
+          orientation: 'vertical',
+          gestureOrientation: 'vertical'
+        });
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+        gsap.ticker.lagSmoothing(0);
+      } catch (e) {}
+    }
 
     // Scroll Progress Bar Update
     const scrollProgressBar = document.getElementById('scroll-progress-bar');
@@ -3118,7 +3460,7 @@
       } else {
         mainNav.classList.remove('scrolled');
       }
-    });
+    }, { passive: true });
 
     // 2. Hero Canvas Frame Sequence Engine
     const canvas = document.getElementById('hero-canvas');
@@ -3142,7 +3484,7 @@
     };
 
     function resizeCanvas() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2);
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
       context.scale(dpr, dpr);
@@ -3158,7 +3500,7 @@
       
       if (!img || !img.complete || img.naturalWidth === 0) {
         let found = null;
-        for (let offset = 1; offset < 50; offset++) {
+        for (let offset = 1; offset < 60; offset++) {
           if (index - offset >= 0 && frames.images[index - offset] && frames.images[index - offset].complete && frames.images[index - offset].naturalWidth > 0) {
             found = frames.images[index - offset];
             break;
@@ -3205,7 +3547,7 @@
     const preloaderCounter = document.getElementById('preloader-counter');
 
     let loadedCount = 0;
-    const initialBatchSize = 40;
+    const initialBatchSize = isMobile ? 5 : 30;
     let isRevealed = false;
 
     function formatFramePath(i) {
@@ -3214,6 +3556,53 @@
     }
 
     function initFrameLoading() {
+      if (isMobile) {
+        // ULTRA-LIGHTWEIGHT MOBILE ENGINE: loads only 20 stepped frames
+        const mobileStep = 45;
+        let mobileLoaded = 0;
+
+        for (let i = 0; i < frames.total; i += mobileStep) {
+          const img = new Image();
+          img.src = formatFramePath(i);
+          img.onload = () => {
+            mobileLoaded++;
+            if (mobileLoaded === 1) {
+              resizeCanvas();
+              renderFrame(0);
+            }
+            if (mobileLoaded >= 2 && !isRevealed) {
+              isRevealed = true;
+              if (preloader) preloader.classList.add('hidden');
+              setupHeroScrollAnimation();
+              setupScrollTriggers();
+              initVideoObserver();
+            }
+          };
+          img.onerror = () => {
+            if (!isRevealed) {
+              isRevealed = true;
+              if (preloader) preloader.classList.add('hidden');
+              setupHeroScrollAnimation();
+              setupScrollTriggers();
+              initVideoObserver();
+            }
+          };
+          frames.images[i] = img;
+        }
+
+        setTimeout(() => {
+          if (!isRevealed) {
+            isRevealed = true;
+            if (preloader) preloader.classList.add('hidden');
+            setupHeroScrollAnimation();
+            setupScrollTriggers();
+            initVideoObserver();
+          }
+        }, 350);
+        return;
+      }
+
+      // DESKTOP PROGRESSIVE FRAME ENGINE
       for (let i = 0; i < frames.total; i++) {
         const img = new Image();
         img.src = formatFramePath(i);
@@ -3236,6 +3625,7 @@
               if (preloader) preloader.classList.add('hidden');
               setupHeroScrollAnimation();
               setupScrollTriggers();
+              initVideoObserver();
             }, 300);
           }
         };
@@ -3246,10 +3636,45 @@
             if (preloader) preloader.classList.add('hidden');
             setupHeroScrollAnimation();
             setupScrollTriggers();
+            initVideoObserver();
           }
         };
         frames.images.push(img);
       }
+    }
+
+    // Video Autoplay & Intersection Observer
+    function initVideoObserver() {
+      const videos = document.querySelectorAll('video');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const v = entry.target;
+            if (entry.isIntersecting) {
+              v.play().catch(() => {});
+            } else {
+              v.pause();
+            }
+          });
+        }, { threshold: 0.15 });
+
+        videos.forEach(v => {
+          v.setAttribute('playsinline', '');
+          v.setAttribute('webkit-playsinline', '');
+          v.muted = true;
+          observer.observe(v);
+        });
+      }
+
+      const touchStartPlay = () => {
+        videos.forEach(v => {
+          if (v.paused) v.play().catch(() => {});
+        });
+        window.removeEventListener('touchstart', touchStartPlay);
+        window.removeEventListener('click', touchStartPlay);
+      };
+      window.addEventListener('touchstart', touchStartPlay, { passive: true });
+      window.addEventListener('click', touchStartPlay, { passive: true });
     }
 
     // GSAP Hero Canvas Scrub Timeline
@@ -3269,7 +3694,7 @@
           trigger: heroContainer,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 0.3,
+          scrub: isMobile ? 0.1 : 0.3,
           onUpdate: (self) => {
             renderFrame(Math.round(frames.current));
             const p = self.progress;
@@ -3348,26 +3773,27 @@
         }
       }
 
-      // Horizontal Pinned Rail
-      const loomRailSection = document.getElementById('loom-rail');
-      const panelsContainer = document.getElementById('horizontal-panels-container');
+      // Horizontal Pinned Rail (Desktop only; Mobile uses CSS Touch Snap)
+      if (!isMobile) {
+        const loomRailSection = document.getElementById('loom-rail');
+        const panelsContainer = document.getElementById('horizontal-panels-container');
 
-      function getScrollDistance() {
-        return panelsContainer.scrollWidth - window.innerWidth;
-      }
-
-      gsap.to(panelsContainer, {
-        x: () => -getScrollDistance(),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: loomRailSection,
-          pin: true,
-          scrub: 1,
-          start: 'top top',
-          end: () => `+=${getScrollDistance()}`,
-          invalidateOnRefresh: true
+        if (loomRailSection && panelsContainer) {
+          const getScrollDistance = () => panelsContainer.scrollWidth - window.innerWidth;
+          gsap.to(panelsContainer, {
+            x: () => -getScrollDistance(),
+            ease: 'none',
+            scrollTrigger: {
+              trigger: loomRailSection,
+              pin: true,
+              scrub: 1,
+              start: 'top top',
+              end: () => `+=${getScrollDistance()}`,
+              invalidateOnRefresh: true
+            }
+          });
         }
-      });
+      }
 
       document.querySelectorAll('.loom-video-bg').forEach((vid) => {
         vid.play().catch(() => {});
@@ -3639,6 +4065,30 @@
         }
       }
     });
+
+    // Touch Swipe Gestures for Mobile Lightbox
+    let lbTouchStartX = 0;
+    let lbTouchEndX = 0;
+    const lbModal = document.getElementById('carpet-lightbox-modal');
+    if (lbModal) {
+      lbModal.addEventListener('touchstart', (e) => {
+        lbTouchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      lbModal.addEventListener('touchend', (e) => {
+        lbTouchEndX = e.changedTouches[0].screenX;
+        const diff = lbTouchEndX - lbTouchStartX;
+        if (Math.abs(diff) > 40) {
+          if (diff < 0) {
+            // Swiped left
+            navigateLightboxImage(currentLang === 'ar' ? -1 : 1);
+          } else {
+            // Swiped right
+            navigateLightboxImage(currentLang === 'ar' ? 1 : -1);
+          }
+        }
+      }, { passive: true });
+    }
 
     // =========================================================================
     // DYNAMIC VIP TESTIMONIALS FETCHING & RENDERING
