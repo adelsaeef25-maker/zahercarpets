@@ -2167,78 +2167,84 @@
     }
 
     /* ==========================================================================
-       RESPONSIVE BREAKPOINTS
-       ========================================================================== */
     /* ==========================================================================
-       RESPONSIVE BREAKPOINTS & MOBILE STORE OPTIMIZATION
+       RESPONSIVE BREAKPOINTS & WORLD-CLASS LUXURY MOBILE EXPERIENCE
        ========================================================================== */
-    /* Floating Mobile Bottom Action Bar (VIP Mobile Concierge) */
     .mobile-bottom-bar {
       display: none;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 991px) {
       body {
         padding-bottom: 74px;
-        overflow-x: hidden;
+        overflow-x: clip;
       }
 
-      /* Mobile Navigation Bar */
+      /* 1. Ultra-Clean Luxury Mobile Header */
       .site-nav {
-        padding: 12px 16px;
-        background: rgba(10, 8, 6, 0.95);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border-bottom: 1px solid var(--border-gold-subtle);
+        padding: 12px 18px !important;
+        background: rgba(10, 8, 6, 0.96) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border-bottom: 1px solid rgba(229, 192, 88, 0.3) !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
       }
       .site-nav.scrolled {
-        padding: 10px 16px;
+        padding: 10px 18px !important;
       }
       .nav-logo {
-        gap: 8px;
+        gap: 8px !important;
+        font-size: 18px !important;
+        letter-spacing: 0.5px !important;
       }
       .nav-brand-logo {
-        height: 36px;
+        height: 38px !important;
       }
       html[dir="rtl"] .nav-logo {
-        font-size: 18px;
+        font-size: 18px !important;
       }
       html[dir="ltr"] .nav-logo {
-        font-size: 16px;
+        font-size: 16px !important;
       }
       .nav-links {
-        gap: 8px;
+        gap: 8px !important;
+        display: flex !important;
+        align-items: center !important;
       }
       .nav-item:not(.nav-btn-gold) {
-        display: none; /* Hidden on mobile header, available in bottom bar */
+        display: none !important; /* Long text links kept in bottom bar to prevent overlapping on mobile header */
       }
       .nav-item.nav-btn-gold {
-        padding: 6px 12px;
-        font-size: 11px;
-        letter-spacing: 0.5px;
+        padding: 6px 14px !important;
+        font-size: 11px !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
       }
       .lang-switcher-btn {
-        padding: 4px 10px;
-        font-size: 11px;
+        padding: 5px 10px !important;
+        font-size: 11px !important;
       }
 
-      /* Mobile Floating Bottom Bar */
+      /* 2. Floating Mobile VIP Concierge Bottom Bar */
       .mobile-bottom-bar {
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100vw;
-        height: 66px;
-        background: rgba(12, 9, 7, 0.96);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-top: 1px solid rgba(229, 192, 88, 0.35);
-        box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.85);
-        z-index: 9999;
-        align-items: center;
-        justify-content: space-around;
-        padding: 6px 8px;
+        display: flex !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 66px !important;
+        background: rgba(12, 9, 7, 0.97) !important;
+        backdrop-filter: blur(25px) !important;
+        -webkit-backdrop-filter: blur(25px) !important;
+        border-top: 1px solid rgba(229, 192, 88, 0.35) !important;
+        box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.9) !important;
+        z-index: 9999 !important;
+        align-items: center !important;
+        justify-content: space-around !important;
+        padding: 6px 10px !important;
+        padding-bottom: max(6px, env(safe-area-inset-bottom)) !important;
       }
 
       .mobile-bar-btn {
@@ -2251,106 +2257,127 @@
         text-decoration: none;
         font-size: 11px;
         font-weight: 600;
-        padding: 6px 10px;
+        padding: 6px 8px;
         border-radius: 6px;
         transition: all 0.2s ease;
         flex: 1;
         text-align: center;
       }
-
       .mobile-bar-btn .bar-icon {
         font-size: 18px;
         line-height: 1;
       }
-
       .mobile-bar-btn.active, .mobile-bar-btn:active {
         color: var(--gold-bright);
-        background: rgba(229, 192, 88, 0.1);
+        background: rgba(229, 192, 88, 0.12);
       }
 
       .mobile-bar-wa-btn {
-        background: linear-gradient(135deg, #25d366, #128c7e);
+        background: linear-gradient(135deg, #25d366, #128c7e) !important;
         color: #ffffff !important;
-        border-radius: 25px;
-        padding: 8px 14px;
-        flex: 1.4;
-        font-weight: 700;
-        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-        position: relative;
-        transform: translateY(-4px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        animation: waPulse 2.5s infinite ease-in-out;
+        border-radius: 25px !important;
+        padding: 8px 14px !important;
+        flex: 1.35 !important;
+        font-weight: 700 !important;
+        box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45) !important;
+        position: relative !important;
+        transform: translateY(-4px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        animation: waPulse 2.5s infinite ease-in-out !important;
       }
-
       @keyframes waPulse {
-        0%, 100% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
-        50% { box-shadow: 0 4px 22px rgba(37, 211, 102, 0.7); }
+        0%, 100% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.45); }
+        50% { box-shadow: 0 4px 24px rgba(37, 211, 102, 0.75); }
       }
 
-      .mobile-bar-wa-btn .bar-icon {
-        font-size: 18px;
-      }
-
-      /* Hero Section on Mobile */
+      /* 3. Hero Interactive Canvas & Storytelling on Mobile */
       .hero-scroll-container {
-        height: 180vh; /* Shorter, swift transition on mobile */
+        height: 380vh !important;
+        min-height: 2400px !important;
+        position: relative !important;
+      }
+      .hero-sticky-canvas-wrapper {
+        height: 100vh !important;
+        height: 100dvh !important;
+        width: 100% !important;
       }
       .hero-canvas-vignette {
-        background: radial-gradient(circle at center, transparent 40%, rgba(10, 8, 6, 0.85) 100%);
+        background: radial-gradient(circle at center, rgba(10, 8, 6, 0.25) 20%, rgba(10, 8, 6, 0.75) 80%, rgba(10, 8, 6, 0.98) 100%) !important;
       }
       .hero-msg {
-        padding: 16px 18px;
-        max-width: 90vw;
+        padding: 22px 20px !important;
+        width: 92% !important;
+        max-width: 92vw !important;
+        border-radius: 8px !important;
       }
-      .hero-title-arabic {
-        font-size: 26px !important;
-        letter-spacing: 1px;
+      .hero-msg-1 h1 {
+        font-size: clamp(30px, 8vw, 44px) !important;
+        line-height: 1.25 !important;
       }
-      .hero-title-sub {
-        font-size: 13px !important;
+      .hero-msg-1 .sub-crest {
+        font-size: 12px !important;
+        letter-spacing: 2px !important;
+        margin-bottom: 8px !important;
       }
-      .hero-statement-main {
+      .hero-msg-2 p {
+        font-size: 18px !important;
+        line-height: 1.5 !important;
+      }
+      .hero-msg-3 h2, .hero-msg-4 h2 {
+        font-size: 20px !important;
+        line-height: 1.5 !important;
+      }
+      .hero-msg-5 span {
         font-size: 18px !important;
       }
-      .hero-statement-sub {
-        font-size: 13px !important;
+      .scroll-indicator {
+        bottom: 75px !important;
       }
 
-      /* Craftsmanship Section on Mobile */
+      /* 4. Craftsmanship Section on Mobile (Sticky Synchronized Image + Smooth Scroll Cards) */
       .craftsmanship-split-container {
-        flex-direction: column;
+        flex-direction: column !important;
       }
       .craftsmanship-sticky-left {
-        width: 100%;
-        height: 340px;
-        position: relative;
-        top: 0;
-        border-right: none;
-        border-left: none;
-        border-bottom: 1px solid var(--border-gold-subtle);
+        width: 100% !important;
+        height: 40vh !important;
+        height: 40dvh !important;
+        position: sticky !important;
+        top: 60px !important;
+        z-index: 20 !important;
+        border-right: none !important;
+        border-left: none !important;
+        border-bottom: 1px solid var(--border-gold-subtle) !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.85) !important;
       }
       .craftsmanship-scroll-right {
-        width: 100%;
-        padding: 30px 16px;
+        width: 100% !important;
+        padding: 24px 16px 60px !important;
       }
       .craft-card {
-        padding: 24px 20px;
-        margin-bottom: 24px;
+        padding: 24px 20px !important;
+        margin-bottom: 30vh !important;
+        background: rgba(14, 10, 8, 0.94) !important;
+        border: 1px solid var(--border-gold-subtle) !important;
+        border-radius: 12px !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75) !important;
       }
       .craft-card-title {
-        font-size: 20px;
+        font-size: 22px !important;
       }
       .craft-card-desc {
-        font-size: 14px;
-        line-height: 1.7;
+        font-size: 14px !important;
+        line-height: 1.75 !important;
       }
 
-      /* Horizontal Loom Rail -> Mobile Swipeable Touch Slider */
+      /* 5. Horizontal Loom Rail -> Mobile Swipeable Touch Slider */
       .horizontal-loom-section {
         height: auto !important;
         min-height: auto !important;
-        padding: 40px 0 20px 0 !important;
-        overflow: hidden;
+        padding: 30px 0 20px 0 !important;
+        overflow: hidden !important;
       }
       .horizontal-pin-track {
         position: relative !important;
@@ -2359,13 +2386,13 @@
       }
       .loom-section-header {
         position: relative !important;
-        padding: 0 20px 20px 20px !important;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+        padding: 0 18px 18px 18px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
       }
       .loom-title-group h2 {
-        font-size: 22px !important;
+        font-size: 24px !important;
       }
       .horizontal-panels-container {
         display: flex !important;
@@ -2373,7 +2400,7 @@
         overflow-x: auto !important;
         scroll-snap-type: x mandatory !important;
         -webkit-overflow-scrolling: touch !important;
-        padding: 10px 16px 25px 16px !important;
+        padding: 10px 16px 24px 16px !important;
         gap: 14px !important;
         width: auto !important;
         transform: none !important;
@@ -2391,164 +2418,164 @@
         height: 460px !important;
         flex-shrink: 0 !important;
         scroll-snap-align: center !important;
-        border-radius: 10px !important;
+        border-radius: 12px !important;
         overflow: hidden !important;
         position: relative !important;
-        padding: 24px 18px !important;
+        padding: 20px 16px !important;
         display: flex !important;
         align-items: flex-end !important;
       }
       .loom-content-card {
-        padding: 20px 18px !important;
-        background: rgba(14, 10, 8, 0.92) !important;
-        backdrop-filter: blur(12px) !important;
-        -webkit-backdrop-filter: blur(12px) !important;
+        padding: 18px 16px !important;
+        background: rgba(14, 10, 8, 0.94) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
       }
       .loom-panel-heading {
-        font-size: 18px !important;
-        margin-bottom: 8px !important;
+        font-size: 17px !important;
+        margin-bottom: 6px !important;
       }
       .loom-panel-body {
         font-size: 13px !important;
         line-height: 1.65 !important;
-        margin-bottom: 12px !important;
+        margin-bottom: 10px !important;
       }
 
-      /* Parallax Statement on Mobile */
+      /* 6. Parallax Statement on Mobile */
       .parallax-quote {
-        font-size: 18px;
-        line-height: 1.6;
-        padding: 0 16px;
+        font-size: 18px !important;
+        line-height: 1.6 !important;
+        padding: 0 16px !important;
       }
 
-      /* Reverse Perspectves on Mobile */
+      /* 7. Reverse Perspectives on Mobile */
       .reverse-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 16px;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding: 0 16px !important;
       }
       .reverse-card-img-wrap {
-        height: 280px;
+        height: 280px !important;
       }
 
-      /* Masterpiece Collection Grid on Mobile */
+      /* 8. Masterpiece Collection Grid on Mobile */
       .masterpiece-header {
-        padding: 0 16px 24px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
+        padding: 0 16px 20px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 14px !important;
       }
       .masterpiece-header h2 {
-        font-size: 24px;
+        font-size: 24px !important;
       }
       .category-filters {
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: 8px;
-        flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch;
+        width: 100% !important;
+        overflow-x: auto !important;
+        padding-bottom: 8px !important;
+        flex-wrap: nowrap !important;
+        -webkit-overflow-scrolling: touch !important;
       }
       .cat-filter-btn {
-        white-space: nowrap;
-        padding: 8px 16px;
-        font-size: 13px;
+        white-space: nowrap !important;
+        padding: 8px 16px !important;
+        font-size: 13px !important;
       }
       .masterpiece-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 16px;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding: 0 16px !important;
       }
       .masterpiece-card-img-wrap {
-        height: 320px;
+        height: 320px !important;
       }
 
-      /* VIP Reviews on Mobile */
+      /* 9. VIP Reviews on Mobile */
       .vip-reviews-header {
-        padding: 0 16px 24px;
+        padding: 0 16px 20px !important;
       }
       .vip-reviews-header h2 {
-        font-size: 22px;
+        font-size: 22px !important;
       }
       .vip-reviews-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        padding: 0 16px;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        padding: 0 16px !important;
       }
       .vip-review-card {
-        padding: 24px 18px;
+        padding: 24px 18px !important;
       }
 
-      /* Bespoke WhatsApp Section on Mobile */
+      /* 10. Bespoke WhatsApp Section on Mobile */
       .concierge-card-wrapper {
-        padding: 30px 16px;
-        margin: 0 16px;
+        padding: 28px 16px !important;
+        margin: 0 16px !important;
       }
       .concierge-header h2 {
-        font-size: 22px;
+        font-size: 22px !important;
       }
       .concierge-form {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
       }
       .concierge-form .full-width, .form-submit-btn, .form-status-msg {
-        grid-column: span 1;
+        grid-column: span 1 !important;
       }
       .form-submit-btn {
-        padding: 16px 18px;
-        font-size: 14px;
+        padding: 16px 18px !important;
+        font-size: 14px !important;
       }
 
-      /* Footer on Mobile */
+      /* 11. Footer on Mobile */
       .footer-top {
-        grid-template-columns: 1fr;
-        gap: 28px;
-        padding: 40px 16px 30px;
+        grid-template-columns: 1fr !important;
+        gap: 26px !important;
+        padding: 36px 16px 24px !important;
       }
       .footer-bottom {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-        padding: 20px 16px;
+        flex-direction: column !important;
+        gap: 12px !important;
+        text-align: center !important;
+        padding: 20px 16px !important;
       }
 
-      /* Lightbox Modal on Mobile */
+      /* 12. Lightbox Modal on Mobile */
       .carpet-lightbox-modal {
-        padding: 0;
-        align-items: flex-end;
+        padding: 0 !important;
+        align-items: flex-end !important;
       }
       .lightbox-container {
-        width: 100vw;
-        max-height: 94vh;
-        border-radius: 20px 20px 0 0;
-        grid-template-columns: 1fr;
-        overflow-y: auto;
+        width: 100vw !important;
+        max-height: 94vh !important;
+        border-radius: 20px 20px 0 0 !important;
+        grid-template-columns: 1fr !important;
+        overflow-y: auto !important;
       }
       .lightbox-gallery-pane {
-        padding: 16px;
-        min-height: 260px;
-        max-height: 340px;
+        padding: 16px !important;
+        min-height: 260px !important;
+        max-height: 340px !important;
       }
       .lightbox-main-img-wrap {
-        height: 240px;
+        height: 240px !important;
       }
       .lightbox-details-pane {
-        padding: 20px 18px 30px;
+        padding: 20px 18px 30px !important;
       }
       .lightbox-title {
-        font-size: 20px;
-        margin-bottom: 14px;
+        font-size: 20px !important;
+        margin-bottom: 14px !important;
       }
       .lightbox-specs-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        padding: 14px;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+        padding: 14px !important;
       }
       .lightbox-wa-action-btn {
-        position: sticky;
-        bottom: 0;
-        z-index: 20;
-        margin-top: 14px;
-        padding: 15px 18px;
-        font-size: 14px;
+        position: sticky !important;
+        bottom: 0 !important;
+        z-index: 20 !important;
+        margin-top: 14px !important;
+        padding: 15px 18px !important;
+        font-size: 14px !important;
       }
     }
   </style>
@@ -3377,11 +3404,164 @@
       }
     };
 
-    const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window);
+    // ZERO-LATENCY FALLBACK DATASETS (INSTANT LOAD)
+    const DEFAULT_CARPETS = [
+      {
+        id: "carpet-1787606726758",
+        nameAr: "المحراب الإمبراطوري",
+        nameEn: "The Imperial Sanctuary",
+        category: "حرير توت خالص",
+        categoryEn: "Pure Silk",
+        kpsi: "1,200 KPSI",
+        dimensions: "3.50 × 2.50 م",
+        materialAr: "حرير توت خالص ١٠٠٪",
+        materialEn: "100% Pure Mulberry Silk",
+        densityAr: "1,200 KPSI عقدة / بوصة²",
+        densityEn: "1,200 KPSI Micro-Knots / in²",
+        durationAr: "٢٤ شهرًا نسج يدوي",
+        durationEn: "24 Months Hand-Tied",
+        guildAr: "نول زاهر سالمان الملكي",
+        guildEn: "Zaher Salman Royal Guild",
+        image: "uploads/carpet_1787606726743_91z19e.jpeg",
+        images: ["uploads/carpet_1787606726743_91z19e.jpeg"],
+        descriptionAr: "تحفة نادرة مستوحاة من المحاريب الملكية الأثرية، منسوجة يدوياً من أنقى خيوط الحرير الإمبراطوري بكثافة عقد ميكرونية فائقة.",
+        descriptionEn: "Museum-grade palatial silk masterpiece inspired by imperial sanctuary architecture, hand-knotted from 100% pure natural silk."
+      },
+      {
+        id: "carpet-1787606702041",
+        nameAr: "لمسة الحرير الفاتنة",
+        nameEn: "The Silken Touch",
+        category: "حرير توت خالص",
+        categoryEn: "Pure Silk",
+        kpsi: "1,200 KPSI",
+        dimensions: "4.20 × 3.00 م",
+        materialAr: "حرير توت خالص ١٠٠٪",
+        materialEn: "100% Pure Mulberry Silk",
+        densityAr: "1,200 عقدة / بوصة²",
+        densityEn: "1,200 Micro-Knots / in²",
+        durationAr: "٢٤ شهرًا نسج يدوي",
+        durationEn: "24 Months Hand-Tied",
+        guildAr: "نول زاهر سالمان الملكي",
+        guildEn: "Zaher Salman Royal Guild",
+        image: "uploads/carpet_1787606702029_5il80z.jpeg",
+        images: ["uploads/carpet_1787606702029_5il80z.jpeg"],
+        descriptionAr: "سجادة صالونات ملكية متميزة ببريق حريري ساحر يتغير مع زاوية سقوط الضوء، ونعومة مخملية تفوق أفخم أنواع الكشمير.",
+        descriptionEn: "An opulent palatial centerpiece with incandescent silk lustre that shifts tone dynamically with ambient lighting."
+      },
+      {
+        id: "carpet-1787606650824",
+        nameAr: "المدالية الأصفهانية الملكية",
+        nameEn: "Royal Isfahan Medallion",
+        category: "قطع نادرة",
+        categoryEn: "Rare Masterpieces",
+        kpsi: "1,400 KPSI",
+        dimensions: "3.00 × 2.00 م",
+        materialAr: "حرير توت خالص ١٠٠٪",
+        materialEn: "100% Pure Mulberry Silk",
+        densityAr: "1,400 عقدة / بوصة²",
+        densityEn: "1,400 Micro-Knots / in²",
+        durationAr: "٣٢ شهرًا نسج يدوي",
+        durationEn: "32 Months Hand-Tied",
+        guildAr: "نول زاهر سالمان الملكي",
+        guildEn: "Zaher Salman Royal Guild",
+        image: "uploads/carpet_1787606650778_ro61kq.jpeg",
+        images: ["uploads/carpet_1787606650778_ro61kq.jpeg"],
+        descriptionAr: "قطعة متحفية فريدة تجسد ذروة الفن الزخرفي الإمبراطوري بتدرجات لونية نباتية معتقة وتماثل قطري وهندسي مبهر.",
+        descriptionEn: "A rare collector's museum piece showcasing imperial radial symmetry and rich vegetal pigments."
+      },
+      {
+        id: "carpet-1",
+        nameAr: "تحفة قصر الحمراء",
+        nameEn: "Alhambra Palace Silk",
+        category: "سجاد صالونات القصور",
+        categoryEn: "Palace Salon Carpets",
+        kpsi: "1,200 KPSI",
+        dimensions: "3.00 × 2.00 م",
+        materialAr: "حرير توت خالص ١٠٠٪",
+        materialEn: "100% Pure Mulberry Silk",
+        densityAr: "١,٢٠٠ عقدة / بوصة²",
+        densityEn: "1,200 Micro-Knots / in²",
+        durationAr: "٣٢ شهرًا نسج يدوي",
+        durationEn: "32 Months Hand-Tied",
+        guildAr: "نول زاهر سالمان الملكي",
+        guildEn: "Zaher Salman Royal Guild",
+        image: "uploads/carpet_1787606207469_jb31u8.jpeg",
+        images: ["uploads/carpet_1787606207469_jb31u8.jpeg"],
+        descriptionAr: "سجادة أثرية ذات مدالية مركزية مستوحاة من عمارة القصور الملكية، منسوجة يدوياً بحرير التوت الطبيعي بصبغات نباتية معتقة.",
+        descriptionEn: "An heirloom silk tapestry featuring intricate arabesques and imperial medallions."
+      }
+    ];
+
+    const DEFAULT_REVIEWS = [
+      {
+        id: "rev-1",
+        nameAr: "المستشار / طارق المنشاوي",
+        nameEn: "Judge Tarek El-Menshawy",
+        titleAr: "قصر القطامية ديونز · القاهرة الجديدة",
+        titleEn: "Katameya Dunes Palace · New Cairo",
+        avatar: "⚜",
+        rating: 5,
+        quoteAr: "«التفاصيل في سجادة أصفهان اللي أخدناها للقصر في القطامية تخطف العين.. لمعة الحرير الطبيعي مع إضاءة الثريات الكريستال عاملة سحر وسيمفونية مفيش ضيف بيدخل الصالون إلا وينبهر بيها. شغل شيوخ صنعة معقود على أصوله.»",
+        quoteEn: "“The Isfahan silk masterpiece we acquired for our Katameya palace is pure magic under crystal chandeliers. Truly museum-grade craftsmanship.”",
+        pieceAcquiredAr: "تحفة المدالية الملكية (أصفهان)",
+        pieceAcquiredEn: "The Royal Medallion (Isfahan)",
+        verified: true
+      },
+      {
+        id: "rev-2",
+        nameAr: "م. ياسمين الصيرفي",
+        nameEn: "Eng. Yasmine El-Sayrafi",
+        titleAr: "استشاري التصميم الداخلي للقصور والفلل الفاخرة · الزمالك",
+        titleEn: "Luxury Palatial Interior Consultant · Zamalek",
+        avatar: "🏛️",
+        rating: 5,
+        quoteAr: "«كمهندسة ديكور بنفذ مشاريع وقصور لصفوة المجتمع، السجاد عند دار زاهر سالمان بيعتبر حجر الزاوية في فخامة الصالون. كثافة العقد ونقاء حرير التوت والألوان النباتية الثابتة مش موجودة في أي مكان تاني في مصر.»",
+        quoteEn: "“As an interior architect for high-end estates, Zaher Salman's silk carpets are the ultimate centerpiece for opulent living spaces.”",
+        pieceAcquiredAr: "سجاد صالونات القصور (تفصيل خاص)",
+        pieceAcquiredEn: "Bespoke Palatial Commissions",
+        verified: true
+      },
+      {
+        id: "rev-3",
+        nameAr: "د. كريم السادات",
+        nameEn: "Dr. Karim El-Sadat",
+        titleAr: "مقتني تحف وفنون نادرة · نيو جيزة",
+        titleEn: "Art & Heritage Collector · New Giza",
+        avatar: "👑",
+        rating: 5,
+        quoteAr: "«عندي في مجموعتي الخاصة سجاد من مزادات عالمية في لندن وجنيف، لكن تحفة 'لمسة الحرير' من نول قم بكثافة ١٤٠٠ عقدة اللي وصلتنا من زاهر سالمان تفوقت عليهم في نعومة الوبر ودقة التفاصيل الدقيقة وشهادة التوثيق الملكية.»",
+        quoteEn: "“I own museum pieces from global auctions, but the 1,400 KPSI Qum silk carpet from Zaher Salman stands in a league of its own.”",
+        pieceAcquiredAr: "لمسة الحرير الفاتنة (نول قم)",
+        pieceAcquiredEn: "The Silken Touch (Qum Guild)",
+        verified: true
+      },
+      {
+        id: "rev-4",
+        nameAr: "الأستاذ / عبد العزيز العطية",
+        nameEn: "Mr. Abdulaziz Al-Attiyah",
+        titleAr: "فيلا جولف السليمانية · الشيخ زايد",
+        titleEn: "Suleimaniya Golf Villa · Sheikh Zayed",
+        avatar: "✦",
+        rating: 5,
+        quoteAr: "«التعامل راقي جداً من أول جلسة استشارة منزلية مع خبير السجاد الملكي لحد فرش القطع في الصالون والمجلس.. ذوق رفيع واحترافية تليق بأعلى مستويات الـ VIP.»",
+        quoteEn: "“Exemplary royal concierge service from private estate consultation to final placement. Unmatched professionalism.”",
+        pieceAcquiredAr: "المحراب الإمبراطوري (تبريز)",
+        pieceAcquiredEn: "The Palatial Sanctuary (Tabriz)",
+        verified: true
+      }
+    ];
+
+    const isMobile = window.innerWidth <= 991 || ('ontouchstart' in window);
     let currentLang = localStorage.getItem('zaher_lang') || 'ar';
-    let allLiveCarpets = [];
-    let allLiveReviews = [];
+    let allLiveCarpets = [...DEFAULT_CARPETS];
+    let allLiveReviews = [...DEFAULT_REVIEWS];
     let liveFilter = 'all';
+
+    // 1. Force Scroll Restoration to Manual & Deterministic Top Start
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
 
     function applyLanguage(lang) {
       currentLang = lang;
@@ -3419,7 +3599,7 @@
 
       renderLiveCarpets();
       renderLiveReviews();
-      ScrollTrigger.refresh();
+      if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
     }
 
     function toggleLanguage() {
@@ -3427,7 +3607,7 @@
       applyLanguage(nextLang);
     }
 
-    // 1. Lenis Smooth Scrolling (Desktop only for native 120Hz mobile kinetic scroll)
+    // 2. Lenis Smooth Scrolling (Desktop only; native 120Hz touch scroll on mobile)
     let lenis = null;
     if (!isMobile && typeof Lenis !== 'undefined') {
       try {
@@ -3445,6 +3625,11 @@
       } catch (e) {}
     }
 
+    // Prevent mobile URL-bar collapse from triggering jumpy ScrollTrigger refreshes
+    if (typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.config({ ignoreMobileResize: true });
+    }
+
     // Scroll Progress Bar Update
     const scrollProgressBar = document.getElementById('scroll-progress-bar');
     const mainNav = document.getElementById('main-nav');
@@ -3455,21 +3640,21 @@
       if (scrollProgressBar) {
         scrollProgressBar.style.height = `${progress}vh`;
       }
-      if (window.scrollY > 80) {
+      if (window.scrollY > 60) {
         mainNav.classList.add('scrolled');
       } else {
         mainNav.classList.remove('scrolled');
       }
     }, { passive: true });
 
-    // 2. Hero Canvas Frame Sequence Engine
+    // 3. Hero Canvas Frame Sequence Engine
     const canvas = document.getElementById('hero-canvas');
     const context = canvas.getContext('2d');
     
     const frames = {
       current: 0,
       total: 922,
-      images: []
+      images: new Array(922)
     };
 
     const panelImages = {
@@ -3498,9 +3683,10 @@
       
       let img = frames.images[index];
       
+      // Nearest-Frame Bi-directional Cache Lookup (Guarantees 0ms Render & Zero Black Voids)
       if (!img || !img.complete || img.naturalWidth === 0) {
         let found = null;
-        for (let offset = 1; offset < 60; offset++) {
+        for (let offset = 1; offset < 100; offset++) {
           if (index - offset >= 0 && frames.images[index - offset] && frames.images[index - offset].complete && frames.images[index - offset].naturalWidth > 0) {
             found = frames.images[index - offset];
             break;
@@ -3541,13 +3727,13 @@
       context.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
     }
 
-    // Preloader and Frame Loader
+    // 4. Staged Intelligent Frame Preloader (Instant Stage 1 Initial Load)
     const preloader = document.getElementById('preloader');
     const preloaderBar = document.getElementById('preloader-bar');
     const preloaderCounter = document.getElementById('preloader-counter');
 
     let loadedCount = 0;
-    const initialBatchSize = isMobile ? 5 : 30;
+    const initialBatchSize = isMobile ? 12 : 25;
     let isRevealed = false;
 
     function formatFramePath(i) {
@@ -3556,54 +3742,19 @@
     }
 
     function initFrameLoading() {
-      if (isMobile) {
-        // ULTRA-LIGHTWEIGHT MOBILE ENGINE: loads only 20 stepped frames
-        const mobileStep = 45;
-        let mobileLoaded = 0;
+      // Step 1: Preload Stage 1 (Frame 0) as immediate synchronous priority
+      const firstImg = new Image();
+      firstImg.src = formatFramePath(0);
+      firstImg.onload = () => {
+        frames.images[0] = firstImg;
+        resizeCanvas();
+        renderFrame(0);
+      };
 
-        for (let i = 0; i < frames.total; i += mobileStep) {
-          const img = new Image();
-          img.src = formatFramePath(i);
-          img.onload = () => {
-            mobileLoaded++;
-            if (mobileLoaded === 1) {
-              resizeCanvas();
-              renderFrame(0);
-            }
-            if (mobileLoaded >= 2 && !isRevealed) {
-              isRevealed = true;
-              if (preloader) preloader.classList.add('hidden');
-              setupHeroScrollAnimation();
-              setupScrollTriggers();
-              initVideoObserver();
-            }
-          };
-          img.onerror = () => {
-            if (!isRevealed) {
-              isRevealed = true;
-              if (preloader) preloader.classList.add('hidden');
-              setupHeroScrollAnimation();
-              setupScrollTriggers();
-              initVideoObserver();
-            }
-          };
-          frames.images[i] = img;
-        }
-
-        setTimeout(() => {
-          if (!isRevealed) {
-            isRevealed = true;
-            if (preloader) preloader.classList.add('hidden');
-            setupHeroScrollAnimation();
-            setupScrollTriggers();
-            initVideoObserver();
-          }
-        }, 350);
-        return;
-      }
-
-      // DESKTOP PROGRESSIVE FRAME ENGINE
-      for (let i = 0; i < frames.total; i++) {
+      // Step 2: Preload Phase 1 (First 30 frames for immediate smooth start)
+      const phase1Count = Math.min(30, frames.total);
+      for (let i = 0; i < phase1Count; i++) {
+        if (i === 0) continue;
         const img = new Image();
         img.src = formatFramePath(i);
         img.onload = () => {
@@ -3615,32 +3766,96 @@
             preloaderCounter.textContent = `${percent}% — ${subtext}`;
           }
 
-          if (i === 0 || loadedCount === 1) {
-            resizeCanvas();
-          }
-
           if (loadedCount >= initialBatchSize && !isRevealed) {
-            isRevealed = true;
-            setTimeout(() => {
-              if (preloader) preloader.classList.add('hidden');
-              setupHeroScrollAnimation();
-              setupScrollTriggers();
-              initVideoObserver();
-            }, 300);
+            revealExperience();
           }
         };
         img.onerror = () => {
           loadedCount++;
           if (loadedCount >= initialBatchSize && !isRevealed) {
-            isRevealed = true;
-            if (preloader) preloader.classList.add('hidden');
-            setupHeroScrollAnimation();
-            setupScrollTriggers();
-            initVideoObserver();
+            revealExperience();
           }
         };
-        frames.images.push(img);
+        frames.images[i] = img;
       }
+
+      // Safety timeout: Never trap the user on the preloader
+      setTimeout(() => {
+        if (!isRevealed) {
+          revealExperience();
+        }
+      }, isMobile ? 800 : 1500);
+
+      // Step 3: Progressive Background Preloader for Remaining Frames (Phase 2 & 3)
+      setTimeout(() => {
+        loadKeyframeScaffold();
+      }, 200);
+    }
+
+    function revealExperience() {
+      if (isRevealed) return;
+      isRevealed = true;
+
+      // Ensure Frame 0 is drawn deterministically
+      resizeCanvas();
+      renderFrame(0);
+
+      if (preloader) preloader.classList.add('hidden');
+      setupHeroScrollAnimation();
+      setupScrollTriggers();
+      initVideoObserver();
+    }
+
+    function loadKeyframeScaffold() {
+      const step = isMobile ? 6 : 3;
+      let currentIndex = 30;
+
+      function loadNextBatch() {
+        const batchEnd = Math.min(currentIndex + 40, frames.total);
+        for (let i = currentIndex; i < batchEnd; i += step) {
+          if (!frames.images[i]) {
+            const img = new Image();
+            img.src = formatFramePath(i);
+            frames.images[i] = img;
+          }
+        }
+        currentIndex = batchEnd;
+        if (currentIndex < frames.total) {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadNextBatch, { timeout: 100 });
+          } else {
+            setTimeout(loadNextBatch, 50);
+          }
+        } else {
+          // Phase 3: Fill in remaining intermediate frames
+          loadRemainingFrames();
+        }
+      }
+      loadNextBatch();
+    }
+
+    function loadRemainingFrames() {
+      let idx = 0;
+      function fillNext() {
+        let loadedInThisChunk = 0;
+        while (idx < frames.total && loadedInThisChunk < 25) {
+          if (!frames.images[idx]) {
+            const img = new Image();
+            img.src = formatFramePath(idx);
+            frames.images[idx] = img;
+            loadedInThisChunk++;
+          }
+          idx++;
+        }
+        if (idx < frames.total) {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(fillNext, { timeout: 200 });
+          } else {
+            setTimeout(fillNext, 60);
+          }
+        }
+      }
+      fillNext();
     }
 
     // Video Autoplay & Intersection Observer
@@ -3677,7 +3892,7 @@
       window.addEventListener('click', touchStartPlay, { passive: true });
     }
 
-    // GSAP Hero Canvas Scrub Timeline
+    // 5. GSAP Hero Canvas Scrub Timeline (Smooth 60FPS Storytelling)
     function setupHeroScrollAnimation() {
       const heroContainer = document.getElementById('hero-scroll-container');
       const msg1 = document.getElementById('hero-msg-1');
@@ -3687,6 +3902,12 @@
       const msg5 = document.getElementById('hero-msg-5');
       const scrollIndicator = document.getElementById('hero-scroll-indicator');
 
+      // Ensure Msg 1 is positioned for stage 1
+      if (msg1) {
+        msg1.style.opacity = '1';
+        msg1.style.transform = 'translateY(0px) scale(1)';
+      }
+
       gsap.to(frames, {
         current: frames.total - 1,
         ease: 'none',
@@ -3694,7 +3915,7 @@
           trigger: heroContainer,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: isMobile ? 0.1 : 0.3,
+          scrub: isMobile ? 0.2 : 0.35,
           onUpdate: (self) => {
             renderFrame(Math.round(frames.current));
             const p = self.progress;
@@ -3703,11 +3924,11 @@
               scrollIndicator.style.opacity = p > 0.03 ? '0' : '0.9';
             }
 
-            animateOverlay(msg1, p, 0.04, 0.12, 0.20);
-            animateOverlay(msg2, p, 0.24, 0.32, 0.40);
-            animateOverlay(msg3, p, 0.44, 0.52, 0.60);
-            animateOverlay(msg4, p, 0.64, 0.72, 0.80);
-            animateOverlay(msg5, p, 0.84, 0.90, 0.98, true);
+            animateOverlay(msg1, p, 0.00, 0.10, 0.20);
+            animateOverlay(msg2, p, 0.22, 0.32, 0.42);
+            animateOverlay(msg3, p, 0.44, 0.54, 0.64);
+            animateOverlay(msg4, p, 0.66, 0.76, 0.86);
+            animateOverlay(msg5, p, 0.88, 0.94, 0.99, true);
           }
         }
       });
@@ -3744,7 +3965,7 @@
       }
     }
 
-    // 3. Other GSAP ScrollTriggers
+    // 6. Other GSAP ScrollTriggers
     function setupScrollTriggers() {
       const craftCards = document.querySelectorAll('.craft-card');
       const badgeText = document.getElementById('craft-badge-text');
@@ -3752,8 +3973,8 @@
       craftCards.forEach((card, index) => {
         ScrollTrigger.create({
           trigger: card,
-          start: 'top 50%',
-          end: 'bottom 50%',
+          start: 'top 55%',
+          end: 'bottom 45%',
           onEnter: () => activateCraftSlide(index),
           onEnterBack: () => activateCraftSlide(index)
         });
@@ -3801,50 +4022,54 @@
 
       // Full-Bleed Parallax
       const parallaxBgWrapper = document.getElementById('parallax-bg-wrapper');
-      gsap.to(parallaxBgWrapper, {
-        yPercent: 15,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '#statement',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
+      if (parallaxBgWrapper) {
+        gsap.to(parallaxBgWrapper, {
+          yPercent: 15,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#statement',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true
+          }
+        });
+      }
 
-      // Reverse Columns
-      gsap.to('#rev-col-1', {
-        yPercent: -20,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '#craft-perspectives',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.2
-        }
-      });
+      // Reverse Columns Parallax
+      if (!isMobile) {
+        gsap.to('#rev-col-1', {
+          yPercent: -20,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#craft-perspectives',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.2
+          }
+        });
 
-      gsap.to('#rev-col-2', {
-        yPercent: 20,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '#craft-perspectives',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.2
-        }
-      });
+        gsap.to('#rev-col-2', {
+          yPercent: 20,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#craft-perspectives',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.2
+          }
+        });
 
-      gsap.to('#rev-col-3', {
-        yPercent: -20,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '#craft-perspectives',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.2
-        }
-      });
+        gsap.to('#rev-col-3', {
+          yPercent: -20,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#craft-perspectives',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.2
+          }
+        });
+      }
 
       ScrollTrigger.refresh();
     }
@@ -3855,10 +4080,15 @@
     async function loadLiveCarpets() {
       try {
         const res = await fetch('/api/carpets');
-        allLiveCarpets = await res.json();
-        renderLiveCarpets();
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data) && data.length > 0) {
+            allLiveCarpets = data;
+            renderLiveCarpets();
+          }
+        }
       } catch (err) {
-        console.error('Error fetching carpets:', err);
+        console.log('Using initial carpet dataset.');
       }
     }
 
@@ -4096,10 +4326,15 @@
     async function loadLiveReviews() {
       try {
         const res = await fetch('/api/reviews');
-        allLiveReviews = await res.json();
-        renderLiveReviews();
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data) && data.length > 0) {
+            allLiveReviews = data;
+            renderLiveReviews();
+          }
+        }
       } catch (err) {
-        console.error('Error fetching reviews:', err);
+        console.log('Using initial reviews dataset.');
       }
     }
 
@@ -4149,7 +4384,11 @@
       }
       const bespokeSection = document.getElementById('bespoke');
       if (bespokeSection) {
-        lenis.scrollTo(bespokeSection, { offset: -40, duration: 1.5 });
+        if (lenis) {
+          lenis.scrollTo(bespokeSection, { offset: -40, duration: 1.5 });
+        } else {
+          bespokeSection.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }
 
