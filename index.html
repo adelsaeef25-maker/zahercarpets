@@ -2376,73 +2376,114 @@
         line-height: 1.75 !important;
       }
 
-      /* 5. Horizontal Loom Rail -> Mobile Swipeable Touch Slider */
+      /* 5. Horizontal Loom Rail -> Mobile Pinned Interactive Rail */
       .horizontal-loom-section {
-        height: auto !important;
-        min-height: auto !important;
-        padding: 30px 0 20px 0 !important;
-        overflow: hidden !important;
-      }
-      .horizontal-pin-track {
         position: relative !important;
         width: 100% !important;
-        height: auto !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        background: var(--bg-obsidian) !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+      }
+      .horizontal-pin-track {
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        overflow: hidden !important;
+        position: relative !important;
+        direction: ltr !important;
       }
       .loom-section-header {
-        position: relative !important;
-        padding: 0 18px 18px 18px !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 8px !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        padding: 16px 18px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        z-index: 30 !important;
+        background: linear-gradient(to bottom, rgba(10, 8, 6, 0.98) 0%, rgba(10, 8, 6, 0.75) 60%, transparent 100%) !important;
+        pointer-events: none !important;
       }
       .loom-title-group h2 {
-        font-size: 24px !important;
+        font-size: 20px !important;
+        line-height: 1.2 !important;
+      }
+      .loom-title-group p {
+        font-size: 11px !important;
+        letter-spacing: 2px !important;
+      }
+      .loom-header-badge {
+        font-size: 11px !important;
+        padding: 6px 12px !important;
+        letter-spacing: 1px !important;
       }
       .horizontal-panels-container {
         display: flex !important;
         flex-direction: row !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory !important;
-        -webkit-overflow-scrolling: touch !important;
-        padding: 10px 16px 24px 16px !important;
-        gap: 14px !important;
-        width: auto !important;
-        transform: none !important;
-      }
-      .horizontal-panels-container::-webkit-scrollbar {
-        height: 4px;
-      }
-      .horizontal-panels-container::-webkit-scrollbar-thumb {
-        background: var(--gold-primary);
-        border-radius: 2px;
+        flex-wrap: nowrap !important;
+        width: 400vw !important;
+        height: 100% !important;
+        will-change: transform !important;
+        direction: ltr !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        gap: 0 !important;
+        transform: none;
       }
       .loom-panel {
-        min-width: 86vw !important;
-        max-width: 88vw !important;
-        height: 460px !important;
-        flex-shrink: 0 !important;
-        scroll-snap-align: center !important;
-        border-radius: 12px !important;
-        overflow: hidden !important;
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+        height: 100% !important;
         position: relative !important;
-        padding: 20px 16px !important;
         display: flex !important;
-        align-items: flex-end !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 70px 16px 30px !important;
+        box-sizing: border-box !important;
+        flex-shrink: 0 !important;
+        border-right: 1px solid var(--border-gold-subtle) !important;
+        background: #0d0a08 !important;
+        direction: ltr !important;
       }
       .loom-content-card {
-        padding: 18px 16px !important;
-        background: rgba(14, 10, 8, 0.94) !important;
-        backdrop-filter: blur(14px) !important;
-        -webkit-backdrop-filter: blur(14px) !important;
+        width: 100% !important;
+        max-width: 92vw !important;
+        padding: 22px 18px !important;
+        background: rgba(14, 11, 9, 0.94) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border: 1px solid var(--border-gold-solid) !important;
+        border-radius: 8px !important;
+      }
+      .loom-panel-tag {
+        font-size: 11px !important;
+        letter-spacing: 1.5px !important;
+        margin-bottom: 8px !important;
       }
       .loom-panel-heading {
-        font-size: 17px !important;
-        margin-bottom: 6px !important;
+        font-size: 18px !important;
+        margin-bottom: 8px !important;
       }
       .loom-panel-body {
         font-size: 13px !important;
         line-height: 1.65 !important;
-        margin-bottom: 10px !important;
+        margin-bottom: 14px !important;
+      }
+      .loom-panel-footer {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+      }
+      .loom-roman-numeral {
+        font-size: 18px !important;
+      }
+      .loom-footnote {
+        font-size: 11px !important;
       }
 
       /* 6. Parallax Statement on Mobile */
@@ -3998,26 +4039,25 @@
         }
       }
 
-      // Horizontal Pinned Rail (Desktop only; Mobile uses CSS Touch Snap)
-      if (!isMobile) {
-        const loomRailSection = document.getElementById('loom-rail');
-        const panelsContainer = document.getElementById('horizontal-panels-container');
+      // Horizontal Pinned Rail (Unified for Desktop and Mobile Touch Devices)
+      const loomRailSection = document.getElementById('loom-rail');
+      const panelsContainer = document.getElementById('horizontal-panels-container');
 
-        if (loomRailSection && panelsContainer) {
-          const getScrollDistance = () => panelsContainer.scrollWidth - window.innerWidth;
-          gsap.to(panelsContainer, {
-            x: () => -getScrollDistance(),
-            ease: 'none',
-            scrollTrigger: {
-              trigger: loomRailSection,
-              pin: true,
-              scrub: 1,
-              start: 'top top',
-              end: () => `+=${getScrollDistance()}`,
-              invalidateOnRefresh: true
-            }
-          });
-        }
+      if (loomRailSection && panelsContainer) {
+        const getScrollDistance = () => panelsContainer.scrollWidth - window.innerWidth;
+        gsap.to(panelsContainer, {
+          x: () => -getScrollDistance(),
+          ease: 'none',
+          scrollTrigger: {
+            trigger: loomRailSection,
+            pin: true,
+            scrub: isMobile ? 0.35 : 1,
+            start: 'top top',
+            end: () => `+=${getScrollDistance()}`,
+            invalidateOnRefresh: true,
+            anticipatePin: 1
+          }
+        });
       }
 
       document.querySelectorAll('.loom-video-bg').forEach((vid) => {
