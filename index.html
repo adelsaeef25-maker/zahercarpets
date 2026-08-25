@@ -22,28 +22,91 @@
 
   <style>
     /* ==========================================================================
-       DESIGN SYSTEM & CSS RESET
+       DESIGN SYSTEM & CSS THEME TOKENS (LIGHT & DARK DUAL PALETTE)
        ========================================================================== */
-    :root {
+    :root,
+    [data-theme="dark"] {
       --bg-obsidian: #0a0806;
       --bg-noir: #120e0b;
       --bg-card: rgba(18, 14, 11, 0.92);
+      --bg-card-elevated: rgba(26, 20, 16, 0.96);
+      --bg-header-scrolled: rgba(10, 8, 6, 0.96);
+      --bg-card-overlay: rgba(14, 11, 9, 0.92);
+      
       --text-silk: #ffffff;
       --text-soft: #fbf9f4;
-      --text-muted: #e6dfd1;
+      --text-muted: #d5c8b5;
+      --text-dim: #9e917e;
+      
       --gold-primary: #e5c058;
       --gold-bright: #ffd700;
       --gold-light: #fff2b2;
+      --gold-deep: #b38b22;
       --gold-glow: rgba(229, 192, 88, 0.4);
       --crimson-imperial: #8a152e;
+      
       --border-gold-subtle: rgba(229, 192, 88, 0.35);
       --border-gold-solid: rgba(229, 192, 88, 0.75);
+      --border-input: rgba(229, 192, 88, 0.3);
+      
+      --shadow-card: 0 25px 60px rgba(0, 0, 0, 0.85);
+      --shadow-card-hover: 0 35px 80px rgba(0, 0, 0, 0.95), 0 0 35px rgba(229, 192, 88, 0.3);
+      --shadow-gold-glow: 0 0 25px rgba(229, 192, 88, 0.35);
+      
+      --vignette-radial: radial-gradient(circle at center, rgba(10, 8, 6, 0.2) 20%, rgba(10, 8, 6, 0.75) 80%, rgba(10, 8, 6, 0.98) 100%);
+      --vignette-linear: linear-gradient(to bottom, rgba(10,8,6,0.6) 0%, transparent 20%, transparent 80%, rgba(10,8,6,0.95) 100%);
+      
+      --theme-toggle-bg: rgba(229, 192, 88, 0.12);
+      --theme-toggle-border: rgba(229, 192, 88, 0.6);
+      --theme-toggle-color: #ffd700;
       
       --font-ar-display: 'El Messiri', serif;
       --font-ar-calligraphy: 'Aref Ruqaa', serif;
       --font-ar-body: 'Readex Pro', sans-serif;
       --font-serif: 'Cormorant Garamond', serif;
       --font-sans: 'Montserrat', sans-serif;
+    }
+
+    [data-theme="light"] {
+      --bg-obsidian: #f6f3eb; /* Refined limestone / warm museum alabaster */
+      --bg-noir: #eae5d9;     /* Warm luxury linen / gallery stone */
+      --bg-card: rgba(255, 253, 248, 0.96); /* Immaculate porcelain card */
+      --bg-card-elevated: #ffffff;
+      --bg-header-scrolled: rgba(246, 243, 235, 0.97);
+      --bg-card-overlay: rgba(255, 253, 248, 0.95);
+      
+      --text-silk: #181410;   /* Imperial deep noir */
+      --text-soft: #2c241c;   /* Rich espresso dark */
+      --text-muted: #56493b;  /* Warm deep taupe - crisp high contrast */
+      --text-dim: #7a6b5a;    /* Refined warm stone */
+      
+      --gold-primary: #a3751a; /* Deep antique royal gold - high contrast on light mode */
+      --gold-bright: #8a6012;  /* Rich burnished gold */
+      --gold-light: #523908;   /* Deep royal bronze */
+      --gold-deep: #704c08;
+      --gold-glow: rgba(163, 117, 26, 0.2);
+      --crimson-imperial: #7d1228;
+      
+      --border-gold-subtle: rgba(163, 117, 26, 0.25);
+      --border-gold-solid: rgba(163, 117, 26, 0.65);
+      --border-input: rgba(163, 117, 26, 0.35);
+      
+      --shadow-card: 0 16px 40px rgba(60, 45, 25, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-card-hover: 0 25px 60px rgba(60, 45, 25, 0.16), 0 0 25px rgba(163, 117, 26, 0.2);
+      --shadow-gold-glow: 0 0 25px rgba(163, 117, 26, 0.15);
+      
+      --vignette-radial: radial-gradient(circle at center, rgba(246, 243, 235, 0.05) 30%, rgba(246, 243, 235, 0.5) 80%, rgba(246, 243, 235, 0.92) 100%);
+      --vignette-linear: linear-gradient(to bottom, rgba(246,243,235,0.7) 0%, transparent 25%, transparent 75%, rgba(246,243,235,0.95) 100%);
+      
+      --theme-toggle-bg: rgba(163, 117, 26, 0.12);
+      --theme-toggle-border: rgba(163, 117, 26, 0.6);
+      --theme-toggle-color: #8a6012;
+    }
+
+    body, .site-nav, .hero-msg, .craft-card, .loom-panel, .loom-content-card,
+    .reverse-card, .masterpiece-item, .vip-review-card, .concierge-card-wrapper,
+    .royal-footer, .mobile-bottom-bar, .lightbox-container {
+      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
     }
 
     *, *::before, *::after {
@@ -279,10 +342,11 @@
       display: none;
     }
 
-    .lang-switcher-btn {
-      background: rgba(18, 14, 11, 0.8);
-      border: 1px solid var(--border-gold-solid);
-      color: var(--gold-bright);
+    .lang-switcher-btn,
+    .theme-toggle-btn {
+      background: var(--theme-toggle-bg);
+      border: 1px solid var(--theme-toggle-border);
+      color: var(--theme-toggle-color);
       padding: 7px 16px;
       font-size: 13px;
       font-weight: 700;
@@ -291,12 +355,18 @@
       align-items: center;
       gap: 6px;
       transition: all 0.3s ease;
-      border-radius: 2px;
+      border-radius: 20px;
     }
-    .lang-switcher-btn:hover {
+    .lang-switcher-btn:hover,
+    .theme-toggle-btn:hover {
       background: var(--gold-primary);
       color: var(--bg-obsidian);
-      box-shadow: 0 0 15px rgba(229, 192, 88, 0.5);
+      box-shadow: var(--shadow-gold-glow);
+      transform: scale(1.04);
+    }
+    .theme-icon {
+      font-size: 14px;
+      line-height: 1;
     }
 
     .scroll-progress-bar {
@@ -1836,7 +1906,7 @@
        10. MINIMAL ROYAL FOOTER & ADMIN ACCESS
        ========================================================================== */
     .royal-footer {
-      background: #060504;
+      background: var(--bg-noir);
       border-top: 1px solid var(--border-gold-subtle);
       padding: 90px 6% 40px 6%;
       position: relative;
@@ -1847,14 +1917,14 @@
       grid-template-columns: 2fr 1fr 1fr 1.5fr;
       gap: 60px;
       padding-bottom: 70px;
-      border-bottom: 1px solid rgba(229, 192, 88, 0.15);
+      border-bottom: 1px solid var(--border-gold-subtle);
     }
 
     .footer-brand h3 {
       font-size: 28px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: #ffffff;
+      color: var(--text-silk);
       margin-bottom: 16px;
       font-weight: 700;
     }
@@ -1876,7 +1946,7 @@
       font-size: 13px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--gold-bright);
+      color: var(--gold-primary);
       margin-bottom: 24px;
       font-weight: 700;
     }
@@ -1901,8 +1971,8 @@
     .footer-cert-box {
       border: 1px solid var(--border-gold-solid);
       padding: 24px;
-      background: rgba(229, 192, 88, 0.05);
-      border-radius: 2px;
+      background: var(--theme-toggle-bg);
+      border-radius: 4px;
     }
 
     .footer-cert-box h6 {
@@ -1926,26 +1996,17 @@
       align-items: center;
       padding-top: 30px;
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.55);
+      color: var(--text-dim);
       letter-spacing: 1px;
     }
 
-    .admin-secret-link {
-      color: rgba(229, 192, 88, 0.6);
-      font-size: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.3s ease;
-      margin-right: 15px;
-    }
     /* ==========================================================================
        11. ROYAL CARPET DETAILS & MULTI-ANGLE LIGHTBOX MODAL
        ========================================================================== */
     .carpet-lightbox-modal {
       position: fixed;
       inset: 0;
-      background: rgba(6, 4, 3, 0.92);
+      background: rgba(6, 4, 3, 0.88);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       z-index: 9999;
@@ -1966,16 +2027,16 @@
     }
 
     .lightbox-container {
-      background: rgba(18, 14, 11, 0.98);
+      background: var(--bg-card-overlay);
       border: 1px solid var(--border-gold-solid);
-      border-radius: 6px;
+      border-radius: 8px;
       max-width: 1100px;
       width: 100%;
       max-height: 90vh;
       display: grid;
       grid-template-columns: 1.15fr 1fr;
       overflow: hidden;
-      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.95), 0 0 40px rgba(229, 192, 88, 0.2);
+      box-shadow: var(--shadow-card-hover);
       position: relative;
     }
 
@@ -2726,6 +2787,11 @@
       <a href="#craftsmanship" class="nav-item" data-i18n="nav.craftsmanship">حِرفية الصنعة</a>
       <a href="#testimonials" class="nav-item" data-i18n="nav.testimonials">آراء المقتنين VIP</a>
       <a href="#bespoke" class="nav-item nav-btn-gold" data-i18n="nav.bespoke">طلب استشارة خاصة</a>
+      <!-- Theme Switcher (Day / Night Modes) -->
+      <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="تبديل وضع العرض (نهاري / ليلي)" aria-label="Toggle Theme">
+        <span class="theme-icon" id="theme-icon">☀️</span>
+        <span class="theme-label" id="theme-label" data-i18n="theme.mode">النهار</span>
+      </button>
       <!-- Language Switcher -->
       <button type="button" class="lang-switcher-btn" id="lang-toggle-btn" onclick="toggleLanguage()">
         <span id="lang-toggle-label">EN</span>
@@ -3258,6 +3324,10 @@
       <span class="bar-icon">📞</span>
       <span data-i18n="mobile.call">اتصال</span>
     </a>
+    <button type="button" class="mobile-bar-btn" onclick="toggleTheme()" style="background:transparent;border:none;cursor:pointer;">
+      <span class="bar-icon" id="mobile-theme-icon">☀️</span>
+      <span id="mobile-theme-label" data-i18n="theme.mode">النهار</span>
+    </button>
     <button type="button" class="mobile-bar-btn" onclick="toggleLanguage()" style="background:transparent;border:none;cursor:pointer;">
       <span class="bar-icon">🌐</span>
       <span id="mobile-lang-label">EN</span>
@@ -3393,7 +3463,8 @@
         'mobile.wa': 'واتساب VIP',
         'mobile.collection': 'المجموعة',
         'mobile.craft': 'الصنعة',
-        'mobile.call': 'اتصال'
+        'mobile.call': 'اتصال',
+        'theme.mode': 'النهار'
       },
       en: {
         dir: 'ltr',
@@ -3406,6 +3477,7 @@
         'nav.craftsmanship': 'CRAFTSMANSHIP',
         'nav.testimonials': 'VIP PATRONAGE',
         'nav.bespoke': 'BESPOKE INQUIRY',
+        'theme.mode': 'DAY',
         'hero.crest': '✦ EST. ROYAL MAJESTY ✦',
         'hero.title': 'ZAHER SALMAN CARPETS',
         'hero.silk': 'Born from Pure Natural Silk.',
@@ -3718,12 +3790,51 @@
 
       renderLiveCarpets();
       renderLiveReviews();
+      applyTheme(currentTheme);
       if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
     }
 
     function toggleLanguage() {
       const nextLang = currentLang === 'ar' ? 'en' : 'ar';
       applyLanguage(nextLang);
+    }
+
+    // =========================================================================
+    // LUXURY THEME ENGINE (DAY / NIGHT MODES)
+    // =========================================================================
+    let currentTheme = localStorage.getItem('zs_theme') || 'dark';
+
+    function applyTheme(theme) {
+      currentTheme = theme;
+      localStorage.setItem('zs_theme', theme);
+      document.documentElement.setAttribute('data-theme', theme);
+
+      const isAr = currentLang === 'ar';
+      const isDark = theme === 'dark';
+      
+      const themeIcon = document.getElementById('theme-icon');
+      const themeLabel = document.getElementById('theme-label');
+      const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+      const mobileThemeLabel = document.getElementById('mobile-theme-label');
+
+      const modeText = isDark 
+        ? (isAr ? 'النهار' : 'DAY') 
+        : (isAr ? 'الليل' : 'NIGHT');
+      const modeIcon = isDark ? '☀️' : '🌙';
+
+      if (themeIcon) themeIcon.textContent = modeIcon;
+      if (themeLabel) themeLabel.textContent = modeText;
+      if (mobileThemeIcon) mobileThemeIcon.textContent = modeIcon;
+      if (mobileThemeLabel) mobileThemeLabel.textContent = modeText;
+
+      if (typeof renderFrame === 'function' && typeof frames !== 'undefined' && frames.images) {
+        renderFrame(Math.round(frames.current));
+      }
+    }
+
+    function toggleTheme() {
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
     }
 
     // 2. Lenis Smooth Scrolling (Desktop only; native 120Hz touch scroll on mobile)
@@ -4593,6 +4704,7 @@
 
     // Kickoff with initial language and dynamic data
     window.addEventListener('DOMContentLoaded', () => {
+      applyTheme(currentTheme);
       applyLanguage(currentLang);
       initFrameLoading();
       loadLiveCarpets();
