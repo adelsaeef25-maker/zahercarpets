@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -207,41 +207,40 @@
       top: 0;
       left: 0;
       width: 100%;
-      padding: 24px 50px;
+      padding: 20px 50px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
-      transition: background-color 0.5s ease, padding 0.4s ease, backdrop-filter 0.5s ease;
+      background: var(--bg-header-scrolled);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-gold-subtle);
+      transition: background-color 0.4s ease, padding 0.3s ease, box-shadow 0.4s ease;
     }
 
     .site-nav.scrolled {
-      background: rgba(10, 8, 6, 0.96);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      padding: 16px 50px;
-      border-bottom: 1px solid var(--border-gold-subtle);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      padding: 14px 50px;
+      box-shadow: var(--shadow-card);
     }
 
     .nav-logo {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 700;
       letter-spacing: 2px;
       color: var(--text-silk);
       display: flex;
       align-items: center;
       gap: 12px;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
     }
     html[dir="rtl"] .nav-logo {
       font-family: var(--font-ar-display);
-      font-size: 26px;
-      letter-spacing: 1px;
+      font-size: 24px;
+      letter-spacing: 0;
     }
     html[dir="ltr"] .nav-logo {
       font-family: var(--font-serif);
-      letter-spacing: 3px;
+      letter-spacing: 2px;
     }
 
     .nav-brand-logo {
@@ -516,24 +515,23 @@
       text-align: center;
       width: 90%;
       max-width: 960px;
-      padding: 36px 44px;
-      background: rgba(14, 11, 9, 0.82);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      padding: 36px 48px;
+      background: var(--bg-card-overlay);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       border: 1px solid var(--border-gold-solid);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(229, 192, 88, 0.2);
+      box-shadow: var(--shadow-card);
       will-change: opacity, transform;
-      border-radius: 4px;
+      border-radius: 8px;
     }
 
     /* Msg 1 */
     .hero-msg-1 h1 {
-      font-size: clamp(48px, 6.8vw, 88px);
+      font-size: clamp(44px, 6.2vw, 82px);
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-silk);
       line-height: 1.18;
-      text-shadow: 0 0 30px rgba(229, 192, 88, 0.5), 0 4px 15px rgba(0,0,0,0.9);
-      letter-spacing: 1px;
+      letter-spacing: 0;
     }
     html[dir="rtl"] .hero-msg-1 h1 {
       font-family: var(--font-ar-display);
@@ -541,27 +539,25 @@
     html[dir="ltr"] .hero-msg-1 h1 {
       font-family: var(--font-serif);
       font-style: italic;
-      letter-spacing: 5px;
+      letter-spacing: 3px;
     }
 
     .hero-msg-1 .sub-crest {
-      font-size: 15px;
-      letter-spacing: 4px;
+      font-size: 14px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--gold-bright);
-      margin-bottom: 16px;
+      color: var(--gold-primary);
+      margin-bottom: 14px;
       display: inline-block;
       font-weight: 700;
-      text-shadow: 0 0 12px rgba(229, 192, 88, 0.6);
     }
 
     /* Msg 2 */
     .hero-msg-2 p {
       font-weight: 600;
-      font-size: clamp(26px, 3.2vw, 38px);
-      color: #ffffff;
+      font-size: clamp(24px, 3vw, 36px);
+      color: var(--text-silk);
       line-height: 1.5;
-      text-shadow: 0 2px 15px rgba(0,0,0,0.95);
     }
     html[dir="rtl"] .hero-msg-2 p {
       font-family: var(--font-ar-display);
@@ -569,16 +565,15 @@
     html[dir="ltr"] .hero-msg-2 p {
       font-family: var(--font-sans);
       font-style: italic;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
     }
 
     /* Msg 3 */
     .hero-msg-3 h2 {
-      font-size: clamp(38px, 4.8vw, 64px);
+      font-size: clamp(34px, 4.4vw, 58px);
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-silk);
       line-height: 1.25;
-      text-shadow: 0 0 25px rgba(229, 192, 88, 0.4), 0 4px 15px rgba(0,0,0,0.9);
     }
     html[dir="rtl"] .hero-msg-3 h2 {
       font-family: var(--font-ar-display);
@@ -589,11 +584,10 @@
 
     /* Msg 4 */
     .hero-msg-4 h2 {
-      font-size: clamp(38px, 4.8vw, 64px);
+      font-size: clamp(34px, 4.4vw, 58px);
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-silk);
       line-height: 1.25;
-      text-shadow: 0 0 25px rgba(229, 192, 88, 0.4), 0 4px 15px rgba(0,0,0,0.9);
     }
     html[dir="rtl"] .hero-msg-4 h2 {
       font-family: var(--font-ar-display);
@@ -755,30 +749,33 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      background: rgba(10, 8, 6, 0.88);
-      backdrop-filter: blur(12px);
+      background: var(--bg-card-overlay);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       padding: 12px 24px;
       border: 1px solid var(--border-gold-solid);
-      border-left: 4px solid var(--gold-bright);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+      border-left: 4px solid var(--gold-primary);
+      box-shadow: var(--shadow-card);
+      border-radius: 4px;
     }
     html[dir="rtl"] .craft-slide-badge {
       left: auto;
       right: 40px;
       border-left: 1px solid var(--border-gold-solid);
-      border-right: 4px solid var(--gold-bright);
+      border-right: 4px solid var(--gold-primary);
     }
 
     .craft-slide-badge span {
       font-size: 13px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--gold-light);
+      color: var(--gold-primary);
       font-weight: 700;
     }
     html[dir="rtl"] .craft-slide-badge span {
       font-family: var(--font-ar-display);
       font-size: 16px;
+      letter-spacing: 0;
     }
 
     .craftsmanship-scroll-right {
@@ -794,7 +791,7 @@
       justify-content: center;
       padding: 50px 8%;
       position: relative;
-      border-bottom: 1px solid rgba(229, 192, 88, 0.12);
+      border-bottom: 1px solid var(--border-gold-subtle);
     }
 
     .craft-card:last-child {
@@ -804,7 +801,7 @@
     .craft-step-num {
       font-size: 13px;
       letter-spacing: 3px;
-      color: var(--gold-bright);
+      color: var(--gold-primary);
       text-transform: uppercase;
       margin-bottom: 20px;
       display: flex;
@@ -818,16 +815,15 @@
       display: inline-block;
       width: 28px;
       height: 2px;
-      background: var(--gold-bright);
+      background: var(--gold-primary);
     }
 
     .craft-card-title {
-      font-size: clamp(38px, 4.2vw, 58px);
+      font-size: clamp(34px, 3.8vw, 54px);
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-silk);
       line-height: 1.2;
       margin-bottom: 24px;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.8);
     }
     html[dir="rtl"] .craft-card-title {
       font-family: var(--font-ar-display);
@@ -839,12 +835,11 @@
 
     .craft-card-title em {
       font-style: italic;
-      color: var(--gold-bright);
-      text-shadow: 0 0 20px rgba(229, 192, 88, 0.4);
+      color: var(--gold-primary);
     }
 
     .craft-card-desc {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 400;
       color: var(--text-muted);
       line-height: 1.95;
@@ -864,14 +859,14 @@
       font-size: 12px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--gold-bright);
+      color: var(--gold-primary);
       margin-bottom: 8px;
       font-weight: 700;
     }
 
     .spec-item p {
-      font-size: 20px;
-      color: #ffffff;
+      font-size: 19px;
+      color: var(--text-silk);
       font-weight: 600;
     }
     html[dir="rtl"] .spec-item p {
@@ -916,7 +911,7 @@
       justify-content: space-between;
       align-items: center;
       z-index: 30;
-      background: linear-gradient(to bottom, rgba(10, 8, 6, 0.98) 0%, rgba(10, 8, 6, 0.7) 60%, transparent 100%);
+      background: linear-gradient(to bottom, var(--bg-header-scrolled) 0%, transparent 100%);
       pointer-events: none;
     }
     html[dir="rtl"] .loom-section-header {
@@ -1175,13 +1170,13 @@
       font-size: 14px;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: var(--gold-bright);
+      color: var(--gold-primary);
       font-weight: 700;
     }
     html[dir="rtl"] .parallax-author {
       font-family: var(--font-ar-display);
       font-size: 18px;
-      letter-spacing: 1px;
+      letter-spacing: 0;
     }
 
     /* ==========================================================================
@@ -1191,30 +1186,30 @@
       position: relative;
       width: 100%;
       background: var(--bg-noir);
-      padding: 140px 6% 160px 6%;
+      padding: 120px 6% 140px 6%;
       overflow: hidden;
     }
 
     .reverse-section-header {
       text-align: center;
-      margin-bottom: 80px;
+      margin-bottom: 70px;
     }
 
     .reverse-section-header span {
       font-size: 13px;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--gold-bright);
+      color: var(--gold-primary);
       display: block;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       font-weight: 700;
     }
 
     .reverse-section-header h2 {
-      font-size: clamp(38px, 4.8vw, 64px);
+      font-size: clamp(34px, 4.4vw, 56px);
       font-weight: 700;
-      color: #ffffff;
-      text-shadow: 0 2px 15px rgba(0,0,0,0.9);
+      color: var(--text-silk);
+      line-height: 1.25;
     }
     html[dir="rtl"] .reverse-section-header h2 {
       font-family: var(--font-ar-display);
@@ -1227,7 +1222,7 @@
     .reverse-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
+      gap: 36px;
       align-items: start;
       max-width: 1400px;
       margin: 0 auto;
@@ -1245,18 +1240,20 @@
       background: var(--bg-card);
       border: 1px solid var(--border-gold-subtle);
       overflow: hidden;
-      border-radius: 4px;
-      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+      border-radius: 8px;
+      box-shadow: var(--shadow-card);
+      transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
     }
 
     .reverse-card:hover {
       border-color: var(--border-gold-solid);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(229, 192, 88, 0.3);
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-4px);
     }
 
     .reverse-card-img-wrap {
       width: 100%;
-      height: 480px;
+      height: 440px;
       overflow: hidden;
       position: relative;
     }
@@ -1273,24 +1270,25 @@
     }
 
     .reverse-card-info {
-      padding: 34px;
+      padding: 30px 28px;
     }
 
     .reverse-card-badge {
       font-size: 12px;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--gold-bright);
-      margin-bottom: 12px;
+      color: var(--gold-primary);
+      margin-bottom: 10px;
       display: block;
       font-weight: 700;
     }
 
     .reverse-card-title {
-      font-size: 28px;
-      color: #ffffff;
+      font-size: 24px;
+      color: var(--text-silk);
       font-weight: 700;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
+      line-height: 1.3;
     }
     html[dir="rtl"] .reverse-card-title {
       font-family: var(--font-ar-display);
@@ -1300,7 +1298,7 @@
     }
 
     .reverse-card-desc {
-      font-size: 16px;
+      font-size: 15px;
       color: var(--text-muted);
       line-height: 1.85;
     }
@@ -2289,10 +2287,10 @@
       /* 1. Ultra-Clean Luxury Mobile Header */
       .site-nav {
         padding: 12px 18px !important;
-        background: rgba(10, 8, 6, 0.96) !important;
+        background: var(--bg-header-scrolled) !important;
         backdrop-filter: blur(20px) !important;
         -webkit-backdrop-filter: blur(20px) !important;
-        border-bottom: 1px solid rgba(229, 192, 88, 0.3) !important;
+        border-bottom: 1px solid var(--border-gold-subtle) !important;
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
@@ -2303,7 +2301,7 @@
       .nav-logo {
         gap: 8px !important;
         font-size: 18px !important;
-        letter-spacing: 0.5px !important;
+        letter-spacing: 0 !important;
       }
       .nav-brand-logo {
         height: 38px !important;
@@ -2328,7 +2326,8 @@
         letter-spacing: 0.5px !important;
         white-space: nowrap !important;
       }
-      .lang-switcher-btn {
+      .lang-switcher-btn,
+      .theme-toggle-btn {
         padding: 5px 10px !important;
         font-size: 11px !important;
       }
@@ -2341,11 +2340,11 @@
         left: 0 !important;
         width: 100vw !important;
         height: 66px !important;
-        background: rgba(12, 9, 7, 0.97) !important;
+        background: var(--bg-header-scrolled) !important;
         backdrop-filter: blur(25px) !important;
         -webkit-backdrop-filter: blur(25px) !important;
-        border-top: 1px solid rgba(229, 192, 88, 0.35) !important;
-        box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.9) !important;
+        border-top: 1px solid var(--border-gold-subtle) !important;
+        box-shadow: var(--shadow-card) !important;
         z-index: 9999 !important;
         align-items: center !important;
         justify-content: space-around !important;
@@ -3802,7 +3801,7 @@
     // =========================================================================
     // LUXURY THEME ENGINE (DAY / NIGHT MODES)
     // =========================================================================
-    let currentTheme = localStorage.getItem('zs_theme') || 'dark';
+    let currentTheme = localStorage.getItem('zs_theme') || 'light';
 
     function applyTheme(theme) {
       currentTheme = theme;
