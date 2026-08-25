@@ -359,7 +359,8 @@
     .hero-scroll-container {
       position: relative;
       width: 100%;
-      height: 450vh;
+      height: 280vh;
+      min-height: 2000px;
       background: var(--bg-obsidian);
     }
 
@@ -369,6 +370,7 @@
       left: 0;
       width: 100%;
       height: 100vh;
+      height: 100dvh;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -684,11 +686,11 @@
     }
 
     .craft-card {
-      min-height: 100vh;
+      min-height: 75vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 80px 10%;
+      padding: 50px 8%;
       position: relative;
       border-bottom: 1px solid rgba(229, 192, 88, 0.12);
     }
@@ -2292,8 +2294,8 @@
 
       /* 3. Hero Interactive Canvas & Storytelling on Mobile */
       .hero-scroll-container {
-        height: 380vh !important;
-        min-height: 2400px !important;
+        height: 250vh !important;
+        min-height: 1800px !important;
         position: relative !important;
       }
       .hero-sticky-canvas-wrapper {
@@ -2334,16 +2336,16 @@
         bottom: 75px !important;
       }
 
-      /* 4. Craftsmanship Section on Mobile (Sticky Synchronized Image + Smooth Scroll Cards) */
+      /* 4. Craftsmanship Section on Mobile (Sticky Synchronized Image + Continuous Cards) */
       .craftsmanship-split-container {
         flex-direction: column !important;
       }
       .craftsmanship-sticky-left {
         width: 100% !important;
-        height: 40vh !important;
-        height: 40dvh !important;
+        height: 38vh !important;
+        height: 38dvh !important;
         position: sticky !important;
-        top: 60px !important;
+        top: 56px !important;
         z-index: 20 !important;
         border-right: none !important;
         border-left: none !important;
@@ -2352,11 +2354,13 @@
       }
       .craftsmanship-scroll-right {
         width: 100% !important;
-        padding: 24px 16px 60px !important;
+        padding: 16px 14px 40px !important;
       }
       .craft-card {
-        padding: 24px 20px !important;
-        margin-bottom: 30vh !important;
+        min-height: auto !important;
+        justify-content: flex-start !important;
+        padding: 24px 18px !important;
+        margin-bottom: 20px !important;
         background: rgba(14, 10, 8, 0.94) !important;
         border: 1px solid var(--border-gold-subtle) !important;
         border-radius: 12px !important;
@@ -3925,10 +3929,10 @@
             }
 
             animateOverlay(msg1, p, 0.00, 0.10, 0.20);
-            animateOverlay(msg2, p, 0.22, 0.32, 0.42);
-            animateOverlay(msg3, p, 0.44, 0.54, 0.64);
-            animateOverlay(msg4, p, 0.66, 0.76, 0.86);
-            animateOverlay(msg5, p, 0.88, 0.94, 0.99, true);
+            animateOverlay(msg2, p, 0.20, 0.30, 0.40);
+            animateOverlay(msg3, p, 0.40, 0.50, 0.60);
+            animateOverlay(msg4, p, 0.60, 0.70, 0.80);
+            animateOverlay(msg5, p, 0.80, 0.90, 1.00, true);
           }
         }
       });
@@ -3973,8 +3977,8 @@
       craftCards.forEach((card, index) => {
         ScrollTrigger.create({
           trigger: card,
-          start: 'top 55%',
-          end: 'bottom 45%',
+          start: isMobile ? 'top 65%' : 'top 50%',
+          end: isMobile ? 'bottom 35%' : 'bottom 50%',
           onEnter: () => activateCraftSlide(index),
           onEnterBack: () => activateCraftSlide(index)
         });
