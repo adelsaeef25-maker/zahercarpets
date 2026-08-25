@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
@@ -339,6 +339,173 @@
       transform: scale(1.05);
       text-shadow: none;
     }
+
+    /* Mobile Hamburger Menu Toggle Button */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 50%;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s ease;
+      text-shadow: none;
+    }
+    .mobile-menu-toggle:hover, .mobile-menu-toggle:active {
+      background: rgba(212, 175, 55, 0.2);
+      border-color: #d4af37;
+      transform: scale(1.05);
+    }
+    .hamburger-line {
+      display: block;
+      width: 17px;
+      height: 2px;
+      background: #d4af37;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile Slide-in Luxury Glass Drawer Backdrop */
+    .mobile-glass-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 10000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .mobile-glass-drawer-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Mobile Slide-in Luxury Glass Drawer */
+    .mobile-glass-drawer {
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      transform: translate(-50%, -20px) scale(0.96);
+      width: 94%;
+      max-width: 480px;
+      background: rgba(15, 15, 15, 0.88) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 20px !important;
+      padding: 20px 18px !important;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+      z-index: 10001;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+    }
+    .mobile-glass-drawer.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0) scale(1);
+    }
+
+    .mobile-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+    }
+    .mobile-drawer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    }
+    html[dir="rtl"] .mobile-drawer-logo {
+      font-family: var(--font-ar-display);
+    }
+    .mobile-drawer-close-btn {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #d4af37;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .mobile-drawer-close-btn:hover, .mobile-drawer-close-btn:active {
+      background: #d4af37;
+      color: #0e0e0e;
+    }
+
+    .mobile-drawer-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.35), transparent);
+      margin: 4px 0;
+    }
+
+    .mobile-drawer-links {
+      display: flex;
+      flex-direction: column;
+      padding: 6px 0;
+      gap: 2px;
+    }
+    .mobile-drawer-link {
+      display: block;
+      padding: 13px 16px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+      text-align: center;
+      border-radius: 12px;
+      transition: all 0.25s ease;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+      text-decoration: none;
+    }
+    html[dir="rtl"] .mobile-drawer-link {
+      font-size: 17px;
+    }
+    .mobile-drawer-link:hover, .mobile-drawer-link:active {
+      background: rgba(212, 175, 55, 0.12);
+      color: #d4af37;
+    }
+
+    .mobile-drawer-footer {
+      padding-top: 12px;
+    }
+    .mobile-drawer-cta-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: linear-gradient(135deg, #d4af37, #b38b22);
+      color: #0e0e0e !important;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 20px;
+      border-radius: 25px;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+      text-shadow: none;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .mobile-drawer-cta-btn:active {
+      transform: scale(0.98);
+    }
+
     .scroll-progress-bar {
       position: fixed;
       top: 0;
@@ -2344,51 +2511,60 @@
         overflow-x: clip;
       }
 
-      /* 1. Ultra-Clean Luxury Mobile Header */
+      /* 1. Floating Mobile Luxury Glass Capsule Header */
       .site-nav {
-        padding: 12px 18px !important;
-        background: var(--bg-header-scrolled) !important;
-        backdrop-filter: blur(20px) !important;
-        -webkit-backdrop-filter: blur(20px) !important;
-        border-bottom: 1px solid var(--border-gold-subtle) !important;
+        top: 10px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 94% !important;
+        margin: 0 auto !important;
+        padding: 8px 16px !important;
+        border-radius: 30px !important;
+        background: rgba(15, 15, 15, 0.6) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(212, 175, 55, 0.35) !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35) !important;
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
       }
       .site-nav.scrolled {
-        padding: 10px 18px !important;
+        top: 6px !important;
+        padding: 7px 14px !important;
+        background: rgba(12, 12, 12, 0.75) !important;
       }
       .nav-logo {
         gap: 8px !important;
-        font-size: 18px !important;
+        font-size: 15px !important;
         letter-spacing: 0 !important;
       }
       .nav-brand-logo {
-        height: 38px !important;
+        height: 32px !important;
       }
       html[dir="rtl"] .nav-logo {
-        font-size: 18px !important;
+        font-size: 15px !important;
       }
       html[dir="ltr"] .nav-logo {
-        font-size: 16px !important;
+        font-size: 14px !important;
       }
-      .nav-links {
-        gap: 8px !important;
+      .nav-center-links {
+        display: none !important;
+      }
+      .nav-btn-cta {
+        display: none !important;
+      }
+      .nav-actions {
         display: flex !important;
         align-items: center !important;
-      }
-      .nav-item:not(.nav-btn-gold) {
-        display: none !important; /* Long text links kept in bottom bar to prevent overlapping on mobile header */
-      }
-      .nav-item.nav-btn-gold {
-        padding: 6px 14px !important;
-        font-size: 11px !important;
-        letter-spacing: 0.5px !important;
-        white-space: nowrap !important;
+        gap: 8px !important;
       }
       .lang-switcher-btn {
-        padding: 5px 10px !important;
+        padding: 5px 12px !important;
         font-size: 11px !important;
+      }
+      .mobile-menu-toggle {
+        display: flex !important;
       }
 
       /* 2. Floating Mobile VIP Concierge Bottom Bar */
@@ -2901,21 +3077,51 @@
       <span data-i18n="nav.logo">زاهر سالمان للسجاد</span>
     </a>
 
-    <!-- Center: Navigation Links -->
+    <!-- Center: Navigation Links (Desktop) -->
     <div class="nav-center-links">
       <a href="#collection" class="nav-item" data-i18n="nav.collection">المجموعة الملكية</a>
       <a href="#craftsmanship" class="nav-item" data-i18n="nav.craftsmanship">حِرفية الصنعة</a>
       <a href="#testimonials" class="nav-item" data-i18n="nav.testimonials">آراء المقتنين VIP</a>
     </div>
 
-    <!-- Left: Action Buttons (CTA + Language Switcher) -->
+    <!-- Left: Action Buttons (CTA + Language Switcher + Mobile Hamburger) -->
     <div class="nav-actions">
       <a href="#bespoke" class="nav-btn-cta" data-i18n="nav.bespoke">طلب استشارة خاصة</a>
-      <button type="button" class="lang-switcher-btn" id="lang-toggle-btn" onclick="toggleLanguage()">
+      <button type="button" class="lang-switcher-btn" id="lang-toggle-btn" onclick="toggleLanguage()" aria-label="Toggle Language">
         <span id="lang-toggle-label">EN</span>
+      </button>
+      <!-- Mobile Hamburger Toggle -->
+      <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle-btn" onclick="toggleMobileMenu()" aria-label="Open Navigation Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
       </button>
     </div>
   </nav>
+
+  <!-- Mobile Slide-in Luxury Glass Drawer -->
+  <div class="mobile-glass-drawer-backdrop" id="mobile-glass-drawer-backdrop" onclick="toggleMobileMenu()"></div>
+  <div class="mobile-glass-drawer" id="mobile-glass-drawer">
+    <div class="mobile-drawer-header">
+      <div class="mobile-drawer-logo">
+        <img src="images/logo.png" alt="Zaher Salman Logo" class="nav-brand-logo" />
+        <span data-i18n="nav.logo">زاهر سالمان للسجاد</span>
+      </div>
+      <button type="button" class="mobile-drawer-close-btn" onclick="toggleMobileMenu()" aria-label="Close Menu">✕</button>
+    </div>
+    <div class="mobile-drawer-divider"></div>
+    <div class="mobile-drawer-links">
+      <a href="#collection" class="mobile-drawer-link" onclick="handleMobileLinkClick('#collection')" data-i18n="nav.collection">المجموعة الملكية</a>
+      <div class="mobile-drawer-divider"></div>
+      <a href="#craftsmanship" class="mobile-drawer-link" onclick="handleMobileLinkClick('#craftsmanship')" data-i18n="nav.craftsmanship">حِرفية الصنعة</a>
+      <div class="mobile-drawer-divider"></div>
+      <a href="#testimonials" class="mobile-drawer-link" onclick="handleMobileLinkClick('#testimonials')" data-i18n="nav.testimonials">آراء المقتنين VIP</a>
+    </div>
+    <div class="mobile-drawer-divider"></div>
+    <div class="mobile-drawer-footer">
+      <a href="#bespoke" class="mobile-drawer-cta-btn" onclick="handleMobileLinkClick('#bespoke')" data-i18n="nav.bespoke">طلب استشارة خاصة</a>
+    </div>
+  </div>
 
   <!-- Pinned Gold Scroll Progress Bar -->
   <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
@@ -3908,6 +4114,37 @@
     function toggleLanguage() {
       const nextLang = currentLang === 'ar' ? 'en' : 'ar';
       applyLanguage(nextLang);
+    }
+
+    // Mobile Glass Drawer Controller
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-glass-drawer');
+      const backdrop = document.getElementById('mobile-glass-drawer-backdrop');
+      if (!drawer) return;
+      const isOpen = drawer.classList.contains('active');
+      if (isOpen) {
+        drawer.classList.remove('active');
+        if (backdrop) backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      } else {
+        drawer.classList.add('active');
+        if (backdrop) backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function handleMobileLinkClick(targetSelector) {
+      toggleMobileMenu();
+      setTimeout(() => {
+        const target = document.querySelector(targetSelector);
+        if (target) {
+          if (typeof lenis !== 'undefined' && lenis) {
+            lenis.scrollTo(target, { offset: -30, duration: 1.2 });
+          } else {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }, 300);
     }
 
     // 2. Lenis Smooth Scrolling (Desktop only; native 120Hz touch scroll on mobile)
