@@ -33,7 +33,7 @@
       --bg-card-overlay: rgba(18, 18, 18, 0.45);
       
       --text-silk: #ffffff;
-      --text-soft: #fbf9f4;
+      --text-soft: #f9f9f9;
       --text-muted: #e5e5e5;
       --text-dim: #9e917e;
       
@@ -457,19 +457,19 @@
 
     .hero-msg {
       position: absolute;
+      z-index: 10;
+      padding: 28px 36px;
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      text-align: center;
+      pointer-events: none;
       opacity: 0;
       transform: translateY(24px) scale(0.98);
-      text-align: center;
-      width: 90%;
-      max-width: 960px;
-      padding: 36px 48px;
-      background: var(--bg-card-overlay);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid var(--border-gold-solid);
-      box-shadow: var(--shadow-card);
-      will-change: opacity, transform;
-      border-radius: 8px;
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
     }
 
     /* Msg 1 */
@@ -732,13 +732,19 @@
     }
 
     .craft-card {
-      min-height: 75vh;
+      min-height: 80vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 50px 8%;
-      position: relative;
-      border-bottom: 1px solid var(--border-gold-subtle);
+      padding: 36px 32px;
+      margin-bottom: 40px;
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .craft-card:last-child {
@@ -961,8 +967,7 @@
     .loom-panel-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 70% 50%, rgba(10, 8, 6, 0.3) 0%, rgba(10, 8, 6, 0.85) 80%, rgba(10, 8, 6, 0.98) 100%),
-                  linear-gradient(to bottom, rgba(10,8,6,0.6) 0%, transparent 25%, transparent 75%, rgba(10,8,6,0.95) 100%);
+      background: linear-gradient(to right, rgba(18, 18, 18, 0.75) 0%, rgba(18, 18, 18, 0.3) 55%, transparent 100%) !important;
       pointer-events: none;
       z-index: 2;
     }
@@ -971,21 +976,37 @@
       position: relative;
       z-index: 10;
       max-width: 650px;
-      background: rgba(14, 11, 9, 0.92);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      padding: 50px 60px;
-      border: 1px solid var(--border-gold-solid);
-      box-shadow: var(--shadow-card);
-      border-radius: 4px;
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      padding: 50px 55px;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      border-radius: 16px !important;
     }
     html[dir="rtl"] .loom-content-card {
-      direction: rtl;
-      text-align: right;
+      position: relative;
+      z-index: 10;
+      max-width: 650px;
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      padding: 50px 55px;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      border-radius: 16px !important;
     }
     html[dir="ltr"] .loom-content-card {
-      direction: ltr;
-      text-align: left;
+      position: relative;
+      z-index: 10;
+      max-width: 650px;
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      padding: 50px 55px;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      border-radius: 16px !important;
     }
 
     .loom-panel-tag {
@@ -1082,11 +1103,12 @@
       max-width: 1100px;
       padding: 50px;
       text-align: center;
-      background: rgba(26, 26, 26, 0.9);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--border-gold-solid);
-      border-radius: 4px;
-      box-shadow: var(--shadow-card);
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
     }
 
     .parallax-ornament {
@@ -1183,13 +1205,14 @@
     }
 
     .reverse-card {
-      position: relative;
-      background: var(--bg-card);
-      border: 1px solid var(--border-gold-subtle);
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 16px !important;
       overflow: hidden;
-      border-radius: 8px;
-      box-shadow: var(--shadow-card);
-      transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
     }
 
     .reverse-card:hover {
@@ -1334,14 +1357,17 @@
     }
 
     .masterpiece-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border-gold-subtle);
-      border-radius: 4px;
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 16px !important;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      cursor: pointer;
+      transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
       display: flex;
       flex-direction: column;
-      cursor: pointer;
-      position: relative;
     }
 
     .masterpiece-item:hover {
@@ -1520,15 +1546,16 @@
     }
 
     .vip-review-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-gold-subtle);
-      border-radius: 4px;
-      padding: 40px;
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 16px !important;
+      padding: 32px 28px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
       display: flex;
       flex-direction: column;
-      position: relative;
-      transition: all 0.4s ease;
-      box-shadow: var(--shadow-card);
     }
 
     .vip-review-card:hover {
@@ -1645,16 +1672,15 @@
     .concierge-card-wrapper {
       position: relative;
       z-index: 10;
-      max-width: 860px;
-      width: 100%;
-      background: rgba(14, 11, 9, 0.94);
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
-      border: 1px solid var(--border-gold-solid);
-      padding: 60px 70px;
-      box-shadow: var(--shadow-card);
-      text-align: center;
-      border-radius: 4px;
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 16px !important;
+      padding: 50px 45px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
     }
 
     .concierge-seal {
@@ -1977,17 +2003,19 @@
     }
 
     .lightbox-container {
-      background: var(--bg-card-overlay);
-      border: 1px solid var(--border-gold-solid);
-      border-radius: 8px;
-      max-width: 1100px;
-      width: 100%;
+      position: relative;
+      width: 90vw;
+      max-width: 1050px;
       max-height: 90vh;
+      background: rgba(18, 18, 18, 0.75) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
       display: grid;
       grid-template-columns: 1.15fr 1fr;
       overflow: hidden;
-      box-shadow: var(--shadow-card-hover);
-      position: relative;
     }
 
     .lightbox-close-btn {
@@ -2362,11 +2390,21 @@
         background: radial-gradient(circle at center, transparent 40%, rgba(18, 18, 18, 0.3) 80%, rgba(18, 18, 18, 0.6) 100%) !important;
       }
       .hero-msg {
-        padding: 22px 20px !important;
-        width: 92% !important;
-        max-width: 92vw !important;
-        border-radius: 8px !important;
-      }
+      position: absolute;
+      z-index: 10;
+      padding: 28px 36px;
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      text-align: center;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(24px) scale(0.98);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
       .hero-msg-1 h1 {
         font-size: clamp(30px, 8vw, 44px) !important;
         line-height: 1.25 !important;
@@ -2412,17 +2450,20 @@
         padding: 16px 14px 40px !important;
       }
       .craft-card {
-        min-height: auto !important;
-        justify-content: flex-start !important;
-        padding: 24px 18px !important;
-        margin-bottom: 20px !important;
-        background: #1a1a1a !important;
-        border: 1px solid var(--border-gold-subtle) !important;
-        border-radius: 12px !important;
-        backdrop-filter: blur(16px) !important;
-        -webkit-backdrop-filter: blur(16px) !important;
-        box-shadow: var(--shadow-card) !important;
-      }
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 36px 32px;
+      margin-bottom: 40px;
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
       .craft-card-title {
         font-size: 22px !important;
       }
@@ -2528,25 +2569,24 @@
         z-index: 1 !important;
       }
       .loom-panel-overlay {
-        position: absolute !important;
-        inset: 0 !important;
-        background: linear-gradient(to top, rgba(18, 18, 18, 0.85) 0%, rgba(18, 18, 18, 0.4) 50%, transparent 100%) !important;
-        z-index: 2 !important;
-        pointer-events: none !important;
-      }
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(18, 18, 18, 0.75) 0%, rgba(18, 18, 18, 0.3) 55%, transparent 100%) !important;
+      pointer-events: none;
+      z-index: 2;
+    }
       .loom-content-card {
-        position: relative !important;
-        z-index: 10 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 20px 16px !important;
-        background: rgba(14, 11, 9, 0.92) !important;
-        backdrop-filter: blur(18px) !important;
-        -webkit-backdrop-filter: blur(18px) !important;
-        border: 1px solid var(--border-gold-solid) !important;
-        border-radius: 8px !important;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.75) !important;
-      }
+      position: relative;
+      z-index: 10;
+      max-width: 650px;
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      padding: 50px 55px;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      border-radius: 16px !important;
+    }
       .loom-panel-tag {
         font-size: 11px !important;
         letter-spacing: 1.5px !important;
@@ -2634,14 +2674,32 @@
         padding: 0 16px !important;
       }
       .vip-review-card {
-        padding: 24px 18px !important;
-      }
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 16px !important;
+      padding: 32px 28px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
 
       /* 10. Bespoke WhatsApp Section on Mobile */
       .concierge-card-wrapper {
-        padding: 28px 16px !important;
-        margin: 0 16px !important;
-      }
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(18, 18, 18, 0.45) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 16px !important;
+      padding: 50px 45px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    }
       .concierge-header h2 {
         font-size: 22px !important;
       }
@@ -2675,12 +2733,20 @@
         align-items: flex-end !important;
       }
       .lightbox-container {
-        width: 100vw !important;
-        max-height: 94vh !important;
-        border-radius: 20px 20px 0 0 !important;
-        grid-template-columns: 1fr !important;
-        overflow-y: auto !important;
-      }
+      position: relative;
+      width: 90vw;
+      max-width: 1050px;
+      max-height: 90vh;
+      background: rgba(18, 18, 18, 0.75) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      overflow: hidden;
+    }
       .lightbox-gallery-pane {
         padding: 16px !important;
         min-height: 260px !important;
